@@ -1,0 +1,542 @@
+body {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.rainbow-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #00ABED;
+}
+
+button {
+  border-radius: 5px;
+  border: none;
+}
+
+.navbar {
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  background-color: #EEF1F2;
+  border: 0;
+  margin-bottom:0;
+  overflow: hidden;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar img {
+  width: 10px;
+  align-items: center;
+}
+
+#searchicon {
+  width: 30px;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+#searchicon:hover {
+  width: 31px;
+}
+
+#writtenlogo {
+  font-family: 'Galada', cursive;
+  color: black;
+  font-size: 2.6em;
+  font-weight: 800;
+  padding-top: 5px;
+  padding-right: 20px;
+}
+
+#logo {
+  height: 40px;
+  width: 98px;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#join {
+  width: 50px;
+  height: 34px;
+  background-color: #7FC400;
+  color: white;
+  font-weight: 700;
+}
+
+#join:hover {
+  background-color: green;
+}
+
+#join_right {
+  width: 125px;
+  height: 34px;
+  background-color: #3B5998;
+  color: white;
+  font-weight: 700;
+}
+
+#join_right:hover {
+  background-color: #2C4373;
+}
+
+#join_right img {
+  width: 13px;
+  align-items: center;
+  padding-left: 3px;
+  padding-bottom: 2px;
+}
+
+.navbarlinks {
+  margin-left: 13px;
+  align-items: center;
+  font-weight: 700;
+  line-height: 40px;
+  white-space: nowrap;
+  display: block;
+  color: #657987;
+}
+
+.navbarlinks a {
+  text-decoration: none;
+}
+
+.navbarlinks:hover {
+  color: black;
+
+}
+
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdowncontent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdowncontent a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdowncontent {
+    display: block;
+}
+
+.blanknavspace {
+  width: 420px;
+}
+
+.input {
+  width: 260px;
+  height: 34px;
+  font-size: .9em;
+  font-weight: normal;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding-left: 10px;
+}
+
+.input:hover {
+  border: 1px solid darkgray;
+}
+
+.scrolling_images {
+  height: 400px;
+  display: flex;
+}
+.image-library{
+  width: 100%;
+  height: 400px;
+  position: absolute;
+}
+
+.description {
+  z-index: 100;
+  position: relative;
+  left: 20px;
+  display: block;
+  width: 500px;
+  padding-top: 100px;
+  padding-left: 50px;
+  color: white;
+  top: 0;
+}
+
+div.item-1 {
+  background: url("http://localhost:4000/images/nw-crop.jpg");
+  background-size: cover;
+}
+
+div.item-2 {
+  background: url("http://localhost:4000/images/moto-crop-shade.jpg");
+  background-size: cover;
+}
+
+div.item-3 {
+  background: url("http://localhost:4000/images/lm2.jpg");
+  background-size: cover;
+}
+
+div.item-4 {
+  background: url("http://localhost:4000/images/jk2.jpg");
+  background-size: cover;
+}
+
+div.item-5 {
+  background: url("http://localhost:4000/images/mtn.jpg");
+  background-size: cover;
+}
+
+.watchnow {
+  width: 140px;
+  height: 42px;
+  background-color: #00ABED;
+  font-weight: 700;
+  color: white;
+  margin-top: 10px;
+}
+
+.play {
+  width: 25px;
+  padding-right: 5px;
+}
+
+.header {
+  display: flex;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.headerlabel:hover {
+  color: #00ABED;
+}
+
+span {
+  color: #00ABED;
+}
+
+.viewchannel {
+  padding-top: 30px;
+}
+
+.viewchannel:hover {
+  color: #248BC7;
+}
+
+.videorow {
+  width: 95%;
+  margin-left: 30px;
+  margin-right: 30px;
+  height: 400px;
+  display: flex;
+  z-index: -2;
+}
+
+.leftinfobar {
+  width: 235px;
+  height: 400px;
+  position: relative;
+  z-index: 100;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+.leftinfobar img {
+  height: 40%;
+  padding-left: 20px;
+}
+
+.leftinfotextcontainer {
+  padding-left: 20px;
+}
+
+.follow {
+  width: 160px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #00ABED;
+  color: white;
+  font-weight: 700;
+  margin-left: 15px;
+}
+
+.follow:hover {
+  background-color: #248BC7;
+}
+
+.topvideocontainer {
+  width: 100%;
+  /*background-color: lightgray;*/
+  display: flex;
+}
+
+/*.bottomvideocontainer {
+  width: 100%;
+  background-color: lightgray;
+  display: flex;
+}*/
+
+.video {
+  background-color: black;
+  margin-left: 20px;
+  width: 185px;
+  height: 195px;
+  justify-content: space-around;
+}
+
+/*footer.................................................*/
+
+footer {
+  font-size: .875em;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  border-top: 1px solid lightgray;
+}
+
+.lefttext {
+  display: inline-block;
+  align-items: flex-start;
+  width: 78%;
+}
+
+.righttext {
+  display: inline-block;
+  align-items: flex-end;
+}
+
+.phrasing {
+  color: darkgray;
+}
+
+.red {
+  color: red;
+}
+
+
+/*............... Error page CSS...................... */
+.errorcontainer {
+  height: 500px;
+  vertical-align: middle;
+  padding-left: 275px;
+  padding-top: 50px;
+  margin-bottom: 150px;
+}
+
+.errorcontainer h1 {
+  font-weight: 700;
+}
+
+.errorcontainer p {
+  padding-top: 20px;
+}
+
+.robot {
+  width: 200px;
+  margin-left: 235px;
+  padding-bottom: 25px;
+}
+
+.searchbutton {
+  background-color: #00ABED;
+  color: white;
+  width: 82px;
+  height: 34px;
+  font-weight: 700;
+}
+
+.searchinput {
+  width: 565px;
+  height: 34px;
+  font-weight: 400;
+}
+
+/*...............Welcome Page...........................*/
+.welcomecontainer {
+  width: 100%;
+  padding: 10px 160px;
+}
+
+.welcometag {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.feedcontainer {
+  color: #657987;
+  display: flex;
+}
+
+.feed {
+  display: flex;
+  padding-top: 20px;
+}
+
+.feed-left-container {
+  width: 630px;
+  margin-right: 30px;
+}
+
+.usermenu {
+  width: 630px;
+  height: 40px;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  background-color: #EEF1F2;
+}
+
+.usermenu div {
+  width: 95px;
+  font-size: 16px;
+  font-weight: 700px;
+  vertical-align: middle;
+  text-align: center;
+  color: black;
+}
+
+.usermenu div:hover {
+  color: #00ABED;
+}
+
+.appearancelinks {
+  height: 30px;
+  background-color: white;
+  display: flex;
+  padding-left: 10px;
+  padding-top: 3px;
+}
+
+.appearancelinks a {
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+}
+
+.appearancelinks a:hover {
+  color: #00ABED;
+}
+
+.staffpickicon {
+  width: 100px;
+  margin-right: 14px;
+  background-color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+.staffpickicon img {
+  width: 75px;
+  margin-bottom: 5px;
+}
+
+.addedto {
+  color: #f7b42c;
+}
+
+.videocontent {
+  width: 536px;
+  height: 300px;
+  background-color: black;
+}
+
+.welcomedescription {
+  width: 519px;
+  height: 100px;
+  border: 1px solid #E6E7E8;
+  border-bottom: 3px solid #E6E7E8;
+  margin-left: 111px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 15px;
+  vertical-align: middle;
+  background-color: #EEF1F2;
+  color: #74797D;
+}
+
+.feed-right-container {
+  width: 300px;
+  height: 700px;
+}
+
+.feed-right-container ul {
+  margin-left: -40px;
+}
+
+.mypeoplebar {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+  background-color: #daf1ff;
+  color: #4bf;
+  font-weight: 700;
+  line-height: 1.2em;
+  border-left: 5px solid #bce6ff;
+  border-radius: 0;
+}
+
+.recentactivity p {
+  padding-left: 5px;
+}
+
+.explore {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+  background-color: #fdf0d5;
+  color: #f7b42c;
+  font-weight: 700;
+  line-height: 1.2em;
+  border-left: 5px solid #fce4b3;
+  border-radius: 0;
+}
+
+.exploretitles {
+  font-size: 18px;
+  font-weight: 700;
+  list-style-type: none;
+  color: black;
+  padding-top: 15px;
+  padding-right: 10px;
+  border-top: 1px solid #E6E7E8;
+}
+
+explore p {
+  color: #74797D;
+  padding-botom: 10px;
+}
+
+/*Favorites page...................................*/
+
+.htwofavorites {
+  font-weight: 700;
+}
