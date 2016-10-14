@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently 'webpack -w -d' 'nodemon index.js'"
+    "start": "concurrently 'webpack -w -d' 'nodemon index.js --exec babel-node --presets es2015' "
   },
   "keywords": [],
   "author": "",
@@ -19,8 +19,9 @@
     "express-session": "^1.14.1",
     "jquery": "^3.1.1",
     "mongoose": "^4.6.3",
+    "mongoose-findorcreate": "^0.1.2",
     "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1"
+    "passport-google-oauth2": "^0.1.6"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

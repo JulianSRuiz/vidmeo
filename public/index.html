@@ -10,17 +10,16 @@
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
     <title>Vidmeo: Watch, upload and share</title>
 </head>
-
 <body>
-<!-- <body ng-controller="mainCtrl"> -->
+<!-- <body ng-controller="vidmeoCtrl"> -->
 
     <div class="rainbow-bar"></div>
 
     <nav class="navbar">
-        <div id="writtenlogo">vidmeo</div>
+        <a ui-sref="home"><div id="writtenlogo">vidmeo</div></a>
         <div>
-          <a href="http://localhost:4000/auth/facebook">
-          <button id="join">Join</button>
+          <a href="http://localhost:4000/auth/google">
+          <button id="join">Log in with <img src="./images/google.png" alt="Google"></button>
           </a>
         </div>
         <div class="navbarlinks categories">Categories <img src="./images/dropdown-arrow.png" alt="Categories"></div>
@@ -49,7 +48,6 @@
           </a>
         </div>
     </nav>
-
       <ui-view></ui-view>
 
     <footer>

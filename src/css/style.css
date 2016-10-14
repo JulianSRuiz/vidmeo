@@ -27,6 +27,7 @@ button {
   border: 0;
   margin-bottom: 0;
   overflow: hidden;
+  border-bottom: 1px solid lightgray;
 }
 
 .navbar a {
@@ -66,15 +67,19 @@ button {
 }
 
 #join {
-  width: 50px;
+  width: 142px;
   height: 34px;
   background-color: #7FC400;
   color: white;
   font-weight: 700;
 }
 
+#join img {
+  width: 24px;
+}
+
 #join:hover {
-  background-color: green;
+  background-color: #657987;
 }
 
 #join_right {
@@ -138,7 +143,7 @@ button {
 }
 
 .blanknavspace {
-  width: 420px;
+  width: 225px;
 }
 
 .input {
@@ -223,6 +228,10 @@ div.item-5 {
   font-weight: 700;
   color: white;
   margin-top: 10px;
+}
+
+.watchnow:hover {
+  background-color: #248BC7;
 }
 
 .play {
@@ -438,6 +447,8 @@ footer {
 
 .appearancelinks {
   height: 30px;
+  font-size: 13px;
+  align-items: center;
   background-color: white;
   display: flex;
   padding-left: 10px;
@@ -554,4 +565,33 @@ explore p {
 
 .htwofavorites {
   font-weight: 700;
+}
+
+/*Player Page......................................*/
+
+.playercontainer {
+  background-color: black;
+  width: 100%;
+  height: 400px;
+  padding-top: 5px;
+}
+
+#player {
+  margin: 0 320px;
+}
+
+.commentscontainer {
+  background-color: #E6E7E8;
+  width: 100%;
+  height: 600px;
+  padding-top: 50px;
+}
+
+.comments {
+  width: 640px;
+  height: 500px;
+  background-color: white;
+  border: 1px solid lightgray;
+  margin: 0 auto;
+  padding-top: 20px;
 }
