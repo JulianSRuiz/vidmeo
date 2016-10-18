@@ -2,7 +2,6 @@ const recentlyViewedRoutes = require("./features/recentlyViewed/recentlyViewedRo
 const favoritesRoutes = require("./features/favorites/favoritesRoutes");
 const videosRoutes = require("./features/videos/videosRoutes")
 import userRoutes from "./features/users/userRoutes";
-console.log(userRoutes);
 
 module.exports = app => {
   recentlyViewedRoutes(app);

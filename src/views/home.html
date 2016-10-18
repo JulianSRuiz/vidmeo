@@ -33,7 +33,7 @@
             <p>from <span>joematpal</span></p>
             <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.
             </p>
-            <div class="scrollingwatchnow"><button class="watchnow"><img class="play" src="../../public/images/playicon.png" alt=""> Watch Now</button></div>
+            <div class="scrollingwatchnow"><button class="watchnow" ng-click="#"><img class="play" src="../../public/images/playicon.png" alt=""> Watch Now</button></div>
         </div>
       </div>
     </div>
@@ -104,10 +104,8 @@
     <button class="follow">+ Follow</button>
   </div>
     <div class="topvideocontainer">
-      <div class="video" id="embed"></div>
-      <div class="video"></div>
-      <div class="video"></div>
-      <div class="video"></div>
-      <div class="video"></div>
+      <div class="video" id="embed" ng-repeat="video in fiveVideos">
+        <img ng-src="{{ video.pictures.sizes[1].link }}" alt="">
+      </div>
     </div>
 </div>

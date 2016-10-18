@@ -6,91 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
     <title>Vidmeo: Watch, upload and share</title>
 </head>
-<body>
-<!-- <body ng-controller="vidmeoCtrl"> -->
+
+
+<body ng-controller="vidmeoCtrl">
 
     <div class="rainbow-bar"></div>
 
     <nav class="navbar">
-        <a ui-sref="home"><div id="writtenlogo">vidmeo</div></a>
+        <a ui-sref="home">
+            <div id="writtenlogo">vidmeo</div>
+        </a>
         <div>
-          <a href="http://localhost:4000/auth/google">
-          <button id="join">Log in with <img src="./images/google.png" alt="Google"></button>
-          </a>
+            <a href="http://localhost:4000/auth/vimeo">
+                <button id="join">Sign in</button>
+            </a>
         </div>
         <div class="navbarlinks categories">Categories <img src="./images/dropdown-arrow.png" alt="Categories"></div>
-          <div class="dropdowncontent">
+        <div class="dropdowncontent">
             <a href="#">Browse All</a>
             <a href="#">Channels</a>
-          </div>
+        </div>
 
         <div class="navbarlinks trending">Trending <img src="./images/dropdown-arrow.png" alt="Trending"></div>
-          <div class="dropdowncontent">
+        <div class="dropdowncontent">
             <a href="#">Staff Picks</a>
-          </div>
+        </div>
 
         <div class="navbarlinks ondemand">On Demand <img src="./images/dropdown-arrow.png" alt="On Demand"></div>
-          <div class="dropdowncontent">
+        <div class="dropdowncontent">
             <a href="#">What's New</a>
             <a href="#">Discover</a>
             <a href="#">Genres</a>
-          </div>
+        </div>
 
         <div class="blanknavspace navbarlinks"></div>
         <input type="text" class="input navbarlinks" placeholder="Search videos, people, and more"><img src="./images/search-icon.png" alt="Search" id="searchicon">
         <div>
-          <a href="http://localhost:4000/auth/facebook">
-            <button id="join_right">Log in with  <img src="./images/facebook.svg" alt="Facebook"></button>
-          </a>
+            <button id="join_right">Search</button>
         </div>
     </nav>
-      <ui-view></ui-view>
+    <ui-view></ui-view>
 
     <footer>
-      <div class="lefttext">
-        <span class="phrasing">JR + 2016 Julian, Inc. All rights reserved.</span> &nbsp;
-
-        Terms &nbsp;
-        Copyright &nbsp;
-        Made <span class="red">by</span> Julian Ruiz
+        <div class="lefttext">
+            <span class="phrasing">JR + 2016 Julian, Inc. All rights reserved.</span> &nbsp; Terms &nbsp; Copyright &nbsp; Made <span class="red">by</span> Julian Ruiz
 
 
-      </div>
-      <div class="righttext">
-        <span class="phrasing">Language:</span> English &nbsp;
-        <span class="phrasing">Mature content filter:</span> None
-      </div>
+        </div>
+        <div class="righttext">
+            <span class="phrasing">Language:</span> English &nbsp;
+            <span class="phrasing">Mature content filter:</span> None
+        </div>
     </footer>
 
 
     <script src="bundle.js"></script>
-    <!-- <script>
-      // This is the URL of the video you want to load
-      var videoUrl = 'http://www.vimeo.com/7100569';
-      // This is the oEmbed endpoint for Vimeo (we're using JSON)
-      // (Vimeo also supports oEmbed discovery. See the PHP example.)
-      var endpoint = 'http://www.vimeo.com/api/oembed.json';
-      // Tell Vimeo what function to call
-      var callback = 'embedVideo';
-      // Put together the URL
-      var url = endpoint + '?url=' + encodeURIComponent(videoUrl) + '&callback=' + callback + '&width=640';
-      // This function puts the video on the page
-      function embedVideo(video) {
-          document.getElementById('embed').innerHTML = unescape(video.html);
-      }
-      // This function loads the data from Vimeo
-      function init() {
-          var js = document.createElement('script');
-          js.setAttribute('type', 'text/javascript');
-          js.setAttribute('src', url);
-          document.getElementsByTagName('head').item(0).appendChild(js);
-      }
-      // Call our init function when the page loads
-      window.onload = init;
-    </script> -->
 </body>
+
 </html>

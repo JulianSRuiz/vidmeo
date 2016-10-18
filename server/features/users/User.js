@@ -5,9 +5,17 @@ import findOrCreate from "mongoose-findorcreate";
 const User = new Schema({
   googleID: {type: String, required: true, unique: true},
   displayName: {type: String, required: true},
-  name: []
+  name: [],
+  recents: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Recents"
+    }],
+  favorites: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Favorites"
+    }]
 });
 
 User.plugin(findOrCreate);
 
-export default mongoose.model("User", User);
+module.exports = mongoose.model("User", User);

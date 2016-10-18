@@ -67,7 +67,7 @@ button {
 }
 
 #join {
-  width: 142px;
+  width: 90px;
   height: 34px;
   background-color: #7FC400;
   color: white;
@@ -83,7 +83,7 @@ button {
 }
 
 #join_right {
-  width: 125px;
+  width: 90px;
   height: 34px;
   background-color: #3B5998;
   color: white;
@@ -143,7 +143,7 @@ button {
 }
 
 .blanknavspace {
-  width: 225px;
+  width: 310px;
 }
 
 .input {
@@ -266,7 +266,7 @@ span {
 
 .videorow {
   width: 95%;
-  margin-left: 30px;
+  margin-left: 10px;
   margin-right: 30px;
   margin-top: 20px;
   height: 400px;
@@ -280,7 +280,7 @@ span {
   position: relative;
   z-index: 100;
   background-color: white;
-  padding: 5px 10px;
+  padding: 5px 0;
 }
 
 .leftinfobar img {
@@ -319,10 +319,9 @@ span {
 }*/
 
 .video {
-  background-color: black;
-  margin-left: 20px;
-  width: 185px;
-  height: 195px;
+  margin-left: 15px;
+  width: 200px;
+  height: 150px;
   justify-content: space-around;
 }
 
@@ -399,7 +398,7 @@ footer {
 /*...............Welcome Page...........................*/
 .welcomecontainer {
   width: 100%;
-  padding: 10px 160px;
+  padding: 0 160px;
 }
 
 .welcometag {
@@ -425,7 +424,6 @@ footer {
 .usermenu {
   width: 630px;
   height: 40px;
-  padding: 12px;
   font-weight: 700;
   font-size: 12px;
   display: flex;
@@ -433,12 +431,24 @@ footer {
 }
 
 .usermenu div {
-  width: 95px;
+  width: 126px;
+  height: 30px;
   font-size: 16px;
   font-weight: 700px;
   vertical-align: middle;
   text-align: center;
+  margin-top: 5px;
+  padding-top: 5px;
   color: black;
+  text-decoration: none;
+}
+
+#favs {
+  background-color: white;
+}
+
+.recentview {
+  width: 140px;
 }
 
 .usermenu div:hover {
@@ -570,10 +580,9 @@ explore p {
 /*Player Page......................................*/
 
 .playercontainer {
-  background-color: black;
+  background-color: #181C1F;
   width: 100%;
-  height: 400px;
-  padding-top: 5px;
+  height: 480px;
 }
 
 #player {
@@ -581,17 +590,74 @@ explore p {
 }
 
 .commentscontainer {
-  background-color: #E6E7E8;
+  background-color: white;
   width: 100%;
-  height: 600px;
-  padding-top: 50px;
+  height: 550px;
+  display: flex;
+}
+
+.commentsleftmenu {
+  padding: 10px 0;
+}
+
+.videotitle {
+  height: 110px;
+  width: 100%;
+  padding: 0 20px
+}
+
+.videotitle a {
+  color: #40545C;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.leaveacomment {
+  padding: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #4E5A5E;
 }
 
 .comments {
-  width: 640px;
-  height: 500px;
-  background-color: white;
+  width: 915px;
+  height: 210px;
+  background-color: #E6E7E8;
   border: 1px solid lightgray;
-  margin: 0 auto;
-  padding-top: 20px;
+  border-right: 0;
+  padding: 15px 20px;
+  color: #4E5A5E;
+  font-size: 1.15em;
+  line-height: 1.5;
+}
+
+.commentsrightmenu {
+  width: 365px;
+  border-left: 1px solid lightgray;
+  padding: 20px;
+  color: #4E5A5E;
+  background-color: #E6E7E8;
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow: scroll;
+}
+
+.relatedvidstitle {
+  padding: 5px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.vidrow {
+  display: flex;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.videothumbnail {
+  width: 165px;
+  height: 96px;
+  background-color: black;
+  margin-right: 10px;
 }

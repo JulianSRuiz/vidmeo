@@ -7,12 +7,12 @@
 
   <div class="feed-left-container">
 
-      <div class="usermenu">
-        <div class="myfeed"><span>My Feed</span></div>
-        <div class="myvideos">My Videos</div>
-        <div class="trending">Trending</div>
-        <div class="activity">Activity</div>
-      </div>
+    <div class="usermenu">
+      <a ui-sref="favorites"><div class="myfeed">Favorites</div></a>
+      <a ui-sref="recentlyviewed"><div class="myvideos recentview" id="favs"><span>Recently Viewed</span></div></a>
+      <a ui-sref="loginerror"></a><div class="trending">Trending</div></a>
+      <div class="activity">Activity</div>
+    </div>
 
       <div class="appearancelinks">
         Show:

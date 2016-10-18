@@ -1,21 +1,16 @@
 const mongoose = require("mongoose");
 
-const Recents = new mongoose.Schema({
+const Recents = mongoose.Schema({
     title: {
         type: String,
-        required: true,
         trim: true,
-        unique: true
+        required: true
     },
-    videolength: {
-        type: Number
-    },
-    description: {
-        type: String
-    },
-    favorites: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Recents"
+    videolength: Number,
+    description: String,
+    recents: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recents"
     }]
 });
 

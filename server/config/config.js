@@ -22,22 +22,14 @@ module.exports = {
     "redirect_uris":"http://localhost:4000/auth/google/callback",
     "javascript_origins":["http://localhost:4000"]
   },
-  mLabUri: "mongodb://admin:hunter2@ds057816.mlab.com:57816/vidmeo"
-
-  // accessPoints: {
-    //  web: {
-    //    client_id:"652260793725-jtid55nhh2b12riuc02epjhrvdr0a5ps.apps.googleusercontent.com",
-    //    project_id:"vidmeo-146215",
-    //    auth_uri:"https://accounts.google.com/o/oauth2/auth",
-    //    token_uri:"https://accounts.google.com/o/oauth2/token",
-    //    auth_provider_x509_cert_url:"https://www.googleapis.com/oauth2/v1/certs",
-    //    client_secret:"8AuBSxEQsq0X1IDYkTAJkT3W",
-    //    redirect_uris:["http://localhost:4000/welcome"],
-    //    javascript_origins:["http://localhost:4000"],
-    //    cbURL: "http://localhost:4000/auth/google/callback"
-    //  }
-   //}
-
-    // const freebaseKey = "AIzaSyAZT7l7jUtemn577dAZWhNAf-SD499klFY";
+  mLabUri: "mongodb://admin:hunter2@ds057816.mlab.com:57816/vidmeo",
+  vimeo: {
+    clientID: "9a8b8dc88f638a3e6b511a12ec52870f4b14a09c",
+    clientSecret: "aoVM2Chp6SjpIrQxZA8c6HTyZ46LhCzRSoejLO7xpTcj5gYiTQpOVVfGsdVRAhYI2NnOCbmB08n0IxWedYSBOKjG/tGJgdSeEFLNjMWT8LTbMnMK43gkU6Zr9RwSxV+z",
+    authorizeURL: "https://api.vimeo.com/oauth/authorize",
+    accessTokenURL: "https://api.vimeo.com/oauth/access_token",
+    callbackURL: "http://localhost:4000/#/welcome",
+    access_token: "ac540bb21165263a96039149d2259489"
+  }
 
 };

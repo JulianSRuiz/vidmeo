@@ -65,69 +65,74 @@
 	
 	__webpack_require__(/*! ./css/style.css */ 14);
 	
-	var _home = __webpack_require__(/*! ./views/home.html */ 16);
-	
-	var _home2 = _interopRequireDefault(_home);
-	
-	var _welcome = __webpack_require__(/*! ./views/welcome.html */ 24);
-	
-	var _welcome2 = _interopRequireDefault(_welcome);
-	
-	var _favorites = __webpack_require__(/*! ./views/favorites.html */ 25);
-	
-	var _favorites2 = _interopRequireDefault(_favorites);
-	
-	var _loginerror = __webpack_require__(/*! ./views/loginerror.html */ 27);
-	
-	var _loginerror2 = _interopRequireDefault(_loginerror);
-	
-	var _recentlyviewed = __webpack_require__(/*! ./views/recentlyviewed.html */ 29);
-	
-	var _recentlyviewed2 = _interopRequireDefault(_recentlyviewed);
-	
-	var _player = __webpack_require__(/*! ./views/player.html */ 30);
-	
-	var _player2 = _interopRequireDefault(_player);
-	
-	var _angular = __webpack_require__(/*! angular */ 31);
+	var _angular = __webpack_require__(/*! angular */ 16);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _angularUiRouter = __webpack_require__(/*! angular-ui-router */ 33);
+	var _angularUiRouter = __webpack_require__(/*! angular-ui-router */ 18);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
+	var _home = __webpack_require__(/*! ./views/home.html */ 19);
+	
+	var _home2 = _interopRequireDefault(_home);
+	
+	var _welcome = __webpack_require__(/*! ./views/welcome.html */ 27);
+	
+	var _welcome2 = _interopRequireDefault(_welcome);
+	
+	var _favorites = __webpack_require__(/*! ./views/favorites.html */ 28);
+	
+	var _favorites2 = _interopRequireDefault(_favorites);
+	
+	var _loginerror = __webpack_require__(/*! ./views/loginerror.html */ 30);
+	
+	var _loginerror2 = _interopRequireDefault(_loginerror);
+	
+	var _recentlyviewed = __webpack_require__(/*! ./views/recentlyviewed.html */ 32);
+	
+	var _recentlyviewed2 = _interopRequireDefault(_recentlyviewed);
+	
+	var _player = __webpack_require__(/*! ./views/player.html */ 33);
+	
+	var _player2 = _interopRequireDefault(_player);
+	
+	var _vidmeoCtrl = __webpack_require__(/*! ./components/vidmeoCtrl */ 34);
+	
+	var _vidmeoCtrl2 = _interopRequireDefault(_vidmeoCtrl);
+	
+	var _vidmeoService = __webpack_require__(/*! ./services/vidmeoService.js */ 35);
+	
+	var _vidmeoService2 = _interopRequireDefault(_vidmeoService);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// import vidmeoCtrl from './components/vidmeoCtrl.js';
-	// import vidmeoService from './services/vidmeoService.js';
+	//templates
+	
 	
 	//modules
+	_angular2.default.module("vidmeoApp", [_angularUiRouter2.default]).controller('vidmeoCtrl', _vidmeoCtrl2.default).service('vidmeoService', _vidmeoService2.default).config(function ($stateProvider, $urlRouterProvider) {
+	    $stateProvider.state("home", {
+	        url: "/",
+	        template: _home2.default
+	    }).state("welcome", {
+	        url: '/welcome',
+	        template: _welcome2.default
+	    }).state("favorites", {
+	        url: "/favorites",
+	        template: _favorites2.default
+	    }).state("loginerror", {
+	        url: "/loginerror",
+	        template: _loginerror2.default
+	    }).state("recentlyviewed", {
+	        url: "/recentlyviewed",
+	        template: _recentlyviewed2.default
+	    }).state("player", {
+	        url: "/player",
+	        template: _player2.default
+	    });
 	
-	
-	//templates
-	_angular2.default.module("vidmeoApp", [_angularUiRouter2.default]).config(function ($stateProvider, $urlRouterProvider) {
-	  $stateProvider.state("home", {
-	    url: "/",
-	    template: _home2.default
-	  }).state("welcome", {
-	    url: '/welcome',
-	    template: _welcome2.default
-	  }).state("favorites", {
-	    url: "/favorites",
-	    template: _favorites2.default
-	  }).state("loginerror", {
-	    url: "/loginerror",
-	    template: _loginerror2.default
-	  }).state("recentlyviewed", {
-	    url: "/recentlyviewed",
-	    template: _recentlyviewed2.default
-	  }).state("player", {
-	    url: "/player",
-	    template: _player2.default
-	  });
-	
-	  $urlRouterProvider.otherwise('/');
+	    $urlRouterProvider.otherwise('/');
 	}); // assets
 
 /***/ },
@@ -4432,148 +4437,13 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  box-sizing: border-box;\n  font-family: Helvetica;\n  margin: 0 0;\n  padding: 0 0;\n}\n\n.rainbow-bar {\n  width: 100%;\n  height: 5px;\n  background-color: #00ABED;\n}\n\nbutton {\n  border-radius: 5px;\n  border: none;\n}\n\n.navbar {\n  display: flex;\n  padding-left: 30px;\n  padding-right: 30px;\n  width: 100%;\n  height: 60px;\n  align-items: center;\n  background-color: #EEF1F2;\n  border: 0;\n  margin-bottom: 0;\n  overflow: hidden;\n  border-bottom: 1px solid lightgray;\n}\n\n.navbar a {\n  text-decoration: none;\n}\n\n.navbar img {\n  width: 10px;\n  align-items: center;\n}\n\n#searchicon {\n  width: 30px;\n  align-items: center;\n  padding-right: 10px;\n  padding-left: 5px;\n}\n\n#searchicon:hover {\n  width: 31px;\n}\n\n#writtenlogo {\n  font-family: 'Galada', cursive;\n  color: black;\n  font-size: 2.6em;\n  font-weight: 800;\n  padding-top: 5px;\n  padding-right: 20px;\n}\n\n#logo {\n  height: 40px;\n  width: 98px;\n  align-items: center;\n  margin-right: 10px;\n}\n\n#join {\n  width: 142px;\n  height: 34px;\n  background-color: #7FC400;\n  color: white;\n  font-weight: 700;\n}\n\n#join img {\n  width: 24px;\n}\n\n#join:hover {\n  background-color: #657987;\n}\n\n#join_right {\n  width: 125px;\n  height: 34px;\n  background-color: #3B5998;\n  color: white;\n  font-weight: 700;\n}\n\n#join_right:hover {\n  background-color: #2C4373;\n}\n\n#join_right img {\n  width: 13px;\n  align-items: center;\n  padding-left: 3px;\n  padding-bottom: 2px;\n}\n\n.navbarlinks {\n  margin-left: 13px;\n  align-items: center;\n  font-weight: 700;\n  line-height: 40px;\n  white-space: nowrap;\n  display: block;\n  color: #657987;\n}\n\n.navbarlinks a {\n  text-decoration: none;\n}\n\n.navbarlinks:hover {\n  color: black;\n\n}\n\n.dropdowncontent {\n  display: none;\n  position: absolute;\n  background-color: #f9f9f9;\n  min-width: 160px;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n}\n\n.dropdowncontent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n    text-align: left;\n}\n\n.dropdowncontent a:hover {background-color: #f1f1f1}\n\n.dropdown:hover .dropdowncontent {\n    display: block;\n}\n\n.blanknavspace {\n  width: 225px;\n}\n\n.input {\n  width: 260px;\n  height: 34px;\n  font-size: .9em;\n  font-weight: normal;\n  border-radius: 5px;\n  border: 1px solid lightgray;\n  padding-left: 10px;\n}\n\n.input:hover {\n  border: 1px solid darkgray;\n}\n\n/*HomeHTML............................................*/\n\n.scrolling_images {\n  height: 400px;\n  display: flex;\n}\n.carousel-caption {\n  width: 100%;\n  height: 400px;\n  left: 120px;\n}\n\n.description {\n  z-index: 100;\n  position: absolute;\n  left: 0;\n  display: block;\n  align-items: flex-end;\n  width: 370px;\n  padding-top: 100px;\n  color: white;\n  top: 0;\n  text-align: left;\n}\n\ndiv.item-1 {\n  background-size: cover;\n  max-height: 400px;\n}\n.item-1>img{\n  height: 400px;\n  width: auto;\n}\n.container-of-this-shit{\n  max-width: 1280px;\n  margin: 0 auto;\n}\n/*div.item-2 {\n  background: url(\"http://localhost:4000/images/moto-crop-shade.jpg\");\n  background-size: cover;\n}\n\ndiv.item-3 {\n  background: url(\"http://localhost:4000/images/lm2.jpg\");\n  background-size: cover;\n}\n\ndiv.item-4 {\n  background: url(\"http://localhost:4000/images/jk2.jpg\");\n  background-size: cover;\n}\n\ndiv.item-5 {\n  background: url(\"http://localhost:4000/images/mtn.jpg\");\n  background-size: cover;\n}*/\n\n.glyphicon {\n  color: white;\n}\n\n.watchnow {\n  width: 140px;\n  height: 42px;\n  background-color: #00ABED;\n  font-weight: 700;\n  color: white;\n  margin-top: 10px;\n}\n\n.watchnow:hover {\n  background-color: #248BC7;\n}\n\n.play {\n  width: 25px;\n  padding-right: 5px;\n}\n\n.header {\n  display: flex;\n  padding-left: 50px;\n  padding-right: 50px;\n  padding-top: 10px;\n  justify-content: space-between;\n  font-weight: 700;\n}\n\n.headerlabel:hover {\n  color: #00ABED;\n}\n\nspan {\n  color: #00ABED;\n}\n\n.viewchannel {\n  padding-top: 30px;\n}\n\n.viewchannel:hover {\n  color: #248BC7;\n}\n\n.videorow {\n  width: 95%;\n  margin-left: 30px;\n  margin-right: 30px;\n  margin-top: 20px;\n  height: 400px;\n  display: flex;\n  z-index: -2;\n}\n\n.leftinfobar {\n  width: 235px;\n  height: 400px;\n  position: relative;\n  z-index: 100;\n  background-color: white;\n  padding: 5px 10px;\n}\n\n.leftinfobar img {\n  height: 40%;\n  padding-left: 20px;\n}\n\n.leftinfotextcontainer {\n  padding-left: 20px;\n}\n\n.follow {\n  width: 160px;\n  padding: 5px;\n  border-radius: 5px;\n  background-color: #00ABED;\n  color: white;\n  font-weight: 700;\n  margin-left: 15px;\n}\n\n.follow:hover {\n  background-color: #248BC7;\n}\n\n.topvideocontainer {\n  width: 100%;\n  /*background-color: lightgray;*/\n  display: flex;\n}\n\n/*.bottomvideocontainer {\n  width: 100%;\n  background-color: lightgray;\n  display: flex;\n}*/\n\n.video {\n  background-color: black;\n  margin-left: 20px;\n  width: 185px;\n  height: 195px;\n  justify-content: space-around;\n}\n\n/*footer.................................................*/\n\nfooter {\n  font-size: .875em;\n  width: 100%;\n  padding-left: 40px;\n  padding-right: 40px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  display: flex;\n  border-top: 1px solid lightgray;\n}\n\n.lefttext {\n  display: inline-block;\n  align-items: flex-start;\n  width: 78%;\n}\n\n.righttext {\n  display: inline-block;\n  align-items: flex-end;\n}\n\n.phrasing {\n  color: darkgray;\n}\n\n.red {\n  color: red;\n}\n\n\n/*............... Error page CSS...................... */\n.errorcontainer {\n  height: 500px;\n  vertical-align: middle;\n  padding-left: 275px;\n  padding-top: 50px;\n  margin-bottom: 150px;\n}\n\n.errorcontainer h1 {\n  font-weight: 700;\n}\n\n.errorcontainer p {\n  padding-top: 20px;\n}\n\n.robot {\n  width: 200px;\n  margin-left: 235px;\n  padding-bottom: 25px;\n}\n\n.searchbutton {\n  background-color: #00ABED;\n  color: white;\n  width: 82px;\n  height: 34px;\n  font-weight: 700;\n}\n\n.searchinput {\n  width: 565px;\n  height: 34px;\n  font-weight: 400;\n}\n\n/*...............Welcome Page...........................*/\n.welcomecontainer {\n  width: 100%;\n  padding: 10px 160px;\n}\n\n.welcometag {\n  font-weight: 700;\n  margin-bottom: 20px;\n}\n\n.feedcontainer {\n  color: #657987;\n  display: flex;\n}\n\n.feed {\n  display: flex;\n  padding-top: 20px;\n}\n\n.feed-left-container {\n  width: 630px;\n  margin-right: 30px;\n}\n\n.usermenu {\n  width: 630px;\n  height: 40px;\n  padding: 12px;\n  font-weight: 700;\n  font-size: 12px;\n  display: flex;\n  background-color: #EEF1F2;\n}\n\n.usermenu div {\n  width: 95px;\n  font-size: 16px;\n  font-weight: 700px;\n  vertical-align: middle;\n  text-align: center;\n  color: black;\n}\n\n.usermenu div:hover {\n  color: #00ABED;\n}\n\n.appearancelinks {\n  height: 30px;\n  font-size: 13px;\n  align-items: center;\n  background-color: white;\n  display: flex;\n  padding-left: 10px;\n  padding-top: 3px;\n}\n\n.appearancelinks a {\n  padding-left: 7px;\n  padding-right: 7px;\n  padding-top: 3px;\n  font-size: 12px;\n  font-weight: 400;\n  text-decoration: none;\n  color: black;\n}\n\n.appearancelinks a:hover {\n  color: #00ABED;\n}\n\n.staffpickicon {\n  width: 100px;\n  margin-right: 14px;\n  background-color: white;\n  font-size: 10px;\n  font-weight: 700;\n  padding-left: 15px;\n}\n\n.staffpickicon img {\n  width: 75px;\n  margin-bottom: 5px;\n}\n\n.addedto {\n  color: #f7b42c;\n}\n\n.videocontent {\n  width: 536px;\n  height: 300px;\n  background-color: black;\n}\n\n.welcomedescription {\n  width: 519px;\n  height: 100px;\n  border: 1px solid #E6E7E8;\n  border-bottom: 3px solid #E6E7E8;\n  margin-left: 111px;\n  margin-bottom: 10px;\n  padding-top: 10px;\n  padding-left: 15px;\n  vertical-align: middle;\n  background-color: #EEF1F2;\n  color: #74797D;\n}\n\n.feed-right-container {\n  width: 300px;\n  height: 700px;\n}\n\n.feed-right-container ul {\n  margin-left: -40px;\n}\n\n.mypeoplebar {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #daf1ff;\n  color: #4bf;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #bce6ff;\n  border-radius: 0;\n}\n\n.recentactivity p {\n  padding-left: 5px;\n}\n\n.explore {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #fdf0d5;\n  color: #f7b42c;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #fce4b3;\n  border-radius: 0;\n}\n\n.exploretitles {\n  font-size: 18px;\n  font-weight: 700;\n  list-style-type: none;\n  color: black;\n  padding-top: 15px;\n  padding-right: 10px;\n  border-top: 1px solid #E6E7E8;\n}\n\nexplore p {\n  color: #74797D;\n  padding-botom: 10px;\n}\n\n/*Favorites page...................................*/\n\n.htwofavorites {\n  font-weight: 700;\n}\n\n/*Player Page......................................*/\n\n.playercontainer {\n  background-color: black;\n  width: 100%;\n  height: 400px;\n  padding-top: 5px;\n}\n\n#player {\n  margin: 0 320px;\n}\n\n.commentscontainer {\n  background-color: #E6E7E8;\n  width: 100%;\n  height: 600px;\n  padding-top: 50px;\n}\n\n.comments {\n  width: 640px;\n  height: 500px;\n  background-color: white;\n  border: 1px solid lightgray;\n  margin: 0 auto;\n  padding-top: 20px;\n}\n", ""]);
+	exports.push([module.id, "body {\n  box-sizing: border-box;\n  font-family: Helvetica;\n  margin: 0 0;\n  padding: 0 0;\n}\n\n.rainbow-bar {\n  width: 100%;\n  height: 5px;\n  background-color: #00ABED;\n}\n\nbutton {\n  border-radius: 5px;\n  border: none;\n}\n\n.navbar {\n  display: flex;\n  padding-left: 30px;\n  padding-right: 30px;\n  width: 100%;\n  height: 60px;\n  align-items: center;\n  background-color: #EEF1F2;\n  border: 0;\n  margin-bottom: 0;\n  overflow: hidden;\n  border-bottom: 1px solid lightgray;\n}\n\n.navbar a {\n  text-decoration: none;\n}\n\n.navbar img {\n  width: 10px;\n  align-items: center;\n}\n\n#searchicon {\n  width: 30px;\n  align-items: center;\n  padding-right: 10px;\n  padding-left: 5px;\n}\n\n#searchicon:hover {\n  width: 31px;\n}\n\n#writtenlogo {\n  font-family: 'Galada', cursive;\n  color: black;\n  font-size: 2.6em;\n  font-weight: 800;\n  padding-top: 5px;\n  padding-right: 20px;\n}\n\n#logo {\n  height: 40px;\n  width: 98px;\n  align-items: center;\n  margin-right: 10px;\n}\n\n#join {\n  width: 90px;\n  height: 34px;\n  background-color: #7FC400;\n  color: white;\n  font-weight: 700;\n}\n\n#join img {\n  width: 24px;\n}\n\n#join:hover {\n  background-color: #657987;\n}\n\n#join_right {\n  width: 90px;\n  height: 34px;\n  background-color: #3B5998;\n  color: white;\n  font-weight: 700;\n}\n\n#join_right:hover {\n  background-color: #2C4373;\n}\n\n#join_right img {\n  width: 13px;\n  align-items: center;\n  padding-left: 3px;\n  padding-bottom: 2px;\n}\n\n.navbarlinks {\n  margin-left: 13px;\n  align-items: center;\n  font-weight: 700;\n  line-height: 40px;\n  white-space: nowrap;\n  display: block;\n  color: #657987;\n}\n\n.navbarlinks a {\n  text-decoration: none;\n}\n\n.navbarlinks:hover {\n  color: black;\n\n}\n\n.dropdowncontent {\n  display: none;\n  position: absolute;\n  background-color: #f9f9f9;\n  min-width: 160px;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n}\n\n.dropdowncontent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n    text-align: left;\n}\n\n.dropdowncontent a:hover {background-color: #f1f1f1}\n\n.dropdown:hover .dropdowncontent {\n    display: block;\n}\n\n.blanknavspace {\n  width: 310px;\n}\n\n.input {\n  width: 260px;\n  height: 34px;\n  font-size: .9em;\n  font-weight: normal;\n  border-radius: 5px;\n  border: 1px solid lightgray;\n  padding-left: 10px;\n}\n\n.input:hover {\n  border: 1px solid darkgray;\n}\n\n/*HomeHTML............................................*/\n\n.scrolling_images {\n  height: 400px;\n  display: flex;\n}\n.carousel-caption {\n  width: 100%;\n  height: 400px;\n  left: 120px;\n}\n\n.description {\n  z-index: 100;\n  position: absolute;\n  left: 0;\n  display: block;\n  align-items: flex-end;\n  width: 370px;\n  padding-top: 100px;\n  color: white;\n  top: 0;\n  text-align: left;\n}\n\ndiv.item-1 {\n  background-size: cover;\n  max-height: 400px;\n}\n.item-1>img{\n  height: 400px;\n  width: auto;\n}\n.container-of-this-shit{\n  max-width: 1280px;\n  margin: 0 auto;\n}\n/*div.item-2 {\n  background: url(\"http://localhost:4000/images/moto-crop-shade.jpg\");\n  background-size: cover;\n}\n\ndiv.item-3 {\n  background: url(\"http://localhost:4000/images/lm2.jpg\");\n  background-size: cover;\n}\n\ndiv.item-4 {\n  background: url(\"http://localhost:4000/images/jk2.jpg\");\n  background-size: cover;\n}\n\ndiv.item-5 {\n  background: url(\"http://localhost:4000/images/mtn.jpg\");\n  background-size: cover;\n}*/\n\n.glyphicon {\n  color: white;\n}\n\n.watchnow {\n  width: 140px;\n  height: 42px;\n  background-color: #00ABED;\n  font-weight: 700;\n  color: white;\n  margin-top: 10px;\n}\n\n.watchnow:hover {\n  background-color: #248BC7;\n}\n\n.play {\n  width: 25px;\n  padding-right: 5px;\n}\n\n.header {\n  display: flex;\n  padding-left: 50px;\n  padding-right: 50px;\n  padding-top: 10px;\n  justify-content: space-between;\n  font-weight: 700;\n}\n\n.headerlabel:hover {\n  color: #00ABED;\n}\n\nspan {\n  color: #00ABED;\n}\n\n.viewchannel {\n  padding-top: 30px;\n}\n\n.viewchannel:hover {\n  color: #248BC7;\n}\n\n.videorow {\n  width: 95%;\n  margin-left: 10px;\n  margin-right: 30px;\n  margin-top: 20px;\n  height: 400px;\n  display: flex;\n  z-index: -2;\n}\n\n.leftinfobar {\n  width: 235px;\n  height: 400px;\n  position: relative;\n  z-index: 100;\n  background-color: white;\n  padding: 5px 0;\n}\n\n.leftinfobar img {\n  height: 40%;\n  padding-left: 20px;\n}\n\n.leftinfotextcontainer {\n  padding-left: 20px;\n}\n\n.follow {\n  width: 160px;\n  padding: 5px;\n  border-radius: 5px;\n  background-color: #00ABED;\n  color: white;\n  font-weight: 700;\n  margin-left: 15px;\n}\n\n.follow:hover {\n  background-color: #248BC7;\n}\n\n.topvideocontainer {\n  width: 100%;\n  /*background-color: lightgray;*/\n  display: flex;\n}\n\n/*.bottomvideocontainer {\n  width: 100%;\n  background-color: lightgray;\n  display: flex;\n}*/\n\n.video {\n  margin-left: 15px;\n  width: 200px;\n  height: 150px;\n  justify-content: space-around;\n}\n\n/*footer.................................................*/\n\nfooter {\n  font-size: .875em;\n  width: 100%;\n  padding-left: 40px;\n  padding-right: 40px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  display: flex;\n  border-top: 1px solid lightgray;\n}\n\n.lefttext {\n  display: inline-block;\n  align-items: flex-start;\n  width: 78%;\n}\n\n.righttext {\n  display: inline-block;\n  align-items: flex-end;\n}\n\n.phrasing {\n  color: darkgray;\n}\n\n.red {\n  color: red;\n}\n\n\n/*............... Error page CSS...................... */\n.errorcontainer {\n  height: 500px;\n  vertical-align: middle;\n  padding-left: 275px;\n  padding-top: 50px;\n  margin-bottom: 150px;\n}\n\n.errorcontainer h1 {\n  font-weight: 700;\n}\n\n.errorcontainer p {\n  padding-top: 20px;\n}\n\n.robot {\n  width: 200px;\n  margin-left: 235px;\n  padding-bottom: 25px;\n}\n\n.searchbutton {\n  background-color: #00ABED;\n  color: white;\n  width: 82px;\n  height: 34px;\n  font-weight: 700;\n}\n\n.searchinput {\n  width: 565px;\n  height: 34px;\n  font-weight: 400;\n}\n\n/*...............Welcome Page...........................*/\n.welcomecontainer {\n  width: 100%;\n  padding: 0 160px;\n}\n\n.welcometag {\n  font-weight: 700;\n  margin-bottom: 20px;\n}\n\n.feedcontainer {\n  color: #657987;\n  display: flex;\n}\n\n.feed {\n  display: flex;\n  padding-top: 20px;\n}\n\n.feed-left-container {\n  width: 630px;\n  margin-right: 30px;\n}\n\n.usermenu {\n  width: 630px;\n  height: 40px;\n  font-weight: 700;\n  font-size: 12px;\n  display: flex;\n  background-color: #EEF1F2;\n}\n\n.usermenu div {\n  width: 126px;\n  height: 30px;\n  font-size: 16px;\n  font-weight: 700px;\n  vertical-align: middle;\n  text-align: center;\n  margin-top: 5px;\n  padding-top: 5px;\n  color: black;\n  text-decoration: none;\n}\n\n#favs {\n  background-color: white;\n}\n\n.recentview {\n  width: 140px;\n}\n\n.usermenu div:hover {\n  color: #00ABED;\n}\n\n.appearancelinks {\n  height: 30px;\n  font-size: 13px;\n  align-items: center;\n  background-color: white;\n  display: flex;\n  padding-left: 10px;\n  padding-top: 3px;\n}\n\n.appearancelinks a {\n  padding-left: 7px;\n  padding-right: 7px;\n  padding-top: 3px;\n  font-size: 12px;\n  font-weight: 400;\n  text-decoration: none;\n  color: black;\n}\n\n.appearancelinks a:hover {\n  color: #00ABED;\n}\n\n.staffpickicon {\n  width: 100px;\n  margin-right: 14px;\n  background-color: white;\n  font-size: 10px;\n  font-weight: 700;\n  padding-left: 15px;\n}\n\n.staffpickicon img {\n  width: 75px;\n  margin-bottom: 5px;\n}\n\n.addedto {\n  color: #f7b42c;\n}\n\n.videocontent {\n  width: 536px;\n  height: 300px;\n  background-color: black;\n}\n\n.welcomedescription {\n  width: 519px;\n  height: 100px;\n  border: 1px solid #E6E7E8;\n  border-bottom: 3px solid #E6E7E8;\n  margin-left: 111px;\n  margin-bottom: 10px;\n  padding-top: 10px;\n  padding-left: 15px;\n  vertical-align: middle;\n  background-color: #EEF1F2;\n  color: #74797D;\n}\n\n.feed-right-container {\n  width: 300px;\n  height: 700px;\n}\n\n.feed-right-container ul {\n  margin-left: -40px;\n}\n\n.mypeoplebar {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #daf1ff;\n  color: #4bf;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #bce6ff;\n  border-radius: 0;\n}\n\n.recentactivity p {\n  padding-left: 5px;\n}\n\n.explore {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #fdf0d5;\n  color: #f7b42c;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #fce4b3;\n  border-radius: 0;\n}\n\n.exploretitles {\n  font-size: 18px;\n  font-weight: 700;\n  list-style-type: none;\n  color: black;\n  padding-top: 15px;\n  padding-right: 10px;\n  border-top: 1px solid #E6E7E8;\n}\n\nexplore p {\n  color: #74797D;\n  padding-botom: 10px;\n}\n\n/*Favorites page...................................*/\n\n.htwofavorites {\n  font-weight: 700;\n}\n\n/*Player Page......................................*/\n\n.playercontainer {\n  background-color: #181C1F;\n  width: 100%;\n  height: 480px;\n}\n\n#player {\n  margin: 0 320px;\n}\n\n.commentscontainer {\n  background-color: white;\n  width: 100%;\n  height: 550px;\n  display: flex;\n}\n\n.commentsleftmenu {\n  padding: 10px 0;\n}\n\n.videotitle {\n  height: 110px;\n  width: 100%;\n  padding: 0 20px\n}\n\n.videotitle a {\n  color: #40545C;\n  font-weight: 700;\n  text-decoration: none;\n}\n\n.leaveacomment {\n  padding: 20px;\n  font-weight: 700;\n  font-size: 16px;\n  color: #4E5A5E;\n}\n\n.comments {\n  width: 915px;\n  height: 210px;\n  background-color: #E6E7E8;\n  border: 1px solid lightgray;\n  border-right: 0;\n  padding: 15px 20px;\n  color: #4E5A5E;\n  font-size: 1.15em;\n  line-height: 1.5;\n}\n\n.commentsrightmenu {\n  width: 365px;\n  border-left: 1px solid lightgray;\n  padding: 20px;\n  color: #4E5A5E;\n  background-color: #E6E7E8;\n  font-size: 1.15em;\n  font-weight: 700;\n  line-height: 1.5;\n  overflow: scroll;\n}\n\n.relatedvidstitle {\n  padding: 5px 0;\n  margin-bottom: 10px;\n  border-bottom: 1px solid lightgray;\n}\n\n.vidrow {\n  display: flex;\n  font-weight: 400;\n  padding-bottom: 20px;\n}\n\n.videothumbnail {\n  width: 165px;\n  height: 96px;\n  background-color: black;\n  margin-right: 10px;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
 /* 16 */
-/*!*****************************!*\
-  !*** ./src/views/home.html ***!
-  \*****************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div class=\"container-of-this-shit\">\n\n\n<div id=\"carousel-example-generic\" class=\"carousel slide\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"3\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"4\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <div class=\"item active item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/nw-crop.jpg */ 17) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Nick Wooster</h2>\n            <p>from <span>archinoid</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><a ui-sref=\"player\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 18) + "\" alt=\"\"> Watch Now</button></a></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/jk2.jpg */ 19) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Jester King</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 18) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/lm2.jpg */ 20) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>CHVRCHES</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 18) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/moto-crop-shade.jpg */ 21) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Hello Moto</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 18) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/mtn.jpg */ 22) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Life in Utah</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 18) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Controls -->\n  <a class=\"left carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n</div>\n\n<div class=\"staffpicks\">\n  <div class=\"header\">\n    <h3 class=\"headerlabel\">Watch human-curated Staff Picks</h3>\n    <p class=\"viewchannel\"><span>View channel ></span></p>\n  </div>\n</div>\n\n<div class=\"videorow\">\n  <div class=\"leftinfobar\"><img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 23) + "\" alt=\"Staff Picks\">\n    <div class=\"leftinfotextcontainer\">\n      <h4>Vimeo Staff Picks</h4>\n      <p>We really love videos, and these are the videos we really, really love.</p>\n    </div>\n    <button class=\"follow\">+ Follow</button>\n  </div>\n    <div class=\"topvideocontainer\">\n      <div class=\"video\" id=\"embed\"></div>\n      <div class=\"video\"></div>\n      <div class=\"video\"></div>\n      <div class=\"video\"></div>\n      <div class=\"video\"></div>\n    </div>\n</div>\n";
-
-/***/ },
-/* 17 */
-/*!***********************************!*\
-  !*** ./public/images/nw-crop.jpg ***!
-  \***********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "5ff3c07c6dac22c66e91418b2a4643a9.jpg";
-
-/***/ },
-/* 18 */
-/*!************************************!*\
-  !*** ./public/images/playicon.png ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,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"
-
-/***/ },
-/* 19 */
-/*!*******************************!*\
-  !*** ./public/images/jk2.jpg ***!
-  \*******************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "9132e9cd34af95e65e83081754f70984.jpg";
-
-/***/ },
-/* 20 */
-/*!*******************************!*\
-  !*** ./public/images/lm2.jpg ***!
-  \*******************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "3296b3831b6d11e4d80798900bd67363.jpg";
-
-/***/ },
-/* 21 */
-/*!*******************************************!*\
-  !*** ./public/images/moto-crop-shade.jpg ***!
-  \*******************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "87f5afcc9ca014b720b55ed64b6a84a6.jpg";
-
-/***/ },
-/* 22 */
-/*!*******************************!*\
-  !*** ./public/images/mtn.jpg ***!
-  \*******************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "22e88596a65daf1defe15b238b2a8c5b.jpg";
-
-/***/ },
-/* 23 */
-/*!*************************************!*\
-  !*** ./public/images/staffpick.svg ***!
-  \*************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d4b904ef5c332e1ce73fc074c1d473cf.svg";
-
-/***/ },
-/* 24 */
-/*!********************************!*\
-  !*** ./src/views/welcome.html ***!
-  \********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n      <div class=\"usermenu\">\n        <div class=\"myfeed\"><span>My Feed</span></div>\n        <div class=\"myvideos\">My Videos</div>\n        <div class=\"trending\">Trending</div>\n        <div class=\"activity\">Activity</div>\n      </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a href=\"#\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <div class=\"feed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 23) + "\" alt=\"Staff Picks\">\n          <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n    <div class=\"feed\">\n      <div class=\"staffpickicon\">\n        <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 23) + "\" alt=\"Staff Picks\">\n        <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n      </div>\n      <div class=\"videocontent\">\n    </div>\n  </div>\n\n  <div class=\"welcomedescription\">\n    <div class=\"detailsbox\">\n      <div class=\"userinfo\">\n        {{user.photo}}\n        From: {{user.name}}\n        {{video.title}}\n        {{video.date}}\n      </div>\n  </div>\n    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n  </div>\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
-
-/***/ },
-/* 25 */
-/*!**********************************!*\
-  !*** ./src/views/favorites.html ***!
-  \**********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n      <div class=\"usermenu\">\n        <div class=\"myfeed\"><span>My Feed</span></div>\n        <div class=\"myvideos\">My Videos</div>\n        <div class=\"trending\">Trending</div>\n        <div class=\"activity\">Activity</div>\n      </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a href=\"#\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <h2 class=\"htwofavorites\">Favorites</h2>\n\n      <div class=\"feed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/heart.png */ 26) + "\" alt=\"Favorites\">\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n    <div class=\"feed\">\n      <div class=\"staffpickicon\">\n        <img src=\"" + __webpack_require__(/*! ../../public/images/heart.png */ 26) + "\" alt=\"Favorites\">\n      </div>\n      <div class=\"videocontent\">\n    </div>\n  </div>\n\n  <div class=\"welcomedescription\">\n    <div class=\"detailsbox\">\n      <div class=\"userinfo\">\n        {{user.photo}}\n        From: {{user.name}}\n        {{video.title}}\n        {{video.date}}\n      </div>\n  </div>\n    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n  </div>\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
-
-/***/ },
-/* 26 */
-/*!*********************************!*\
-  !*** ./public/images/heart.png ***!
-  \*********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "70960aaecaf5255e3bf141dc9af8b335.png";
-
-/***/ },
-/* 27 */
-/*!***********************************!*\
-  !*** ./src/views/loginerror.html ***!
-  \***********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div class=\"errorcontainer\">\n\n    <img src=\"" + __webpack_require__(/*! ../../public/images/robot.jpg */ 28) + "\" alt=\"Robot\" class=\"robot\">\n\n    <h1>Technical Difficulties</h1>\n\n    <p>The login information you provided is invalid. Please verify you have the correct username and password.</p>\n\n    <input type=\"text\" class=\"searchinput\" placeholder=\"Search videos, people, and more\">\n\n    <button class=\"searchbutton\">Search</button>\n\n</div>\n";
-
-/***/ },
-/* 28 */
-/*!*********************************!*\
-  !*** ./public/images/robot.jpg ***!
-  \*********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "e490f637191b96aed11a2e59177ee3c5.jpg";
-
-/***/ },
-/* 29 */
-/*!***************************************!*\
-  !*** ./src/views/recentlyviewed.html ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n      <div class=\"usermenu\">\n        <div class=\"myfeed\"><span>My Feed</span></div>\n        <div class=\"myvideos\">My Videos</div>\n        <div class=\"trending\">Trending</div>\n        <div class=\"activity\">Activity</div>\n      </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a ui-sref=\"favorites\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <h2 class=\"htwofavorites\">Recently Viewed</h2>\n\n      <div class=\"feed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 23) + "\" alt=\"Staff Picks\">\n          <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n    <div class=\"feed\">\n      <div class=\"staffpickicon\">\n        <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 23) + "\" alt=\"Staff Picks\">\n        <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n      </div>\n      <div class=\"videocontent\">\n    </div>\n  </div>\n\n  <div class=\"welcomedescription\">\n    <div class=\"detailsbox\">\n      <div class=\"userinfo\">\n        {{user.photo}}\n        From: {{user.name}}\n        {{video.title}}\n        {{video.date}}\n      </div>\n  </div>\n    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n  </div>\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
-
-/***/ },
-/* 30 */
-/*!*******************************!*\
-  !*** ./src/views/player.html ***!
-  \*******************************/
-/***/ function(module, exports) {
-
-	module.exports = "<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->\n<div class=\"playercontainer\">\n<!-- <iframe id=\"player\" type=\"text/html\" width=\"640\" height=\"390\"\n  src=\"https://youtu.be/nPWa8tdc6Ow\"\n  frameborder=\"0\"></iframe> -->\n  <iframe id=\"player\" type=\"text/html\" width=\"640\" height=\"390\" src=\"https://www.youtube.com/embed/nPWa8tdc6Ow\" frameborder=\"0\" allowfullscreen></iframe>\n</div>\n<div class=\"commentscontainer\">\n  <div class=\"comments\">\n    Hello\n  </div>\n</div>\n\n<script>\n  // 2. This code loads the IFrame Player API code asynchronously.\n  var tag = document.createElement('script');\n\n  tag.src = \"https://www.youtube.com/iframe_api\";\n  var firstScriptTag = document.getElementsByTagName('script')[0];\n  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);\n\n  // 3. This function creates an <iframe> (and YouTube player)\n  //    after the API code downloads.\n  var player;\n  function onYouTubeIframeAPIReady() {\n    player = new YT.Player('player', {\n      height: '390',\n      width: '640',\n      videoId: 'M7lc1UVf-VE',\n      events: {\n        'onReady': onPlayerReady,\n        'onStateChange': onPlayerStateChange\n      }\n    });\n  }\n\n  // 4. The API will call this function when the video player is ready.\n  function onPlayerReady(event) {\n    event.target.playVideo();\n  }\n\n  // 5. The API calls this function when the player's state changes.\n  //    The function indicates that when playing a video (state=1),\n  //    the player should play for six seconds and then stop.\n  var done = false;\n  function onPlayerStateChange(event) {\n    if (event.data == YT.PlayerState.PLAYING && !done)\n    // {\n    //   setTimeout(stopVideo, 6000);\n    //   done = true;\n    // }\n  }\n  function stopVideo() {\n    player.stopVideo();\n  }\n</script>\n";
-
-/***/ },
-/* 31 */
 /*!****************************!*\
   !*** ./~/angular/index.js ***!
   \****************************/
@@ -4581,11 +4451,11 @@
 
 	'use strict';
 	
-	__webpack_require__(/*! ./angular */ 32);
+	__webpack_require__(/*! ./angular */ 17);
 	module.exports = angular;
 
 /***/ },
-/* 32 */
+/* 17 */
 /*!******************************!*\
   !*** ./~/angular/angular.js ***!
   \******************************/
@@ -21282,7 +21152,7 @@
 	bindJQuery();publishExternalAPI(angular);angular.module("ngLocale",[],["$provide",function($provide){var PLURAL_CATEGORY={ZERO:"zero",ONE:"one",TWO:"two",FEW:"few",MANY:"many",OTHER:"other"};function getDecimals(n){n=n+'';var i=n.indexOf('.');return i==-1?0:n.length-i-1;}function getVF(n,opt_precision){var v=opt_precision;if(undefined===v){v=Math.min(getDecimals(n),3);}var base=Math.pow(10,v);var f=(n*base|0)%base;return{v:v,f:f};}$provide.value("$locale",{"DATETIME_FORMATS":{"AMPMS":["AM","PM"],"DAY":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"ERANAMES":["Before Christ","Anno Domini"],"ERAS":["BC","AD"],"FIRSTDAYOFWEEK":6,"MONTH":["January","February","March","April","May","June","July","August","September","October","November","December"],"SHORTDAY":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"SHORTMONTH":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"STANDALONEMONTH":["January","February","March","April","May","June","July","August","September","October","November","December"],"WEEKENDRANGE":[5,6],"fullDate":"EEEE, MMMM d, y","longDate":"MMMM d, y","medium":"MMM d, y h:mm:ss a","mediumDate":"MMM d, y","mediumTime":"h:mm:ss a","short":"M/d/yy h:mm a","shortDate":"M/d/yy","shortTime":"h:mm a"},"NUMBER_FORMATS":{"CURRENCY_SYM":"$","DECIMAL_SEP":".","GROUP_SEP":",","PATTERNS":[{"gSize":3,"lgSize":3,"maxFrac":3,"minFrac":0,"minInt":1,"negPre":"-","negSuf":"","posPre":"","posSuf":""},{"gSize":3,"lgSize":3,"maxFrac":2,"minFrac":2,"minInt":1,"negPre":'-\xA4',"negSuf":"","posPre":'\xA4',"posSuf":""}]},"id":"en-us","localeID":"en_US","pluralCat":function pluralCat(n,opt_precision){var i=n|0;var vf=getVF(n,opt_precision);if(i==1&&vf.v==0){return PLURAL_CATEGORY.ONE;}return PLURAL_CATEGORY.OTHER;}});}]);jqLite(window.document).ready(function(){angularInit(window.document,bootstrap);});})(window);!window.angular.$$csp().noInlineStyle&&window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 33 */
+/* 18 */
 /*!**********************************************************!*\
   !*** ./~/angular-ui-router/release/angular-ui-router.js ***!
   \**********************************************************/
@@ -23573,6 +23443,245 @@
 	 * @description
 	 * Translates to {@link ui.router.state.$state#methods_includes $state.includes('fullOrPartialStateName')}.
 	 */$IncludedByStateFilter.$inject=['$state'];function $IncludedByStateFilter($state){var includesFilter=function includesFilter(state,params,options){return $state.includes(state,params,options);};includesFilter.$stateful=true;return includesFilter;}angular.module('ui.router.state').filter('isState',$IsStateFilter).filter('includedByState',$IncludedByStateFilter);})(window,window.angular);
+
+/***/ },
+/* 19 */
+/*!*****************************!*\
+  !*** ./src/views/home.html ***!
+  \*****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div class=\"container-of-this-shit\">\n\n\n<div id=\"carousel-example-generic\" class=\"carousel slide\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"3\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"4\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <div class=\"item active item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/nw-crop.jpg */ 20) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Nick Wooster</h2>\n            <p>from <span>archinoid</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><a ui-sref=\"player\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></a></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/jk2.jpg */ 22) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Jester King</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\" ng-click=\"#\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/lm2.jpg */ 23) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>CHVRCHES</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/moto-crop-shade.jpg */ 24) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Hello Moto</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/mtn.jpg */ 25) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Life in Utah</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Controls -->\n  <a class=\"left carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n</div>\n\n<div class=\"staffpicks\">\n  <div class=\"header\">\n    <h3 class=\"headerlabel\">Watch human-curated Staff Picks</h3>\n    <p class=\"viewchannel\"><span>View channel ></span></p>\n  </div>\n</div>\n\n<div class=\"videorow\">\n  <div class=\"leftinfobar\"><img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n    <div class=\"leftinfotextcontainer\">\n      <h4>Vimeo Staff Picks</h4>\n      <p>We really love videos, and these are the videos we really, really love.</p>\n    </div>\n    <button class=\"follow\">+ Follow</button>\n  </div>\n    <div class=\"topvideocontainer\">\n      <div class=\"video\" id=\"embed\" ng-repeat=\"video in fiveVideos\">\n        <img ng-src=\"{{ video.pictures.sizes[1].link }}\" alt=\"\">\n      </div>\n    </div>\n</div>\n";
+
+/***/ },
+/* 20 */
+/*!***********************************!*\
+  !*** ./public/images/nw-crop.jpg ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "5ff3c07c6dac22c66e91418b2a4643a9.jpg";
+
+/***/ },
+/* 21 */
+/*!************************************!*\
+  !*** ./public/images/playicon.png ***!
+  \************************************/
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 22 */
+/*!*******************************!*\
+  !*** ./public/images/jk2.jpg ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9132e9cd34af95e65e83081754f70984.jpg";
+
+/***/ },
+/* 23 */
+/*!*******************************!*\
+  !*** ./public/images/lm2.jpg ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "3296b3831b6d11e4d80798900bd67363.jpg";
+
+/***/ },
+/* 24 */
+/*!*******************************************!*\
+  !*** ./public/images/moto-crop-shade.jpg ***!
+  \*******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "87f5afcc9ca014b720b55ed64b6a84a6.jpg";
+
+/***/ },
+/* 25 */
+/*!*******************************!*\
+  !*** ./public/images/mtn.jpg ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "22e88596a65daf1defe15b238b2a8c5b.jpg";
+
+/***/ },
+/* 26 */
+/*!*************************************!*\
+  !*** ./public/images/staffpick.svg ***!
+  \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d4b904ef5c332e1ce73fc074c1d473cf.svg";
+
+/***/ },
+/* 27 */
+/*!********************************!*\
+  !*** ./src/views/welcome.html ***!
+  \********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n      <div class=\"usermenu\">\n        <a ui-sref=\"favorites\"><div class=\"myfeed\"><span>Favorites</span></div></a>\n        <a ui-sref=\"recentlyviewed\"><div class=\"myvideos\" id=\"recentview\">Recently Viewed</div></a>\n        <a ui-sref=\"loginerror\"></a><div class=\"trending\">Trending</div></a>\n        <div class=\"activity\">Activity</div>\n      </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a href=\"#\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <div class=\"feed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n          <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n    <div class=\"feed\">\n      <div class=\"staffpickicon\">\n        <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n        <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n      </div>\n      <div class=\"videocontent\">\n    </div>\n  </div>\n\n  <div class=\"welcomedescription\">\n    <div class=\"detailsbox\">\n      <div class=\"userinfo\">\n        {{user.photo}}\n        From: {{user.name}}\n        {{video.title}}\n        {{video.date}}\n      </div>\n  </div>\n    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n  </div>\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
+
+/***/ },
+/* 28 */
+/*!**********************************!*\
+  !*** ./src/views/favorites.html ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n    <div class=\"usermenu\">\n      <a ui-sref=\"favorites\"><div class=\"myfeed\" id=\"favs\"><span>Favorites</span></div></a>\n      <a ui-sref=\"recentlyviewed\"><div class=\"myvideos\" id=\"recentview\">Recently Viewed</div></a>\n      <a ui-sref=\"loginerror\"></a><div class=\"trending\">Trending</div></a>\n      <div class=\"activity\">Activity</div>\n    </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a href=\"#\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <h2 class=\"htwofavorites\">Favorites</h2>\n\n      <div class=\"feed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/heart.png */ 29) + "\" alt=\"Favorites\">\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n    <div class=\"feed\">\n      <div class=\"staffpickicon\">\n        <img src=\"" + __webpack_require__(/*! ../../public/images/heart.png */ 29) + "\" alt=\"Favorites\">\n      </div>\n      <div class=\"videocontent\">\n    </div>\n  </div>\n\n  <div class=\"welcomedescription\">\n    <div class=\"detailsbox\">\n      <div class=\"userinfo\">\n        {{user.photo}}\n        From: {{user.name}}\n        {{video.title}}\n        {{video.date}}\n      </div>\n  </div>\n    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n  </div>\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
+
+/***/ },
+/* 29 */
+/*!*********************************!*\
+  !*** ./public/images/heart.png ***!
+  \*********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "70960aaecaf5255e3bf141dc9af8b335.png";
+
+/***/ },
+/* 30 */
+/*!***********************************!*\
+  !*** ./src/views/loginerror.html ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div class=\"errorcontainer\">\n\n    <img src=\"" + __webpack_require__(/*! ../../public/images/robot.jpg */ 31) + "\" alt=\"Robot\" class=\"robot\">\n\n    <h1>Technical Difficulties</h1>\n\n    <p>The login information you provided is invalid. Please verify you have the correct username and password.</p>\n\n    <input type=\"text\" class=\"searchinput\" placeholder=\"Search videos, people, and more\">\n\n    <button class=\"searchbutton\">Search</button>\n\n</div>\n";
+
+/***/ },
+/* 31 */
+/*!*********************************!*\
+  !*** ./public/images/robot.jpg ***!
+  \*********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "e490f637191b96aed11a2e59177ee3c5.jpg";
+
+/***/ },
+/* 32 */
+/*!***************************************!*\
+  !*** ./src/views/recentlyviewed.html ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n    <div class=\"usermenu\">\n      <a ui-sref=\"favorites\"><div class=\"myfeed\">Favorites</div></a>\n      <a ui-sref=\"recentlyviewed\"><div class=\"myvideos recentview\" id=\"favs\"><span>Recently Viewed</span></div></a>\n      <a ui-sref=\"loginerror\"></a><div class=\"trending\">Trending</div></a>\n      <div class=\"activity\">Activity</div>\n    </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a ui-sref=\"favorites\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <h2 class=\"htwofavorites\">Recently Viewed</h2>\n\n      <div class=\"feed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n          <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n    <div class=\"feed\">\n      <div class=\"staffpickicon\">\n        <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n        <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n      </div>\n      <div class=\"videocontent\">\n    </div>\n  </div>\n\n  <div class=\"welcomedescription\">\n    <div class=\"detailsbox\">\n      <div class=\"userinfo\">\n        {{user.photo}}\n        From: {{user.name}}\n        {{video.title}}\n        {{video.date}}\n      </div>\n  </div>\n    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n  </div>\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
+
+/***/ },
+/* 33 */
+/*!*******************************!*\
+  !*** ./src/views/player.html ***!
+  \*******************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"playercontainer\">\n    <iframe id=\"player\" src=\"https://player.vimeo.com/video/31163471\" width=\"640\" height=\"480\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n</div>\n\n<div class=\"commentscontainer\">\n  <div class=\"commentsleftmenu\">\n    <div class=\"videotitle\">\n        <h1><a href=\"https://vimeo.com/41048011\">Jake Davis Test Shots: Nick Wooster</a>.</h1>\n    </div>\n    <div class=\"comments\">\n      <p>\n        Tote bag farm-to-table affogato, bicycle rights marfa ennui vice 3 wolf moon mumblecore truffaut subway tile messenger bag. XOXO sriracha pinterest, beard bushwick pork belly mustache. IPhone flannel hella kogi bicycle rights. Single-origin coffee stumptown poke, plaid pop-up microdosing irony.</p>\n        <p>Bicycle rights truffaut chambray portland chartreuse before they sold out. Brooklyn XOXO banh mi pour-over, hammock keffiyeh williamsburg vape narwhal craft beer farm-to-table before they sold out irony. Irony mlkshk hell of, craft beer chillwave poutine vinyl glossier master cleanse meggings meditation.</p>\n      </p>\n    </div>\n    <div class=\"leaveacomment\">\n      <p class=\"commenttitle\">\n        Leave a comment:\n      </p>\n      <div class=\"commentinput\">\n              <textarea name=\"comment\" id=\"commenttext\" cols=\"85\" rows=\"3\" ng-model=\"comment\"></textarea>\n              <button class=\"commentbutton\" ng-click='postComment({comment})'>Submit</button>\n      </div>\n      <div class=\"scroll\" ng-repeat='review in reviews'>\n        <p><strong>Comment:</strong> {{comment.comment}}\n      </div>\n\n    </div>\n  </div>\n    <div class=\"commentsrightmenu\">\n      <div class=\"relatedvidstitle\">\n        Related Videos\n      </div>\n\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n      <div class=\"vidrow\">\n        <div class=\"videothumbnail\">\n        </div>\n        Video description and other things.\n      </div>\n    </div>\n</div>\n";
+
+/***/ },
+/* 34 */
+/*!**************************************!*\
+  !*** ./src/components/vidmeoCtrl.js ***!
+  \**************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	exports.default = function ($scope, $state, vidmeoService) {
+	
+	    vidmeoService.getHomeVideos().then(function (fiveVideos) {
+	        $scope.fiveVideos = fiveVideos;
+	    });
+	
+	    $scope.addVideoToFavorites = function (id) {
+	        vidmeoService.addVideoToFavorites(id).then(function (results) {
+	            return results;
+	        });
+	    };
+	
+	    $scope.addVideoToRecents = function (id) {
+	        vidmeoService.addVideoToRecents(id).then(function (results) {
+	            return results;
+	        });
+	    };
+	
+	    $scope.getRecentVids = function (id) {
+	        vidmeoService.getRecentVids(id).then(function (results) {
+	            return results;
+	        });
+	    };
+	
+	    $scope.getFavorites = function (id) {
+	        vidmeoService.getFavorites(id).then(function (results) {
+	            return results;
+	        });
+	    };
+	
+	    $scope.postComment = function (comment) {
+	        doSumService.postComment(comment);
+	    };
+	};
+
+/***/ },
+/* 35 */
+/*!***************************************!*\
+  !*** ./src/services/vidmeoService.js ***!
+  \***************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	exports.default = function ($http, $q) {
+	
+	    var baseUrl = "http://vimeo.com/api/v2/video/";
+	    var userURL = "https://api.vimeo.com/users";
+	
+	    //const getAllVideosURL = https://api.vimeo.com/videos;
+	    //by load date: https://api.vimeo.com/videos?per_page=5&filter=upload_date
+	
+	
+	    // const favoritesURL = https://api.vimeo.com/me/likes;
+	
+	
+	    this.getHomeVideos = function () {
+	        return $http({
+	            method: 'GET',
+	            url: '/api/videos/fivestaffpicks'
+	        }).then(function (response) {
+	            console.log(response);
+	            return response.data.data;
+	        });
+	    };
+	
+	    this.addVideoToFavorites = function (id) {
+	        $http.post("http://localhost:4000/api/favorites" + id).then(function (response) {
+	            console.log(response);
+	            return response;
+	        });
+	    };
+	
+	    //const recentlyviewedURL = https://api.vimeo.com/me/watched/videos;
+	
+	    this.addVideoToRecents = function (id) {
+	        $http.post("http://localhost:4000/api/recentlyviewed" + id).then(function (response) {
+	            console.log(response);
+	            return response;
+	        });
+	    };
+	
+	    this.postMessage = function (comment) {
+	        comments.unshift(comment);
+	    };
+	};
 
 /***/ }
 /******/ ]);

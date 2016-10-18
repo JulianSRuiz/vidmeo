@@ -1,14 +1,7 @@
 const Favorites = require("./Favorites");
+const User = require("../users/User");
 
 module.exports = {
-    postFavorites(req, res) {
-        new Favorites(req.body).save((err, favorites) => {
-            if (err) {
-                return res.status(500).json(err);
-            }
-            return res.status(201).json(favorites);
-        });
-    },
     getFavorites(req, res) {
       Favorites
         .find()
@@ -21,7 +14,7 @@ module.exports = {
         });
     },
     addVideoToFavorites(req, res) {
-        Favorites.findByIdAndUpdate(req.params.id, {
+        User.findByIdAndUpdate(req.params.id, {
             $push: {
                 favorite: req.body.favoriteId
             }

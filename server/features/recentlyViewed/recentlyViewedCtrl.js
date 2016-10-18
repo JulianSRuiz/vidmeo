@@ -1,16 +1,9 @@
 const Recents = require("./RecentlyViewed");
+const User = require('../users/User');
 
 module.exports = {
-    postRecentVids(req, res) {
-        new Recents(req.body).save((err, recents) => {
-            if (err) {
-                return res.status(500).json(err);
-            }
-            return res.status(201).json(recents);
-        });
-    },
     getRecentVids(req, res) {
-      RecentlyViewed
+      Recents
         .find()
         .populate("videos")
         .exec((err, recents) => {
@@ -21,7 +14,7 @@ module.exports = {
         });
     },
     addVideoToRecents(req, res) {
-        RecentlyViewed.findByIdAndUpdate(req.params.id, {
+        User.findByIdAndUpdate(req.params.id, {
             $push: {
                 recent: req.body.recentId
             }

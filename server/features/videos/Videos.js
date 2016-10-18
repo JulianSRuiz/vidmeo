@@ -7,3 +7,5 @@ const Video = new mongoose.Schema({
   tags: {String},
 
 })
+
+module.exports = mongoose.model("Video", Video);
