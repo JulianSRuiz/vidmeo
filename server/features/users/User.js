@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
 import {Schema} from "mongoose";
-import findOrCreate from "mongoose-findorcreate";
 
 const User = new Schema({
-  googleID: {type: String, required: true, unique: true},
+  vimeoID: {type: String, required: true, unique: true},
   displayName: {type: String, required: true},
-  name: [],
+  username: [],
   recents: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Recents"
@@ -16,6 +15,6 @@ const User = new Schema({
     }]
 });
 
-User.plugin(findOrCreate);
+// User.plugin(findOrCreate);
 
 module.exports = mongoose.model("User", User);

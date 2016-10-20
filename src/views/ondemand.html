@@ -1,0 +1,48 @@
+<div class="trendingcontainer">
+
+
+    <div class="feedcontainer">
+
+        <div class="feed-left-container">
+
+
+            <div class="feed">
+                <div class="trendingvideos" ng-repeat="video in ondemand">
+                    <a href="{{video.link}}">
+                        <img ng-src="{{video.pictures.sizes[3].link}}" alt="">
+                    <div class="detailsbox">
+                        <strong class="trendingvideoname">{{video.name}}</strong>
+                    </a>
+                        <br>
+                        from <strong>{{video.user.name}}</strong>
+                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}
+                        <br> {{video.description}}...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="feed-right-container">
+            <div class="recentactivity">
+
+                <div class="explore">
+                    EXPLORE VIDMEO
+                </div>
+                <ul>
+                    <li class="trendingexploretitles">Vidmeo On Demand</li>
+                    <p>Purchase online films, series, and videos or sell your own.</p>
+                    <li class="trendingexploretitles">Staff Picks</li>
+                    <p>A fantastic array of videos hand-picked by us.</p>
+                    <li class="trendingexploretitles">Channels</li>
+                    <p>Showcase and watch videos in simple, beautiful ways.</p>
+                    <li class="trendingexploretitles">Categories</li>
+                    <p>Find the things on Vidmeo that interest you.</p>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,98 +1,85 @@
-
 <div class="welcomecontainer">
 
-  <h1 class="welcometag">Welcome home, {{user.name}}</h1>
+    <h1 class="welcometag">Welcome home, {{user.username}}</h1>
 
-  <div class="feedcontainer">
+    <div class="feedcontainer">
 
-  <div class="feed-left-container">
+        <div class="feed-left-container">
 
-      <div class="usermenu">
-        <a ui-sref="favorites"><div class="myfeed"><span>Favorites</span></div></a>
-        <a ui-sref="recentlyviewed"><div class="myvideos" id="recentview">Recently Viewed</div></a>
-        <a ui-sref="loginerror"></a><div class="trending">Trending</div></a>
-        <div class="activity">Activity</div>
-      </div>
+            <div class="usermenu">
+                <a ui-sref="welcome">
+                    <div class="myfeed highlight"><span>Feed</span></div>
+                </a>
+                <a ui-sref="favorites">
+                    <div class="myfeed">Favorites</div>
+                </a>
+                <a ui-sref="recentlyviewed">
+                    <div class="myvideos">Recently Viewed</div>
+                </a>
+                <a ui-sref="ondemand">
+                    <div class="ondemand">On Demand</div>
+                </a>
+            </div>
 
-      <div class="appearancelinks">
-        Show:
-        <a href="#">All</a>|
-        <a href="#">Likes</a>|
-        <a href="#">Uploads</a>|
-        <a href="#">Appearances</a>|
-        <a href="#">Channels</a>|
-        <a href="#">Groups</a>|
-        <a href="#">Tags</a>|
-        <a href="#">Categories</a>
-      </div>
+            <div class="appearancelinks">
+                Show:
+                <a href="#">All</a>|
+                <a href="#">Likes</a>|
+                <a href="#">Uploads</a>|
+                <a href="#">Appearances</a>|
+                <a href="#">Channels</a>|
+                <a href="#">Groups</a>|
+                <a href="#">Tags</a>|
+                <a href="#">Categories</a>
+            </div>
 
-      <div class="feed">
-        <div class="staffpickicon">
-          <img src="../../public/images/staffpick.svg" alt="Staff Picks">
-          <div class="feed-left-icon"><span class="addedto">Added to</span> Vidmeo Staff Picks</div>
+            <div class="welcomefeed" ng-repeat="video in welcomevideos">
+                <div class="staffpickicon">
+                    <img src="../../public/images/staffpick.svg" alt="Staff Picks">
+                    <div class="feed-left-icon"><span class="addedto">Added to</span> Vidmeo Staff Picks</div>
+                </div>
+                <div class="welcomedesc">
+                    <a href="{{video.link}}">
+                        <img id="welcomeimg" ng-src="{{video.pictures.sizes[3].link}}" alt="">
+                        <br>
+                    <div class="welcomedescription">
+          <strong class="trendingvideoname">{{video.name}}</strong>
+                    </a>
+                      <br>
+                        from {{video.user.name}}
+                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}
+                        <br> {{video.description}}
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="videocontent">
-      </div>
-    </div>
 
-    <div class="welcomedescription">
-      <div class="detailsbox">
-        <div class="userinfo">
-          {{user.photo}}
-          From: {{user.name}}
-          {{video.title}}
-          {{video.date}}
-        </div>
-    </div>
-      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.
-    </div>
-
-    <div class="feed">
-      <div class="staffpickicon">
-        <img src="../../public/images/staffpick.svg" alt="Staff Picks">
-        <div class="feed-left-icon"><span class="addedto">Added to</span> Vidmeo Staff Picks</div>
-      </div>
-      <div class="videocontent">
-    </div>
-  </div>
-
-  <div class="welcomedescription">
-    <div class="detailsbox">
-      <div class="userinfo">
-        {{user.photo}}
-        From: {{user.name}}
-        {{video.title}}
-        {{video.date}}
-      </div>
-  </div>
-    Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.
-  </div>
-  </div>
 
     <div class="feed-right-container">
-      <div class="recentactivity">
+        <div class="recentactivity">
 
-        <div class="mypeoplebar">
-          MY PEOPLE
-        </div>
-          <p>You do not currently have friends online.</p>
+            <div class="mypeoplebar">
+                MY PEOPLE
+            </div>
+            <p>You do not currently have friends online.</p>
 
-        <div class="explore">
-          EXPLORE VIDMEO
-        </div>
+            <div class="explore">
+                EXPLORE VIDMEO
+            </div>
             <ul>
-              <li class="exploretitles">Vidmeo On Demand</li>
+                <li class="exploretitles">Vidmeo On Demand</li>
                 <p>Purchase online films, series, and videos or sell your own.</p>
-              <li class="exploretitles">Staff Picks</li>
+                <li class="exploretitles">Staff Picks</li>
                 <p>A fantastic array of videos hand-picked by us.</p>
-              <li class="exploretitles">Channels</li>
+                <li class="exploretitles">Channels</li>
                 <p>Showcase and watch videos in simple, beautiful ways.</p>
-              <li class="exploretitles">Categories</li>
+                <li class="exploretitles">Categories</li>
                 <p>Find the things on Vidmeo that interest you.</p>
             </ul>
 
 
-      </div>
+        </div>
     </div>
 
   </div>

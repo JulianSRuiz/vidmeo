@@ -20,27 +20,24 @@
             <div id="writtenlogo">vidmeo</div>
         </a>
         <div>
-            <a href="http://localhost:4000/auth/vimeo">
+            <a href="http://localhost:4000/auth/vimeo" ng-click="orderReverse = orderReverse ? false : true">
                 <button id="join">Sign in</button>
             </a>
         </div>
-        <div class="navbarlinks categories">Categories <img src="./images/dropdown-arrow.png" alt="Categories"></div>
-        <div class="dropdowncontent">
-            <a href="#">Browse All</a>
-            <a href="#">Channels</a>
-        </div>
 
-        <div class="navbarlinks trending">Trending <img src="./images/dropdown-arrow.png" alt="Trending"></div>
-        <div class="dropdowncontent">
-            <a href="#">Staff Picks</a>
-        </div>
 
-        <div class="navbarlinks ondemand">On Demand <img src="./images/dropdown-arrow.png" alt="On Demand"></div>
-        <div class="dropdowncontent">
-            <a href="#">What's New</a>
-            <a href="#">Discover</a>
-            <a href="#">Genres</a>
-        </div>
+        <a ui-sref="trending">
+          <div class="navbarlinks trending">
+            Trending
+          </div>
+        </a>
+
+        <a ui-sref="ondemand">
+          <div class="navbarlinks">
+            On Demand
+          </div>
+        </a>
+
 
         <div class="blanknavspace navbarlinks"></div>
         <input type="text" class="input navbarlinks" placeholder="Search videos, people, and more"><img src="./images/search-icon.png" alt="Search" id="searchicon">

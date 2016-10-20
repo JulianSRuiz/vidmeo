@@ -16,10 +16,24 @@ module.exports = {
           return res.status(200).json(videos);
         });
     },
+    
+    getWelcomeVideos: function(req, res) {
+      axios({
+        method: 'GET',
+        url: "https://api.vimeo.com/videos?per_page=10&query=4k&sort=likes&direction=desc",
+        headers: {
+          'Authorization': 'Bearer ' + config.vimeo.access_token
+        }
+      })
+      .then(function(videos) {
+        return res.status(200).json(videos.data)
+      });
+    },
+
     getFiveVideos: function( req, res ) {
       axios({
         method: 'GET',
-        url: 'https://api.vimeo.com/categories/experimental/videos?per_page=5',
+        url: 'https://api.vimeo.com/categories/documentary/videos?per_page=5',
         headers: {
           'Authorization': 'Bearer ' + config.vimeo.access_token
         }
@@ -29,5 +43,45 @@ module.exports = {
           return res.status( 200 ).json( videos.data )
 
         } );
+    },
+
+    getTenVideos: function(req, res) {
+      axios({
+        method: 'GET',
+        url: "https://api.vimeo.com/videos?per_page=5&query=nick wooster",
+        headers: {
+          'Authorization': 'Bearer ' + config.vimeo.access_token
+        }
+      })
+      .then (function(videos) {
+        return res.status(200).json(videos.data)
+      })
+    },
+
+    getOnDemandVids: function(req, res) {
+      axios({
+        method: 'GET',
+        url: "https://api.vimeo.com/videos?per_page=5&query=various&sort=likes&direction=desc",
+        headers: {
+          'Authorization': 'Bearer ' + config.vimeo.access_token
+        }
+      })
+      .then (function(videos) {
+        return res.status(200).json(videos.data)
+      })
+    },
+
+    getTrendingVids: function(req, res) {
+      axios({
+        method: 'GET',
+        url: "https://api.vimeo.com/videos?per_page=5&filter=trending",
+        headers: {
+          'Authorization': 'Bearer ' + config.vimeo.access_token
+        }
+      })
+      .then (function(videos) {
+        return res.status(200).json(videos.data)
+      })
     }
+
 };

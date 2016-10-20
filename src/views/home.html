@@ -105,7 +105,17 @@
   </div>
     <div class="topvideocontainer">
       <div class="video" id="embed" ng-repeat="video in fiveVideos">
-        <img ng-src="{{ video.pictures.sizes[1].link }}" alt="">
+        <a href="{{video.link}}">
+          <img ng-src="{{ video.pictures.sizes[1].link_with_play_button}}" alt="">
+        </a>
+        <a href="{{video.link}}">
+          <strong class="videoname">{{video.name}}</strong>
+        </a>
+          <br>
+          {{video.user.name}} | Plays: {{video.stats.plays}}
+          <br>
+          <a href="{{video.link}}">Watch now</a>
       </div>
     </div>
+
 </div>

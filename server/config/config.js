@@ -28,8 +28,18 @@ module.exports = {
     clientSecret: "aoVM2Chp6SjpIrQxZA8c6HTyZ46LhCzRSoejLO7xpTcj5gYiTQpOVVfGsdVRAhYI2NnOCbmB08n0IxWedYSBOKjG/tGJgdSeEFLNjMWT8LTbMnMK43gkU6Zr9RwSxV+z",
     authorizeURL: "https://api.vimeo.com/oauth/authorize",
     accessTokenURL: "https://api.vimeo.com/oauth/access_token",
-    callbackURL: "http://localhost:4000/#/welcome",
-    access_token: "ac540bb21165263a96039149d2259489"
+    callbackURL: "http://localhost:4000/welcome",
+    access_token: "1fc5456280cc99874ca4ed7ba0fdc21b"
+    // access_token: "ac540bb21165263a96039149d2259489"
+  },
+  vidmeoLogin: {
+    clientID: "e943d9ee11df699130e243e91faf35a507dc595e",
+    clientSecret: "xavT4wrR0D+TsLfq811jw0I2G8dWbctawXgGkLIlgfpkxT6b8cCQ3/Wbnt5GUytHB4bqsPgN7ZiH6asHdj4RVtciU+fb+NtT4mqWkswMmrN69Zp5yOgIeXNnWqgFX9kw",
+    authorizeURL: "https://api.vimeo.com/oauth/authorize",
+    accessTokenURL: "https://api.vimeo.com/oauth/access_token",
+    callbackURL: "http://localhost:4000/welcome",
+    access_token: "9bd31eab9fc27ece6fb1331cada41585"
+    // access_token: "ac540bb21165263a96039149d2259489"
   }
 
 };

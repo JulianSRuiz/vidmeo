@@ -102,10 +102,10 @@ button {
 }
 
 .navbarlinks {
-  margin-left: 13px;
+  margin-left: 14px;
   align-items: center;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 50px;
   white-space: nowrap;
   display: block;
   color: #657987;
@@ -143,7 +143,7 @@ button {
 }
 
 .blanknavspace {
-  width: 310px;
+  width: 410px;
 }
 
 .input {
@@ -161,6 +161,11 @@ button {
 }
 
 /*HomeHTML............................................*/
+
+.container-of-this-shit{
+  max-width: 1280px;
+  margin: 0 auto;
+}
 
 .scrolling_images {
   height: 400px;
@@ -193,29 +198,6 @@ div.item-1 {
   height: 400px;
   width: auto;
 }
-.container-of-this-shit{
-  max-width: 1280px;
-  margin: 0 auto;
-}
-/*div.item-2 {
-  background: url("http://localhost:4000/images/moto-crop-shade.jpg");
-  background-size: cover;
-}
-
-div.item-3 {
-  background: url("http://localhost:4000/images/lm2.jpg");
-  background-size: cover;
-}
-
-div.item-4 {
-  background: url("http://localhost:4000/images/jk2.jpg");
-  background-size: cover;
-}
-
-div.item-5 {
-  background: url("http://localhost:4000/images/mtn.jpg");
-  background-size: cover;
-}*/
 
 .glyphicon {
   color: white;
@@ -277,7 +259,6 @@ span {
 .leftinfobar {
   width: 235px;
   height: 400px;
-  position: relative;
   z-index: 100;
   background-color: white;
   padding: 5px 0;
@@ -308,22 +289,26 @@ span {
 
 .topvideocontainer {
   width: 100%;
-  /*background-color: lightgray;*/
   display: flex;
 }
-
-/*.bottomvideocontainer {
-  width: 100%;
-  background-color: lightgray;
-  display: flex;
-}*/
 
 .video {
   margin-left: 15px;
   width: 200px;
   height: 150px;
+  font-size: 12px;
   justify-content: space-around;
 }
+
+.video img {
+  margin-bottom: 7px;
+}
+
+.videoname:hover {
+  color: #248BC7;
+}
+
+
 
 /*footer.................................................*/
 
@@ -411,7 +396,7 @@ footer {
   display: flex;
 }
 
-.feed {
+.welcomefeed {
   display: flex;
   padding-top: 20px;
 }
@@ -431,24 +416,19 @@ footer {
 }
 
 .usermenu div {
-  width: 126px;
   height: 30px;
   font-size: 16px;
   font-weight: 700px;
   vertical-align: middle;
   text-align: center;
-  margin-top: 5px;
-  padding-top: 5px;
+  margin-top: 15px;
+  padding: 0 20px;
   color: black;
   text-decoration: none;
 }
 
-#favs {
+.highlight {
   background-color: white;
-}
-
-.recentview {
-  width: 140px;
 }
 
 .usermenu div:hover {
@@ -497,6 +477,10 @@ footer {
   color: #f7b42c;
 }
 
+#welcomeimg {
+  width: 533px;
+}
+
 .videocontent {
   width: 536px;
   height: 300px;
@@ -504,17 +488,16 @@ footer {
 }
 
 .welcomedescription {
-  width: 519px;
-  height: 100px;
+  width: 533px;
+  height: 105px;
   border: 1px solid #E6E7E8;
   border-bottom: 3px solid #E6E7E8;
-  margin-left: 111px;
   margin-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 15px;
+  padding: 12px;
   vertical-align: middle;
   background-color: #EEF1F2;
   color: #74797D;
+  overflow: hidden;
 }
 
 .feed-right-container {
@@ -566,7 +549,7 @@ footer {
   border-top: 1px solid #E6E7E8;
 }
 
-explore p {
+.explore p {
   color: #74797D;
   padding-botom: 10px;
 }
@@ -603,13 +586,23 @@ explore p {
 .videotitle {
   height: 110px;
   width: 100%;
-  padding: 0 20px
+  padding: 0 30px
 }
 
 .videotitle a {
   color: #40545C;
   font-weight: 700;
   text-decoration: none;
+}
+
+.followbutton {
+  padding: 9px 13px;
+  background-color: white;
+  border: 1px solid #00ABED;
+  color: #00ABED;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .leaveacomment {
@@ -620,23 +613,23 @@ explore p {
 }
 
 .comments {
-  width: 915px;
-  height: 210px;
-  background-color: #E6E7E8;
+  max-width: 1280px;
+  height: 175px;
+  background-color: #F4F6F6;
   border: 1px solid lightgray;
   border-right: 0;
-  padding: 15px 20px;
+  padding: 15px 30px;
   color: #4E5A5E;
   font-size: 1.15em;
   line-height: 1.5;
 }
 
 .commentsrightmenu {
-  width: 365px;
+  min-width: 290px;
   border-left: 1px solid lightgray;
   padding: 20px;
   color: #4E5A5E;
-  background-color: #E6E7E8;
+  background-color: #F4F6F6;
   font-size: 1.15em;
   font-weight: 700;
   line-height: 1.5;
@@ -650,9 +643,9 @@ explore p {
 }
 
 .vidrow {
-  display: flex;
   font-weight: 400;
   padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 .videothumbnail {
@@ -660,4 +653,183 @@ explore p {
   height: 96px;
   background-color: black;
   margin-right: 10px;
+}
+
+/*onDemand Page.............................................*/
+.ondemandcontainer {
+  max-width: 1280px;
+  padding: 30px;
+}
+
+.ondemand {
+  margin-bottom: 40px;
+  align-items: center;
+  vertical-align: middle;
+}
+
+
+/*Trending Page.............................................*/
+.welcometag {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.feedcontainer {
+  color: #657987;
+  display: flex;
+}
+
+.feed {
+  display: block;
+  padding-top: 20px;
+}
+
+.feed-left-container {
+  width: 640px;
+  margin-right: 30px;
+}
+
+.usermenu {
+  width: 640px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  background-color: #EEF1F2;
+}
+
+.usermenu div {
+  height: 30px;
+  font-size: 16px;
+  font-weight: 700px;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 5px;
+  padding-top: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+#favs {
+  background-color: white;
+}
+
+
+.usermenu div:hover {
+  color: #00ABED;
+}
+
+.appearancelinks {
+  height: 30px;
+  font-size: 13px;
+  align-items: center;
+  background-color: white;
+  display: flex;
+  padding-left: 10px;
+  padding-top: 3px;
+}
+
+.appearancelinks a {
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+}
+
+.appearancelinks a:hover {
+  color: #00ABED;
+}
+
+.addedto {
+  color: #f7b42c;
+}
+
+.trendingcontainer {
+  width: 100%;
+  padding: 20px 160px;
+  background-color: #181C1F;
+}
+
+.trendingvideos {
+  margin-bottom: 40px;
+  align-items: center;
+  vertical-align: middle;
+  width: 640px;
+  border-bottom: 3px solid #E6E7E8;
+  background-color: #EEF1F2;
+  color: #74797D;
+}
+
+.trendingvideoname {
+  color: #181C1F;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.trendingvideoname:hover {
+  color: #00ABED;
+}
+
+.detailsbox {
+  width: 640px;
+  height: 100px;
+  padding: 12px 12px;
+  overflow: hidden;
+}
+
+.feed-right-container {
+  width: 300px;
+  height: 700px;
+}
+
+.feed-right-container ul {
+  margin-left: -40px;
+}
+
+.mypeoplebar {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+  background-color: #daf1ff;
+  color: #4bf;
+  font-weight: 700;
+  line-height: 1.2em;
+  border-left: 5px solid #bce6ff;
+  border-radius: 0;
+}
+
+.recentactivity p {
+  padding-left: 5px;
+}
+
+.explore {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+  background-color: #fdf0d5;
+  color: #f7b42c;
+  font-weight: 700;
+  line-height: 1.2em;
+  border-left: 5px solid #fce4b3;
+  border-radius: 0;
+}
+
+.trendingexploretitles {
+  font-size: 18px;
+  font-weight: 700;
+  list-style-type: none;
+  color: white;
+  padding-top: 15px;
+  padding-right: 10px;
+  border-top: 1px solid #E6E7E8;
+}
+
+.explore p {
+  color: #74797D;
+  padding-botom: 10px;
 }

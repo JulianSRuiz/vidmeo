@@ -3,84 +3,49 @@
 </div>
 
 <div class="commentscontainer">
-  <div class="commentsleftmenu">
-    <div class="videotitle">
-        <h1><a href="https://vimeo.com/41048011">Jake Davis Test Shots: Nick Wooster</a>.</h1>
-    </div>
-    <div class="comments">
-      <p>
-        Tote bag farm-to-table affogato, bicycle rights marfa ennui vice 3 wolf moon mumblecore truffaut subway tile messenger bag. XOXO sriracha pinterest, beard bushwick pork belly mustache. IPhone flannel hella kogi bicycle rights. Single-origin coffee stumptown poke, plaid pop-up microdosing irony.</p>
-        <p>Bicycle rights truffaut chambray portland chartreuse before they sold out. Brooklyn XOXO banh mi pour-over, hammock keffiyeh williamsburg vape narwhal craft beer farm-to-table before they sold out irony. Irony mlkshk hell of, craft beer chillwave poutine vinyl glossier master cleanse meggings meditation.</p>
-      </p>
-    </div>
-    <div class="leaveacomment">
-      <p class="commenttitle">
-        Leave a comment:
-      </p>
-      <div class="commentinput">
-              <textarea name="comment" id="commenttext" cols="85" rows="3" ng-model="comment"></textarea>
-              <button class="commentbutton" ng-click='postComment({comment})'>Submit</button>
-      </div>
-      <div class="scroll" ng-repeat='review in reviews'>
-        <p><strong>Comment:</strong> {{comment.comment}}
-      </div>
+    <div class="commentsleftmenu">
+        <div class="videotitle">
+            <h1><a href="https://vimeo.com/41048011">Jake Davis Test Shots: Nick Wooster</a>.</h1>
+            from <strong><span>Matt Barnes</span></strong> | 5 years ago
+            <button class="followbutton">+ Follow</button>
+        </div>
+        <div class="comments">
+            <p>
+              Papi shot this nice lil BTS of our photoshoot in with Nick Wooster.
+              <br>
+              <br>
+              Location-The Palmer Trading Co. SoHo NY
+              <br>
+              <br>
+              Soundtrack-Shoppin' for Clothes by The Coasters
+            </p>
+        </div>
+        <div class="leaveacomment">
+            <p class="commenttitle">
+                Leave a comment:
+            </p>
+            <div class="commentinput">
+                <textarea name="comment" id="commenttext" cols="85" rows="3" ng-model="comment"></textarea>
+                <button class="commentbutton" ng-click='postComment({comment})'>Submit</button>
+            </div>
+            <div class="scroll" ng-repeat='review in reviews'>
+                <p><strong>Comment:</strong> {{comment.comment}}
+            </div>
 
+        </div>
     </div>
-  </div>
     <div class="commentsrightmenu">
-      <div class="relatedvidstitle">
-        Related Videos
-      </div>
+        <div class="relatedvidstitle">
+            Related Videos
+        </div>
 
-      <div class="vidrow">
-        <div class="videothumbnail">
+        <div class="vidrow" ng-repeat="video in tenVideos">
+            <a href="{{video.link}}">
+              <img ng-src="{{video.pictures.sizes[1].link_with_play_button}}" alt="">
+            </a>
+              <br>
+                <strong>{{video.name}}</strong>
+                <br>
+                <a href="{{video.link}}">Watch now</a>
         </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
-      <div class="vidrow">
-        <div class="videothumbnail">
-        </div>
-        Video description and other things.
-      </div>
     </div>
-</div>

@@ -6,40 +6,54 @@ export default function($scope, $state, vidmeoService) {
           $scope.fiveVideos = fiveVideos;
         } );
 
+      vidmeoService.getWelcomeVideos()
+        .then(function(welcomevideos) {
+          $scope.welcomevideos = welcomevideos;
+        });
+
+      vidmeoService.getTenVideos()
+        .then(function(tenVideos) {
+          $scope.tenVideos = tenVideos;
+        });
+
+      vidmeoService.getOnDemandVids()
+        .then(function(ondemand) {
+          $scope.ondemand = ondemand;
+        })
+
+      vidmeoService.getTrendingVids()
+        .then(function(trending) {
+          $scope.trending = trending;
+        })
 
 
-
-        $scope.addVideoToFavorites = function(id) {
-            vidmeoService.addVideoToFavorites(id)
-                .then(results => {
-                    return results;
-                })
-        };
-
-        $scope.addVideoToRecents = function(id) {
-            vidmeoService.addVideoToRecents(id)
-                .then(results => {
-                    return results;
-                })
-        };
-
-        $scope.getRecentVids = function(id) {
-            vidmeoService.getRecentVids(id)
-              .then(results => {
-                  return results;
-                })
-        };
-
-        $scope.getFavorites = function(id) {
-            vidmeoService.getFavorites(id)
-                .then(results => {
-                    return results;
-                })
-        };
-
-
-        $scope.postComment = function(comment) {
-            doSumService.postComment(comment)
-            };
+      // vidmeoService.addVideoToFavorites(id)
+      //           .then(results => {
+      //               return results;
+      //           });
+      //
+      //
+      // vidmeoService.addVideoToRecents(id)
+      //           .then(results => {
+      //               return results;
+      //           });
+      //
+      //
+      // vidmeoService.getRecentVids(id)
+      //         .then(results => {
+      //             return results;
+      //           })
+      //
+      //
+      //
+      // vidmeoService.getFavorites(id)
+      //           .then(results => {
+      //               return results;
+      //           })
+      //
+      //
+      //   $scope.postComment = function(comment) {
+      //       vidmeoService.postComment(comment)
+      //       };
 
 }

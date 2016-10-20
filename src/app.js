@@ -14,6 +14,8 @@ import favoritesHTML from "./views/favorites.html";
 import loginerrorHTML from "./views/loginerror.html";
 import recentlyViewedHTML from "./views/recentlyviewed.html";
 import playerHTML from "./views/player.html";
+import onDemandHTML from "./views/ondemand.html";
+import trendingHTML from "./views/trending.html";
 
 import vidmeoCtrl from './components/vidmeoCtrl';
 import vidmeoService from './services/vidmeoService.js';
@@ -29,7 +31,10 @@ angular.module("vidmeoApp", [uiRouter])
             })
             .state("welcome", {
                 url: '/welcome',
-                template: welcomeHTML
+                template: welcomeHTML,
+                controller(vidmeoService){
+                  vidmeoService.getUser().then(results => results.data = vidmeoService.user )
+                }
             })
             .state("favorites", {
                 url: "/favorites",
@@ -46,6 +51,14 @@ angular.module("vidmeoApp", [uiRouter])
             .state("player", {
                 url: "/player",
                 template: playerHTML
+            })
+            .state("trending", {
+                url: "/trending",
+                template: trendingHTML
+            })
+            .state("ondemand", {
+                url: "/ondemand",
+                template: onDemandHTML
             });
 
         $urlRouterProvider.otherwise('/');
