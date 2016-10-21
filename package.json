@@ -6,6 +6,9 @@
   "scripts": {
     "start": "concurrently 'webpack -w -d' 'nodemon index.js --exec babel-node --presets es2015' "
   },
+  "engines": {
+    "node": "^6.3.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

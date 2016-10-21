@@ -41,5 +41,4 @@ module.exports = {
     access_token: "9bd31eab9fc27ece6fb1331cada41585"
     // access_token: "ac540bb21165263a96039149d2259489"
   }
-
 };
