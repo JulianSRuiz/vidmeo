@@ -1,5 +1,8 @@
 <div class="playercontainer">
-    <iframe id="player" src="https://player.vimeo.com/video/31163471" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <iframe id="player" ng-src="{{pc.video}}"
+     width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 </div>
 
 <div class="commentscontainer">
@@ -26,7 +29,7 @@
             </p>
             <div class="commentinput">
                 <textarea name="comment" id="commenttext" cols="85" rows="3" ng-model="comment"></textarea>
-                <button class="commentbutton" ng-click='postComment({comment})'>Submit</button>
+                <button class="commentbutton" ng-click='postComment({comment})'>Add Comment</button>
             </div>
             <div class="scroll" ng-repeat='review in reviews'>
                 <p><strong>Comment:</strong> {{comment.comment}}

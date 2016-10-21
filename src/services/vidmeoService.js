@@ -57,27 +57,47 @@ export default function($http, $q) {
         }
 
         this.addVideoToFavorites = function(id) {
-            $http.post("http://localhost:4000/api/favorites" + id)
+            return $http({
+              method: 'PUT',
+              url: '/api/videos/favorites'
+            })
                 .then(function(response) {
-                    return response;
+                    return response.data.data;
                 })
         }
 
-        //const recentlyviewedURL = https://api.vimeo.com/me/watched/videos;
+        this.getFavoriteVideos = function(id) {
+            return $http({
+              method: 'GET',
+              url: '/api/videos/favorites'
+            })
+                .then(function(response) {
+                    return response.data.data;
+                })
+        }
 
         this.addVideoToRecents = function(id) {
-            $http.post("http://localhost:4000/api/recentlyviewed" + id)
-                .then(function(response) {
-                    return response;
-                })
-        }
+          return $http({
+            method: 'PUT',
+            url: '/api/videos/recents'
+          })
+              .then(function(response) {
+                  return response.data.data;
+              })
+      }
+
+      this.getRecentVideos = function(id) {
+          return $http({
+            method: 'GET',
+            url: '/api/videos/recents'
+          })
+              .then(function(response) {
+                  return response.data.data;
+              })
+      }
 
         this.postMessage = function(comment) {
           comments.unshift(comment);
         }
-
-
-
-
 
     }

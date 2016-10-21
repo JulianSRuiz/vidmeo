@@ -1,6 +1,6 @@
 <div class="welcomecontainer">
 
-    <h1 class="welcometag">Welcome home, {{user.username}}</h1>
+    <h1 class="welcometag">Welcome home, {{user.displayName}}</h1>
 
     <div class="feedcontainer">
 
@@ -39,12 +39,10 @@
                     <div class="feed-left-icon"><span class="addedto">Added to</span> Vidmeo Staff Picks</div>
                 </div>
                 <div class="welcomedesc">
-                    <a href="{{video.link}}">
-                        <img id="welcomeimg" ng-src="{{video.pictures.sizes[3].link}}" alt="">
+                        <img ng-click="goToVideo(video.uri)" id="welcomeimg" ng-src="{{video.pictures.sizes[3].link}}" alt="">
                         <br>
                     <div class="welcomedescription">
           <strong class="trendingvideoname">{{video.name}}</strong>
-                    </a>
                       <br>
                         from {{video.user.name}}
                         </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}

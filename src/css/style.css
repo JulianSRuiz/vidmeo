@@ -143,7 +143,7 @@ button {
 }
 
 .blanknavspace {
-  width: 410px;
+  width: 445px;
 }
 
 .input {
@@ -251,14 +251,14 @@ span {
   margin-left: 10px;
   margin-right: 30px;
   margin-top: 20px;
-  height: 400px;
+  height: 350px;
   display: flex;
   z-index: -2;
 }
 
 .leftinfobar {
   width: 235px;
-  height: 400px;
+  height: 350px;
   z-index: 100;
   background-color: white;
   padding: 5px 0;
@@ -452,7 +452,7 @@ footer {
   font-size: 12px;
   font-weight: 400;
   text-decoration: none;
-  color: black;
+  color: #112233;
 }
 
 .appearancelinks a:hover {
@@ -503,6 +503,10 @@ footer {
 .feed-right-container {
   width: 300px;
   height: 700px;
+}
+
+.feed-right-container p {
+  font-size: 12px;
 }
 
 .feed-right-container ul {
@@ -560,6 +564,10 @@ footer {
   font-weight: 700;
 }
 
+.noauthtitle {
+  color: white;
+}
+
 /*Player Page......................................*/
 
 .playercontainer {
@@ -585,7 +593,7 @@ footer {
 
 .videotitle {
   height: 110px;
-  width: 100%;
+  width: 990px;
   padding: 0 30px
 }
 
@@ -622,6 +630,19 @@ footer {
   color: #4E5A5E;
   font-size: 1.15em;
   line-height: 1.5;
+}
+
+.commentinput {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commentbutton {
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #00ABED;
+  border-radius: 5px;
+  color: #00ABED;
 }
 
 .commentsrightmenu {

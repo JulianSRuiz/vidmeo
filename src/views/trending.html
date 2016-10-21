@@ -5,21 +5,12 @@
 
         <div class="feed-left-container">
 
+          <h2 class="htwofavorites noauthtitle">Trending</h2>
 
             <div class="feed">
-                <div class="trendingvideos" ng-repeat="video in trending">
-                    <a href="{{video.link}}">
-                        <img ng-src="{{video.pictures.sizes[3].link}}" alt="">
-
-                    <div class="detailsbox">
-          <strong class="trendingvideoname">{{video.name}}</strong>
-                    </a>
-                      <br>
-                        from {{video.user.name}}
-                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}
-                        <br> {{video.description}}...
-                    </div>
-                </div>
+                <video-component
+                  get-video="trending">
+                </video-component>
             </div>
         </div>
 

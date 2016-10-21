@@ -35,23 +35,13 @@
 
             <h2 class="htwofavorites">Recently Viewed</h2>
 
-            <div class="welcomefeed">
-                <div class="staffpickicon">
-                    <img src="../../public/images/staffpick.svg" alt="Staff Picks">
-                    <div class="feed-left-icon"><span class="addedto">Added to</span> Vidmeo Staff Picks</div>
-                </div>
-                <div class="videocontent">
-                </div>
+            <div class="feed">
+              <video-component
+                get-video="recents">
+              </video-component>
             </div>
 
-            <div class="welcomedescription">
-                <div class="detailsbox">
-                    <div class="userinfo">
-                        {{user.photo}} From: {{user.name}} {{video.title}} {{video.date}}
-                    </div>
-                </div>
-                Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.
-            </div>
+
 
 
         </div>

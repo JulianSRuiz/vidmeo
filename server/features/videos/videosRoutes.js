@@ -9,4 +9,5 @@ module.exports = app => {
   app.get('/api/videos/ondemand', videosCtrl.getOnDemandVids);
   app.get('/api/videos/trending', videosCtrl.getTrendingVids);
   app.get('/api/videos/welcomevideos', videosCtrl.getWelcomeVideos);
+
 }

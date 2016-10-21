@@ -16,7 +16,7 @@ module.exports = {
           return res.status(200).json(videos);
         });
     },
-    
+
     getWelcomeVideos: function(req, res) {
       axios({
         method: 'GET',
@@ -81,6 +81,32 @@ module.exports = {
       })
       .then (function(videos) {
         return res.status(200).json(videos.data)
+      })
+    },
+
+    getFavoriteVideos: function(req, res) {
+      axios({
+        method: 'GET',
+        url: "https://api.vimeo.com/me/likes",
+        headers: {
+          'Authorization': 'Bearer ' + config.vimeo.access_token
+        }
+      })
+      .then (function(videos) {
+        return res.status(200).json(videos.data);
+      })
+    },
+
+    getRecentVids: function(req, res) {
+      axios({
+        method: 'GET',
+        url: "https://api.vimeo.com/me/watched/videos",
+        headers: {
+          'Authorization': 'Bearer ' + config.vimeo.access_token
+        }
+      })
+      .then (function(videos) {
+        return res.status(200).json(videos.data);
       })
     }
 

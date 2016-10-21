@@ -5,7 +5,6 @@ const Video = new mongoose.Schema({
   description: {type: String, trim: true},
   embed: {String},
   tags: {String},
-
 })
 
 module.exports = mongoose.model("Video", Video);

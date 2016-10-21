@@ -6,6 +6,7 @@ import './css/style.css';
 //modules
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngSanitize from 'angular-sanitize';
 
 //templates
 import homeHTML from "./views/home.html";
@@ -18,9 +19,17 @@ import onDemandHTML from "./views/ondemand.html";
 import trendingHTML from "./views/trending.html";
 
 import vidmeoCtrl from './components/vidmeoCtrl';
+import welcomeCtrl from './components/welcomeCtrl';
+import favoritesCtrl from './components/favoritesCtrl';
+import recentlyViewedCtrl from './components/recentlyViewedCtrl';
+import playerCtrl from './components/playerCtrl';
+import ondemandCtrl from './components/ondemandCtrl'
+import trendingCtrl from './components/trendingCtrl'
 import vidmeoService from './services/vidmeoService.js';
+import videoComponent from './components/video-component/video.js'
 
-angular.module("vidmeoApp", [uiRouter])
+angular.module("vidmeoApp", [uiRouter, ngSanitize])
+    .component('videoComponent', videoComponent)
     .controller('vidmeoCtrl', vidmeoCtrl)
     .service('vidmeoService', vidmeoService)
     .config(($stateProvider, $urlRouterProvider) => {
@@ -32,13 +41,12 @@ angular.module("vidmeoApp", [uiRouter])
             .state("welcome", {
                 url: '/welcome',
                 template: welcomeHTML,
-                controller(vidmeoService){
-                  vidmeoService.getUser().then(results => results.data = vidmeoService.user )
-                }
+                controller: welcomeCtrl
             })
             .state("favorites", {
                 url: "/favorites",
-                template: favoritesHTML
+                template: favoritesHTML,
+                controller: favoritesCtrl
             })
             .state("loginerror", {
                 url: "/loginerror",
@@ -46,19 +54,24 @@ angular.module("vidmeoApp", [uiRouter])
             })
             .state("recentlyviewed", {
                 url: "/recentlyviewed",
-                template: recentlyViewedHTML
+                template: recentlyViewedHTML,
+                controller: recentlyViewedCtrl
             })
             .state("player", {
-                url: "/player",
-                template: playerHTML
+                url: "/player/:id",
+                template: playerHTML,
+                controllerAs: 'pc',
+                controller: playerCtrl
             })
             .state("trending", {
                 url: "/trending",
-                template: trendingHTML
+                template: trendingHTML,
+                controller: trendingCtrl
             })
             .state("ondemand", {
                 url: "/ondemand",
-                template: onDemandHTML
+                template: onDemandHTML,
+                controller: ondemandCtrl
             });
 
         $urlRouterProvider.otherwise('/');

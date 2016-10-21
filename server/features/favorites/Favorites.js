@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
 
 const Favorites = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
         required: true,
         trim: true,
         unique: true
     },
-    videolength: {
-        type: Number
-    },
     description: {
         type: String
+    },
+    embed: {
+      type: String
+    },
+    tags: {
+      type: String
     },
     favorites: [{
         type: mongoose.Schema.Types.ObjectId,

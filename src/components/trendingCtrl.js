@@ -1,15 +1,9 @@
 export default function($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
-  $scope.user = {
-    displayName: "Sign In"
-  }
-  $scope.$on('gotUser', function(){
-    $scope.user = vidmeoService.user;
-  })
 
-      vidmeoService.getHomeVideos()
-        .then( function( fiveVideos ) {
-          $scope.fiveVideos = fiveVideos;
-        } );
+      vidmeoService.getTrendingVids()
+        .then(function(trending) {
+          $scope.trending = trending;
+        });
 
         $scope.goToVideo = function(videoID) {
           let video = replaceVideoWord(videoID)
@@ -19,6 +13,5 @@ export default function($scope, $sce, $state, $rootScope, $stateParams, vidmeoSe
         function replaceVideoWord(str){
           return str.replace(/\/(.*?)\//g, "")
         }
-
 
 }

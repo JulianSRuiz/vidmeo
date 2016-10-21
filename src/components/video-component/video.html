@@ -1,0 +1,11 @@
+<div class="trendingvideos" ng-repeat="video in $ctrl.videoList">
+
+    <img ng-click="$ctrl.goToVideo(video.uri)" ng-src="{{video.pictures.sizes[3].link}}" alt="">
+    <div class="detailsbox">
+        <strong class="trendingvideoname">{{video.name}}</strong>
+        <br>
+        from <strong>{{video.user.name}}</strong>
+        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}
+        <br> {{video.description}}...
+    </div>
+</div>

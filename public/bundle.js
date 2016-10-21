@@ -73,86 +73,120 @@
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _home = __webpack_require__(/*! ./views/home.html */ 19);
+	var _angularSanitize = __webpack_require__(/*! angular-sanitize */ 19);
+	
+	var _angularSanitize2 = _interopRequireDefault(_angularSanitize);
+	
+	var _home = __webpack_require__(/*! ./views/home.html */ 21);
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _welcome = __webpack_require__(/*! ./views/welcome.html */ 27);
+	var _welcome = __webpack_require__(/*! ./views/welcome.html */ 29);
 	
 	var _welcome2 = _interopRequireDefault(_welcome);
 	
-	var _favorites = __webpack_require__(/*! ./views/favorites.html */ 28);
+	var _favorites = __webpack_require__(/*! ./views/favorites.html */ 30);
 	
 	var _favorites2 = _interopRequireDefault(_favorites);
 	
-	var _loginerror = __webpack_require__(/*! ./views/loginerror.html */ 30);
+	var _loginerror = __webpack_require__(/*! ./views/loginerror.html */ 31);
 	
 	var _loginerror2 = _interopRequireDefault(_loginerror);
 	
-	var _recentlyviewed = __webpack_require__(/*! ./views/recentlyviewed.html */ 32);
+	var _recentlyviewed = __webpack_require__(/*! ./views/recentlyviewed.html */ 33);
 	
 	var _recentlyviewed2 = _interopRequireDefault(_recentlyviewed);
 	
-	var _player = __webpack_require__(/*! ./views/player.html */ 33);
+	var _player = __webpack_require__(/*! ./views/player.html */ 34);
 	
 	var _player2 = _interopRequireDefault(_player);
 	
-	var _ondemand = __webpack_require__(/*! ./views/ondemand.html */ 34);
+	var _ondemand = __webpack_require__(/*! ./views/ondemand.html */ 35);
 	
 	var _ondemand2 = _interopRequireDefault(_ondemand);
 	
-	var _trending = __webpack_require__(/*! ./views/trending.html */ 35);
+	var _trending = __webpack_require__(/*! ./views/trending.html */ 36);
 	
 	var _trending2 = _interopRequireDefault(_trending);
 	
-	var _vidmeoCtrl = __webpack_require__(/*! ./components/vidmeoCtrl */ 36);
+	var _vidmeoCtrl = __webpack_require__(/*! ./components/vidmeoCtrl */ 37);
 	
 	var _vidmeoCtrl2 = _interopRequireDefault(_vidmeoCtrl);
 	
-	var _vidmeoService = __webpack_require__(/*! ./services/vidmeoService.js */ 37);
+	var _welcomeCtrl = __webpack_require__(/*! ./components/welcomeCtrl */ 38);
+	
+	var _welcomeCtrl2 = _interopRequireDefault(_welcomeCtrl);
+	
+	var _favoritesCtrl = __webpack_require__(/*! ./components/favoritesCtrl */ 39);
+	
+	var _favoritesCtrl2 = _interopRequireDefault(_favoritesCtrl);
+	
+	var _recentlyViewedCtrl = __webpack_require__(/*! ./components/recentlyViewedCtrl */ 40);
+	
+	var _recentlyViewedCtrl2 = _interopRequireDefault(_recentlyViewedCtrl);
+	
+	var _playerCtrl = __webpack_require__(/*! ./components/playerCtrl */ 41);
+	
+	var _playerCtrl2 = _interopRequireDefault(_playerCtrl);
+	
+	var _ondemandCtrl = __webpack_require__(/*! ./components/ondemandCtrl */ 42);
+	
+	var _ondemandCtrl2 = _interopRequireDefault(_ondemandCtrl);
+	
+	var _trendingCtrl = __webpack_require__(/*! ./components/trendingCtrl */ 43);
+	
+	var _trendingCtrl2 = _interopRequireDefault(_trendingCtrl);
+	
+	var _vidmeoService = __webpack_require__(/*! ./services/vidmeoService.js */ 44);
 	
 	var _vidmeoService2 = _interopRequireDefault(_vidmeoService);
 	
+	var _video = __webpack_require__(/*! ./components/video-component/video.js */ 45);
+	
+	var _video2 = _interopRequireDefault(_video);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//templates
-	
-	
 	//modules
-	_angular2.default.module("vidmeoApp", [_angularUiRouter2.default]).controller('vidmeoCtrl', _vidmeoCtrl2.default).service('vidmeoService', _vidmeoService2.default).config(function ($stateProvider, $urlRouterProvider) {
+	_angular2.default.module("vidmeoApp", [_angularUiRouter2.default, _angularSanitize2.default]).component('videoComponent', _video2.default).controller('vidmeoCtrl', _vidmeoCtrl2.default).service('vidmeoService', _vidmeoService2.default).config(function ($stateProvider, $urlRouterProvider) {
 	    $stateProvider.state("home", {
 	        url: "/",
 	        template: _home2.default
 	    }).state("welcome", {
 	        url: '/welcome',
 	        template: _welcome2.default,
-	        controller: function controller(vidmeoService) {
-	            vidmeoService.getUser().then(function (results) {
-	                return results.data = vidmeoService.user;
-	            });
-	        }
+	        controller: _welcomeCtrl2.default
 	    }).state("favorites", {
 	        url: "/favorites",
-	        template: _favorites2.default
+	        template: _favorites2.default,
+	        controller: _favoritesCtrl2.default
 	    }).state("loginerror", {
 	        url: "/loginerror",
 	        template: _loginerror2.default
 	    }).state("recentlyviewed", {
 	        url: "/recentlyviewed",
-	        template: _recentlyviewed2.default
+	        template: _recentlyviewed2.default,
+	        controller: _recentlyViewedCtrl2.default
 	    }).state("player", {
-	        url: "/player",
-	        template: _player2.default
+	        url: "/player/:id",
+	        template: _player2.default,
+	        controllerAs: 'pc',
+	        controller: _playerCtrl2.default
 	    }).state("trending", {
 	        url: "/trending",
-	        template: _trending2.default
+	        template: _trending2.default,
+	        controller: _trendingCtrl2.default
 	    }).state("ondemand", {
 	        url: "/ondemand",
-	        template: _ondemand2.default
+	        template: _ondemand2.default,
+	        controller: _ondemandCtrl2.default
 	    });
 	
 	    $urlRouterProvider.otherwise('/');
-	}); // assets
+	});
+	
+	//templates
+	// assets
 
 /***/ },
 /* 2 */
@@ -4456,7 +4490,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  box-sizing: border-box;\n  font-family: Helvetica;\n  margin: 0 0;\n  padding: 0 0;\n}\n\n.rainbow-bar {\n  width: 100%;\n  height: 5px;\n  background-color: #00ABED;\n}\n\nbutton {\n  border-radius: 5px;\n  border: none;\n}\n\n.navbar {\n  display: flex;\n  padding-left: 30px;\n  padding-right: 30px;\n  width: 100%;\n  height: 60px;\n  align-items: center;\n  background-color: #EEF1F2;\n  border: 0;\n  margin-bottom: 0;\n  overflow: hidden;\n  border-bottom: 1px solid lightgray;\n}\n\n.navbar a {\n  text-decoration: none;\n}\n\n.navbar img {\n  width: 10px;\n  align-items: center;\n}\n\n#searchicon {\n  width: 30px;\n  align-items: center;\n  padding-right: 10px;\n  padding-left: 5px;\n}\n\n#searchicon:hover {\n  width: 31px;\n}\n\n#writtenlogo {\n  font-family: 'Galada', cursive;\n  color: black;\n  font-size: 2.6em;\n  font-weight: 800;\n  padding-top: 5px;\n  padding-right: 20px;\n}\n\n#logo {\n  height: 40px;\n  width: 98px;\n  align-items: center;\n  margin-right: 10px;\n}\n\n#join {\n  width: 90px;\n  height: 34px;\n  background-color: #7FC400;\n  color: white;\n  font-weight: 700;\n}\n\n#join img {\n  width: 24px;\n}\n\n#join:hover {\n  background-color: #657987;\n}\n\n#join_right {\n  width: 90px;\n  height: 34px;\n  background-color: #3B5998;\n  color: white;\n  font-weight: 700;\n}\n\n#join_right:hover {\n  background-color: #2C4373;\n}\n\n#join_right img {\n  width: 13px;\n  align-items: center;\n  padding-left: 3px;\n  padding-bottom: 2px;\n}\n\n.navbarlinks {\n  margin-left: 14px;\n  align-items: center;\n  font-weight: 700;\n  line-height: 50px;\n  white-space: nowrap;\n  display: block;\n  color: #657987;\n}\n\n.navbarlinks a {\n  text-decoration: none;\n}\n\n.navbarlinks:hover {\n  color: black;\n\n}\n\n.dropdowncontent {\n  display: none;\n  position: absolute;\n  background-color: #f9f9f9;\n  min-width: 160px;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n}\n\n.dropdowncontent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n    text-align: left;\n}\n\n.dropdowncontent a:hover {background-color: #f1f1f1}\n\n.dropdown:hover .dropdowncontent {\n    display: block;\n}\n\n.blanknavspace {\n  width: 410px;\n}\n\n.input {\n  width: 260px;\n  height: 34px;\n  font-size: .9em;\n  font-weight: normal;\n  border-radius: 5px;\n  border: 1px solid lightgray;\n  padding-left: 10px;\n}\n\n.input:hover {\n  border: 1px solid darkgray;\n}\n\n/*HomeHTML............................................*/\n\n.container-of-this-shit{\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.scrolling_images {\n  height: 400px;\n  display: flex;\n}\n.carousel-caption {\n  width: 100%;\n  height: 400px;\n  left: 120px;\n}\n\n.description {\n  z-index: 100;\n  position: absolute;\n  left: 0;\n  display: block;\n  align-items: flex-end;\n  width: 370px;\n  padding-top: 100px;\n  color: white;\n  top: 0;\n  text-align: left;\n}\n\ndiv.item-1 {\n  background-size: cover;\n  max-height: 400px;\n}\n.item-1>img{\n  height: 400px;\n  width: auto;\n}\n\n.glyphicon {\n  color: white;\n}\n\n.watchnow {\n  width: 140px;\n  height: 42px;\n  background-color: #00ABED;\n  font-weight: 700;\n  color: white;\n  margin-top: 10px;\n}\n\n.watchnow:hover {\n  background-color: #248BC7;\n}\n\n.play {\n  width: 25px;\n  padding-right: 5px;\n}\n\n.header {\n  display: flex;\n  padding-left: 50px;\n  padding-right: 50px;\n  padding-top: 10px;\n  justify-content: space-between;\n  font-weight: 700;\n}\n\n.headerlabel:hover {\n  color: #00ABED;\n}\n\nspan {\n  color: #00ABED;\n}\n\n.viewchannel {\n  padding-top: 30px;\n}\n\n.viewchannel:hover {\n  color: #248BC7;\n}\n\n.videorow {\n  width: 95%;\n  margin-left: 10px;\n  margin-right: 30px;\n  margin-top: 20px;\n  height: 400px;\n  display: flex;\n  z-index: -2;\n}\n\n.leftinfobar {\n  width: 235px;\n  height: 400px;\n  z-index: 100;\n  background-color: white;\n  padding: 5px 0;\n}\n\n.leftinfobar img {\n  height: 40%;\n  padding-left: 20px;\n}\n\n.leftinfotextcontainer {\n  padding-left: 20px;\n}\n\n.follow {\n  width: 160px;\n  padding: 5px;\n  border-radius: 5px;\n  background-color: #00ABED;\n  color: white;\n  font-weight: 700;\n  margin-left: 15px;\n}\n\n.follow:hover {\n  background-color: #248BC7;\n}\n\n.topvideocontainer {\n  width: 100%;\n  display: flex;\n}\n\n.video {\n  margin-left: 15px;\n  width: 200px;\n  height: 150px;\n  font-size: 12px;\n  justify-content: space-around;\n}\n\n.video img {\n  margin-bottom: 7px;\n}\n\n.videoname:hover {\n  color: #248BC7;\n}\n\n\n\n/*footer.................................................*/\n\nfooter {\n  font-size: .875em;\n  width: 100%;\n  padding-left: 40px;\n  padding-right: 40px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  display: flex;\n  border-top: 1px solid lightgray;\n}\n\n.lefttext {\n  display: inline-block;\n  align-items: flex-start;\n  width: 78%;\n}\n\n.righttext {\n  display: inline-block;\n  align-items: flex-end;\n}\n\n.phrasing {\n  color: darkgray;\n}\n\n.red {\n  color: red;\n}\n\n\n/*............... Error page CSS...................... */\n.errorcontainer {\n  height: 500px;\n  vertical-align: middle;\n  padding-left: 275px;\n  padding-top: 50px;\n  margin-bottom: 150px;\n}\n\n.errorcontainer h1 {\n  font-weight: 700;\n}\n\n.errorcontainer p {\n  padding-top: 20px;\n}\n\n.robot {\n  width: 200px;\n  margin-left: 235px;\n  padding-bottom: 25px;\n}\n\n.searchbutton {\n  background-color: #00ABED;\n  color: white;\n  width: 82px;\n  height: 34px;\n  font-weight: 700;\n}\n\n.searchinput {\n  width: 565px;\n  height: 34px;\n  font-weight: 400;\n}\n\n/*...............Welcome Page...........................*/\n.welcomecontainer {\n  width: 100%;\n  padding: 0 160px;\n}\n\n.welcometag {\n  font-weight: 700;\n  margin-bottom: 20px;\n}\n\n.feedcontainer {\n  color: #657987;\n  display: flex;\n}\n\n.welcomefeed {\n  display: flex;\n  padding-top: 20px;\n}\n\n.feed-left-container {\n  width: 630px;\n  margin-right: 30px;\n}\n\n.usermenu {\n  width: 630px;\n  height: 40px;\n  font-weight: 700;\n  font-size: 12px;\n  display: flex;\n  background-color: #EEF1F2;\n}\n\n.usermenu div {\n  height: 30px;\n  font-size: 16px;\n  font-weight: 700px;\n  vertical-align: middle;\n  text-align: center;\n  margin-top: 15px;\n  padding: 0 20px;\n  color: black;\n  text-decoration: none;\n}\n\n.highlight {\n  background-color: white;\n}\n\n.usermenu div:hover {\n  color: #00ABED;\n}\n\n.appearancelinks {\n  height: 30px;\n  font-size: 13px;\n  align-items: center;\n  background-color: white;\n  display: flex;\n  padding-left: 10px;\n  padding-top: 3px;\n}\n\n.appearancelinks a {\n  padding-left: 7px;\n  padding-right: 7px;\n  padding-top: 3px;\n  font-size: 12px;\n  font-weight: 400;\n  text-decoration: none;\n  color: black;\n}\n\n.appearancelinks a:hover {\n  color: #00ABED;\n}\n\n.staffpickicon {\n  width: 100px;\n  margin-right: 14px;\n  background-color: white;\n  font-size: 10px;\n  font-weight: 700;\n  padding-left: 15px;\n}\n\n.staffpickicon img {\n  width: 75px;\n  margin-bottom: 5px;\n}\n\n.addedto {\n  color: #f7b42c;\n}\n\n#welcomeimg {\n  width: 533px;\n}\n\n.videocontent {\n  width: 536px;\n  height: 300px;\n  background-color: black;\n}\n\n.welcomedescription {\n  width: 533px;\n  height: 105px;\n  border: 1px solid #E6E7E8;\n  border-bottom: 3px solid #E6E7E8;\n  margin-bottom: 10px;\n  padding: 12px;\n  vertical-align: middle;\n  background-color: #EEF1F2;\n  color: #74797D;\n  overflow: hidden;\n}\n\n.feed-right-container {\n  width: 300px;\n  height: 700px;\n}\n\n.feed-right-container ul {\n  margin-left: -40px;\n}\n\n.mypeoplebar {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #daf1ff;\n  color: #4bf;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #bce6ff;\n  border-radius: 0;\n}\n\n.recentactivity p {\n  padding-left: 5px;\n}\n\n.explore {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #fdf0d5;\n  color: #f7b42c;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #fce4b3;\n  border-radius: 0;\n}\n\n.exploretitles {\n  font-size: 18px;\n  font-weight: 700;\n  list-style-type: none;\n  color: black;\n  padding-top: 15px;\n  padding-right: 10px;\n  border-top: 1px solid #E6E7E8;\n}\n\n.explore p {\n  color: #74797D;\n  padding-botom: 10px;\n}\n\n/*Favorites page...................................*/\n\n.htwofavorites {\n  font-weight: 700;\n}\n\n/*Player Page......................................*/\n\n.playercontainer {\n  background-color: #181C1F;\n  width: 100%;\n  height: 480px;\n}\n\n#player {\n  margin: 0 320px;\n}\n\n.commentscontainer {\n  background-color: white;\n  width: 100%;\n  height: 550px;\n  display: flex;\n}\n\n.commentsleftmenu {\n  padding: 10px 0;\n}\n\n.videotitle {\n  height: 110px;\n  width: 100%;\n  padding: 0 30px\n}\n\n.videotitle a {\n  color: #40545C;\n  font-weight: 700;\n  text-decoration: none;\n}\n\n.followbutton {\n  padding: 9px 13px;\n  background-color: white;\n  border: 1px solid #00ABED;\n  color: #00ABED;\n  font-weight: 700;\n  font-size: 16px;\n  border-radius: 5px;\n}\n\n.leaveacomment {\n  padding: 20px;\n  font-weight: 700;\n  font-size: 16px;\n  color: #4E5A5E;\n}\n\n.comments {\n  max-width: 1280px;\n  height: 175px;\n  background-color: #F4F6F6;\n  border: 1px solid lightgray;\n  border-right: 0;\n  padding: 15px 30px;\n  color: #4E5A5E;\n  font-size: 1.15em;\n  line-height: 1.5;\n}\n\n.commentsrightmenu {\n  min-width: 290px;\n  border-left: 1px solid lightgray;\n  padding: 20px;\n  color: #4E5A5E;\n  background-color: #F4F6F6;\n  font-size: 1.15em;\n  font-weight: 700;\n  line-height: 1.5;\n  overflow: scroll;\n}\n\n.relatedvidstitle {\n  padding: 5px 0;\n  margin-bottom: 10px;\n  border-bottom: 1px solid lightgray;\n}\n\n.vidrow {\n  font-weight: 400;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n\n.videothumbnail {\n  width: 165px;\n  height: 96px;\n  background-color: black;\n  margin-right: 10px;\n}\n\n/*onDemand Page.............................................*/\n.ondemandcontainer {\n  max-width: 1280px;\n  padding: 30px;\n}\n\n.ondemand {\n  margin-bottom: 40px;\n  align-items: center;\n  vertical-align: middle;\n}\n\n\n/*Trending Page.............................................*/\n.welcometag {\n  font-weight: 700;\n  margin-bottom: 20px;\n}\n\n.feedcontainer {\n  color: #657987;\n  display: flex;\n}\n\n.feed {\n  display: block;\n  padding-top: 20px;\n}\n\n.feed-left-container {\n  width: 640px;\n  margin-right: 30px;\n}\n\n.usermenu {\n  width: 640px;\n  height: 40px;\n  font-weight: 700;\n  font-size: 12px;\n  display: flex;\n  background-color: #EEF1F2;\n}\n\n.usermenu div {\n  height: 30px;\n  font-size: 16px;\n  font-weight: 700px;\n  vertical-align: middle;\n  text-align: center;\n  margin-top: 5px;\n  padding-top: 5px;\n  color: black;\n  text-decoration: none;\n}\n\n#favs {\n  background-color: white;\n}\n\n\n.usermenu div:hover {\n  color: #00ABED;\n}\n\n.appearancelinks {\n  height: 30px;\n  font-size: 13px;\n  align-items: center;\n  background-color: white;\n  display: flex;\n  padding-left: 10px;\n  padding-top: 3px;\n}\n\n.appearancelinks a {\n  padding-left: 7px;\n  padding-right: 7px;\n  padding-top: 3px;\n  font-size: 12px;\n  font-weight: 400;\n  text-decoration: none;\n  color: black;\n}\n\n.appearancelinks a:hover {\n  color: #00ABED;\n}\n\n.addedto {\n  color: #f7b42c;\n}\n\n.trendingcontainer {\n  width: 100%;\n  padding: 20px 160px;\n  background-color: #181C1F;\n}\n\n.trendingvideos {\n  margin-bottom: 40px;\n  align-items: center;\n  vertical-align: middle;\n  width: 640px;\n  border-bottom: 3px solid #E6E7E8;\n  background-color: #EEF1F2;\n  color: #74797D;\n}\n\n.trendingvideoname {\n  color: #181C1F;\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.trendingvideoname:hover {\n  color: #00ABED;\n}\n\n.detailsbox {\n  width: 640px;\n  height: 100px;\n  padding: 12px 12px;\n  overflow: hidden;\n}\n\n.feed-right-container {\n  width: 300px;\n  height: 700px;\n}\n\n.feed-right-container ul {\n  margin-left: -40px;\n}\n\n.mypeoplebar {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #daf1ff;\n  color: #4bf;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #bce6ff;\n  border-radius: 0;\n}\n\n.recentactivity p {\n  padding-left: 5px;\n}\n\n.explore {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #fdf0d5;\n  color: #f7b42c;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #fce4b3;\n  border-radius: 0;\n}\n\n.trendingexploretitles {\n  font-size: 18px;\n  font-weight: 700;\n  list-style-type: none;\n  color: white;\n  padding-top: 15px;\n  padding-right: 10px;\n  border-top: 1px solid #E6E7E8;\n}\n\n.explore p {\n  color: #74797D;\n  padding-botom: 10px;\n}\n", ""]);
+	exports.push([module.id, "body {\n  box-sizing: border-box;\n  font-family: Helvetica;\n  margin: 0 0;\n  padding: 0 0;\n}\n\n.rainbow-bar {\n  width: 100%;\n  height: 5px;\n  background-color: #00ABED;\n}\n\nbutton {\n  border-radius: 5px;\n  border: none;\n}\n\n.navbar {\n  display: flex;\n  padding-left: 30px;\n  padding-right: 30px;\n  width: 100%;\n  height: 60px;\n  align-items: center;\n  background-color: #EEF1F2;\n  border: 0;\n  margin-bottom: 0;\n  overflow: hidden;\n  border-bottom: 1px solid lightgray;\n}\n\n.navbar a {\n  text-decoration: none;\n}\n\n.navbar img {\n  width: 10px;\n  align-items: center;\n}\n\n#searchicon {\n  width: 30px;\n  align-items: center;\n  padding-right: 10px;\n  padding-left: 5px;\n}\n\n#searchicon:hover {\n  width: 31px;\n}\n\n#writtenlogo {\n  font-family: 'Galada', cursive;\n  color: black;\n  font-size: 2.6em;\n  font-weight: 800;\n  padding-top: 5px;\n  padding-right: 20px;\n}\n\n#logo {\n  height: 40px;\n  width: 98px;\n  align-items: center;\n  margin-right: 10px;\n}\n\n#join {\n  width: 90px;\n  height: 34px;\n  background-color: #7FC400;\n  color: white;\n  font-weight: 700;\n}\n\n#join img {\n  width: 24px;\n}\n\n#join:hover {\n  background-color: #657987;\n}\n\n#join_right {\n  width: 90px;\n  height: 34px;\n  background-color: #3B5998;\n  color: white;\n  font-weight: 700;\n}\n\n#join_right:hover {\n  background-color: #2C4373;\n}\n\n#join_right img {\n  width: 13px;\n  align-items: center;\n  padding-left: 3px;\n  padding-bottom: 2px;\n}\n\n.navbarlinks {\n  margin-left: 14px;\n  align-items: center;\n  font-weight: 700;\n  line-height: 50px;\n  white-space: nowrap;\n  display: block;\n  color: #657987;\n}\n\n.navbarlinks a {\n  text-decoration: none;\n}\n\n.navbarlinks:hover {\n  color: black;\n\n}\n\n.dropdowncontent {\n  display: none;\n  position: absolute;\n  background-color: #f9f9f9;\n  min-width: 160px;\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n}\n\n.dropdowncontent a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n    text-align: left;\n}\n\n.dropdowncontent a:hover {background-color: #f1f1f1}\n\n.dropdown:hover .dropdowncontent {\n    display: block;\n}\n\n.blanknavspace {\n  width: 445px;\n}\n\n.input {\n  width: 260px;\n  height: 34px;\n  font-size: .9em;\n  font-weight: normal;\n  border-radius: 5px;\n  border: 1px solid lightgray;\n  padding-left: 10px;\n}\n\n.input:hover {\n  border: 1px solid darkgray;\n}\n\n/*HomeHTML............................................*/\n\n.container-of-this-shit{\n  max-width: 1280px;\n  margin: 0 auto;\n}\n\n.scrolling_images {\n  height: 400px;\n  display: flex;\n}\n.carousel-caption {\n  width: 100%;\n  height: 400px;\n  left: 120px;\n}\n\n.description {\n  z-index: 100;\n  position: absolute;\n  left: 0;\n  display: block;\n  align-items: flex-end;\n  width: 370px;\n  padding-top: 100px;\n  color: white;\n  top: 0;\n  text-align: left;\n}\n\ndiv.item-1 {\n  background-size: cover;\n  max-height: 400px;\n}\n.item-1>img{\n  height: 400px;\n  width: auto;\n}\n\n.glyphicon {\n  color: white;\n}\n\n.watchnow {\n  width: 140px;\n  height: 42px;\n  background-color: #00ABED;\n  font-weight: 700;\n  color: white;\n  margin-top: 10px;\n}\n\n.watchnow:hover {\n  background-color: #248BC7;\n}\n\n.play {\n  width: 25px;\n  padding-right: 5px;\n}\n\n.header {\n  display: flex;\n  padding-left: 50px;\n  padding-right: 50px;\n  padding-top: 10px;\n  justify-content: space-between;\n  font-weight: 700;\n}\n\n.headerlabel:hover {\n  color: #00ABED;\n}\n\nspan {\n  color: #00ABED;\n}\n\n.viewchannel {\n  padding-top: 30px;\n}\n\n.viewchannel:hover {\n  color: #248BC7;\n}\n\n.videorow {\n  width: 95%;\n  margin-left: 10px;\n  margin-right: 30px;\n  margin-top: 20px;\n  height: 350px;\n  display: flex;\n  z-index: -2;\n}\n\n.leftinfobar {\n  width: 235px;\n  height: 350px;\n  z-index: 100;\n  background-color: white;\n  padding: 5px 0;\n}\n\n.leftinfobar img {\n  height: 40%;\n  padding-left: 20px;\n}\n\n.leftinfotextcontainer {\n  padding-left: 20px;\n}\n\n.follow {\n  width: 160px;\n  padding: 5px;\n  border-radius: 5px;\n  background-color: #00ABED;\n  color: white;\n  font-weight: 700;\n  margin-left: 15px;\n}\n\n.follow:hover {\n  background-color: #248BC7;\n}\n\n.topvideocontainer {\n  width: 100%;\n  display: flex;\n}\n\n.video {\n  margin-left: 15px;\n  width: 200px;\n  height: 150px;\n  font-size: 12px;\n  justify-content: space-around;\n}\n\n.video img {\n  margin-bottom: 7px;\n}\n\n.videoname:hover {\n  color: #248BC7;\n}\n\n\n\n/*footer.................................................*/\n\nfooter {\n  font-size: .875em;\n  width: 100%;\n  padding-left: 40px;\n  padding-right: 40px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  display: flex;\n  border-top: 1px solid lightgray;\n}\n\n.lefttext {\n  display: inline-block;\n  align-items: flex-start;\n  width: 78%;\n}\n\n.righttext {\n  display: inline-block;\n  align-items: flex-end;\n}\n\n.phrasing {\n  color: darkgray;\n}\n\n.red {\n  color: red;\n}\n\n\n/*............... Error page CSS...................... */\n.errorcontainer {\n  height: 500px;\n  vertical-align: middle;\n  padding-left: 275px;\n  padding-top: 50px;\n  margin-bottom: 150px;\n}\n\n.errorcontainer h1 {\n  font-weight: 700;\n}\n\n.errorcontainer p {\n  padding-top: 20px;\n}\n\n.robot {\n  width: 200px;\n  margin-left: 235px;\n  padding-bottom: 25px;\n}\n\n.searchbutton {\n  background-color: #00ABED;\n  color: white;\n  width: 82px;\n  height: 34px;\n  font-weight: 700;\n}\n\n.searchinput {\n  width: 565px;\n  height: 34px;\n  font-weight: 400;\n}\n\n/*...............Welcome Page...........................*/\n.welcomecontainer {\n  width: 100%;\n  padding: 0 160px;\n}\n\n.welcometag {\n  font-weight: 700;\n  margin-bottom: 20px;\n}\n\n.feedcontainer {\n  color: #657987;\n  display: flex;\n}\n\n.welcomefeed {\n  display: flex;\n  padding-top: 20px;\n}\n\n.feed-left-container {\n  width: 630px;\n  margin-right: 30px;\n}\n\n.usermenu {\n  width: 630px;\n  height: 40px;\n  font-weight: 700;\n  font-size: 12px;\n  display: flex;\n  background-color: #EEF1F2;\n}\n\n.usermenu div {\n  height: 30px;\n  font-size: 16px;\n  font-weight: 700px;\n  vertical-align: middle;\n  text-align: center;\n  margin-top: 15px;\n  padding: 0 20px;\n  color: black;\n  text-decoration: none;\n}\n\n.highlight {\n  background-color: white;\n}\n\n.usermenu div:hover {\n  color: #00ABED;\n}\n\n.appearancelinks {\n  height: 30px;\n  font-size: 13px;\n  align-items: center;\n  background-color: white;\n  display: flex;\n  padding-left: 10px;\n  padding-top: 3px;\n}\n\n.appearancelinks a {\n  padding-left: 7px;\n  padding-right: 7px;\n  padding-top: 3px;\n  font-size: 12px;\n  font-weight: 400;\n  text-decoration: none;\n  color: #112233;\n}\n\n.appearancelinks a:hover {\n  color: #00ABED;\n}\n\n.staffpickicon {\n  width: 100px;\n  margin-right: 14px;\n  background-color: white;\n  font-size: 10px;\n  font-weight: 700;\n  padding-left: 15px;\n}\n\n.staffpickicon img {\n  width: 75px;\n  margin-bottom: 5px;\n}\n\n.addedto {\n  color: #f7b42c;\n}\n\n#welcomeimg {\n  width: 533px;\n}\n\n.videocontent {\n  width: 536px;\n  height: 300px;\n  background-color: black;\n}\n\n.welcomedescription {\n  width: 533px;\n  height: 105px;\n  border: 1px solid #E6E7E8;\n  border-bottom: 3px solid #E6E7E8;\n  margin-bottom: 10px;\n  padding: 12px;\n  vertical-align: middle;\n  background-color: #EEF1F2;\n  color: #74797D;\n  overflow: hidden;\n}\n\n.feed-right-container {\n  width: 300px;\n  height: 700px;\n}\n\n.feed-right-container p {\n  font-size: 12px;\n}\n\n.feed-right-container ul {\n  margin-left: -40px;\n}\n\n.mypeoplebar {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #daf1ff;\n  color: #4bf;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #bce6ff;\n  border-radius: 0;\n}\n\n.recentactivity p {\n  padding-left: 5px;\n}\n\n.explore {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #fdf0d5;\n  color: #f7b42c;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #fce4b3;\n  border-radius: 0;\n}\n\n.exploretitles {\n  font-size: 18px;\n  font-weight: 700;\n  list-style-type: none;\n  color: black;\n  padding-top: 15px;\n  padding-right: 10px;\n  border-top: 1px solid #E6E7E8;\n}\n\n.explore p {\n  color: #74797D;\n  padding-botom: 10px;\n}\n\n/*Favorites page...................................*/\n\n.htwofavorites {\n  font-weight: 700;\n}\n\n.noauthtitle {\n  color: white;\n}\n\n/*Player Page......................................*/\n\n.playercontainer {\n  background-color: #181C1F;\n  width: 100%;\n  height: 480px;\n}\n\n#player {\n  margin: 0 320px;\n}\n\n.commentscontainer {\n  background-color: white;\n  width: 100%;\n  height: 550px;\n  display: flex;\n}\n\n.commentsleftmenu {\n  padding: 10px 0;\n}\n\n.videotitle {\n  height: 110px;\n  width: 990px;\n  padding: 0 30px\n}\n\n.videotitle a {\n  color: #40545C;\n  font-weight: 700;\n  text-decoration: none;\n}\n\n.followbutton {\n  padding: 9px 13px;\n  background-color: white;\n  border: 1px solid #00ABED;\n  color: #00ABED;\n  font-weight: 700;\n  font-size: 16px;\n  border-radius: 5px;\n}\n\n.leaveacomment {\n  padding: 20px;\n  font-weight: 700;\n  font-size: 16px;\n  color: #4E5A5E;\n}\n\n.comments {\n  max-width: 1280px;\n  height: 175px;\n  background-color: #F4F6F6;\n  border: 1px solid lightgray;\n  border-right: 0;\n  padding: 15px 30px;\n  color: #4E5A5E;\n  font-size: 1.15em;\n  line-height: 1.5;\n}\n\n.commentinput {\n  display: flex;\n  justify-content: space-between;\n}\n\n.commentbutton {\n  padding: 12px;\n  background-color: white;\n  border: 1px solid #00ABED;\n  border-radius: 5px;\n  color: #00ABED;\n}\n\n.commentsrightmenu {\n  min-width: 290px;\n  border-left: 1px solid lightgray;\n  padding: 20px;\n  color: #4E5A5E;\n  background-color: #F4F6F6;\n  font-size: 1.15em;\n  font-weight: 700;\n  line-height: 1.5;\n  overflow: scroll;\n}\n\n.relatedvidstitle {\n  padding: 5px 0;\n  margin-bottom: 10px;\n  border-bottom: 1px solid lightgray;\n}\n\n.vidrow {\n  font-weight: 400;\n  padding-bottom: 20px;\n  padding-left: 20px;\n}\n\n.videothumbnail {\n  width: 165px;\n  height: 96px;\n  background-color: black;\n  margin-right: 10px;\n}\n\n/*onDemand Page.............................................*/\n.ondemandcontainer {\n  max-width: 1280px;\n  padding: 30px;\n}\n\n.ondemand {\n  margin-bottom: 40px;\n  align-items: center;\n  vertical-align: middle;\n}\n\n\n/*Trending Page.............................................*/\n.welcometag {\n  font-weight: 700;\n  margin-bottom: 20px;\n}\n\n.feedcontainer {\n  color: #657987;\n  display: flex;\n}\n\n.feed {\n  display: block;\n  padding-top: 20px;\n}\n\n.feed-left-container {\n  width: 640px;\n  margin-right: 30px;\n}\n\n.usermenu {\n  width: 640px;\n  height: 40px;\n  font-weight: 700;\n  font-size: 12px;\n  display: flex;\n  background-color: #EEF1F2;\n}\n\n.usermenu div {\n  height: 30px;\n  font-size: 16px;\n  font-weight: 700px;\n  vertical-align: middle;\n  text-align: center;\n  margin-top: 5px;\n  padding-top: 5px;\n  color: black;\n  text-decoration: none;\n}\n\n#favs {\n  background-color: white;\n}\n\n\n.usermenu div:hover {\n  color: #00ABED;\n}\n\n.appearancelinks {\n  height: 30px;\n  font-size: 13px;\n  align-items: center;\n  background-color: white;\n  display: flex;\n  padding-left: 10px;\n  padding-top: 3px;\n}\n\n.appearancelinks a {\n  padding-left: 7px;\n  padding-right: 7px;\n  padding-top: 3px;\n  font-size: 12px;\n  font-weight: 400;\n  text-decoration: none;\n  color: black;\n}\n\n.appearancelinks a:hover {\n  color: #00ABED;\n}\n\n.addedto {\n  color: #f7b42c;\n}\n\n.trendingcontainer {\n  width: 100%;\n  padding: 20px 160px;\n  background-color: #181C1F;\n}\n\n.trendingvideos {\n  margin-bottom: 40px;\n  align-items: center;\n  vertical-align: middle;\n  width: 640px;\n  border-bottom: 3px solid #E6E7E8;\n  background-color: #EEF1F2;\n  color: #74797D;\n}\n\n.trendingvideoname {\n  color: #181C1F;\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.trendingvideoname:hover {\n  color: #00ABED;\n}\n\n.detailsbox {\n  width: 640px;\n  height: 100px;\n  padding: 12px 12px;\n  overflow: hidden;\n}\n\n.feed-right-container {\n  width: 300px;\n  height: 700px;\n}\n\n.feed-right-container ul {\n  margin-left: -40px;\n}\n\n.mypeoplebar {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #daf1ff;\n  color: #4bf;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #bce6ff;\n  border-radius: 0;\n}\n\n.recentactivity p {\n  padding-left: 5px;\n}\n\n.explore {\n  width: 100%;\n  font-size: 18px;\n  margin-bottom: 10px;\n  padding: 7px 10px;\n  background-color: #fdf0d5;\n  color: #f7b42c;\n  font-weight: 700;\n  line-height: 1.2em;\n  border-left: 5px solid #fce4b3;\n  border-radius: 0;\n}\n\n.trendingexploretitles {\n  font-size: 18px;\n  font-weight: 700;\n  list-style-type: none;\n  color: white;\n  padding-top: 15px;\n  padding-right: 10px;\n  border-top: 1px solid #E6E7E8;\n}\n\n.explore p {\n  color: #74797D;\n  padding-botom: 10px;\n}\n", ""]);
 	
 	// exports
 
@@ -23465,15 +23499,731 @@
 
 /***/ },
 /* 19 */
+/*!*************************************!*\
+  !*** ./~/angular-sanitize/index.js ***!
+  \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	__webpack_require__(/*! ./angular-sanitize */ 20);
+	module.exports = 'ngSanitize';
+
+/***/ },
+/* 20 */
+/*!************************************************!*\
+  !*** ./~/angular-sanitize/angular-sanitize.js ***!
+  \************************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	/**
+	 * @license AngularJS v1.5.8
+	 * (c) 2010-2016 Google, Inc. http://angularjs.org
+	 * License: MIT
+	 */
+	(function (window, angular) {
+	  'use strict';
+	
+	  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	   *     Any commits to this file should be reviewed with security in mind.  *
+	   *   Changes to this file can potentially create security vulnerabilities. *
+	   *          An approval from 2 Core members with history of modifying      *
+	   *                         this file is required.                          *
+	   *                                                                         *
+	   *  Does the change somehow allow for arbitrary javascript to be executed? *
+	   *    Or allows for someone to change the prototype of built-in objects?   *
+	   *     Or gives undesired access to variables likes document or window?    *
+	   * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	
+	  var $sanitizeMinErr = angular.$$minErr('$sanitize');
+	  var bind;
+	  var extend;
+	  var forEach;
+	  var isDefined;
+	  var lowercase;
+	  var noop;
+	  var htmlParser;
+	  var htmlSanitizeWriter;
+	
+	  /**
+	   * @ngdoc module
+	   * @name ngSanitize
+	   * @description
+	   *
+	   * # ngSanitize
+	   *
+	   * The `ngSanitize` module provides functionality to sanitize HTML.
+	   *
+	   *
+	   * <div doc-module-components="ngSanitize"></div>
+	   *
+	   * See {@link ngSanitize.$sanitize `$sanitize`} for usage.
+	   */
+	
+	  /**
+	   * @ngdoc service
+	   * @name $sanitize
+	   * @kind function
+	   *
+	   * @description
+	   *   Sanitizes an html string by stripping all potentially dangerous tokens.
+	   *
+	   *   The input is sanitized by parsing the HTML into tokens. All safe tokens (from a whitelist) are
+	   *   then serialized back to properly escaped html string. This means that no unsafe input can make
+	   *   it into the returned string.
+	   *
+	   *   The whitelist for URL sanitization of attribute values is configured using the functions
+	   *   `aHrefSanitizationWhitelist` and `imgSrcSanitizationWhitelist` of {@link ng.$compileProvider
+	   *   `$compileProvider`}.
+	   *
+	   *   The input may also contain SVG markup if this is enabled via {@link $sanitizeProvider}.
+	   *
+	   * @param {string} html HTML input.
+	   * @returns {string} Sanitized HTML.
+	   *
+	   * @example
+	     <example module="sanitizeExample" deps="angular-sanitize.js">
+	     <file name="index.html">
+	       <script>
+	           angular.module('sanitizeExample', ['ngSanitize'])
+	             .controller('ExampleController', ['$scope', '$sce', function($scope, $sce) {
+	               $scope.snippet =
+	                 '<p style="color:blue">an html\n' +
+	                 '<em onmouseover="this.textContent=\'PWN3D!\'">click here</em>\n' +
+	                 'snippet</p>';
+	               $scope.deliberatelyTrustDangerousSnippet = function() {
+	                 return $sce.trustAsHtml($scope.snippet);
+	               };
+	             }]);
+	       </script>
+	       <div ng-controller="ExampleController">
+	          Snippet: <textarea ng-model="snippet" cols="60" rows="3"></textarea>
+	         <table>
+	           <tr>
+	             <td>Directive</td>
+	             <td>How</td>
+	             <td>Source</td>
+	             <td>Rendered</td>
+	           </tr>
+	           <tr id="bind-html-with-sanitize">
+	             <td>ng-bind-html</td>
+	             <td>Automatically uses $sanitize</td>
+	             <td><pre>&lt;div ng-bind-html="snippet"&gt;<br/>&lt;/div&gt;</pre></td>
+	             <td><div ng-bind-html="snippet"></div></td>
+	           </tr>
+	           <tr id="bind-html-with-trust">
+	             <td>ng-bind-html</td>
+	             <td>Bypass $sanitize by explicitly trusting the dangerous value</td>
+	             <td>
+	             <pre>&lt;div ng-bind-html="deliberatelyTrustDangerousSnippet()"&gt;
+	  &lt;/div&gt;</pre>
+	             </td>
+	             <td><div ng-bind-html="deliberatelyTrustDangerousSnippet()"></div></td>
+	           </tr>
+	           <tr id="bind-default">
+	             <td>ng-bind</td>
+	             <td>Automatically escapes</td>
+	             <td><pre>&lt;div ng-bind="snippet"&gt;<br/>&lt;/div&gt;</pre></td>
+	             <td><div ng-bind="snippet"></div></td>
+	           </tr>
+	         </table>
+	         </div>
+	     </file>
+	     <file name="protractor.js" type="protractor">
+	       it('should sanitize the html snippet by default', function() {
+	         expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).
+	           toBe('<p>an html\n<em>click here</em>\nsnippet</p>');
+	       });
+	  
+	       it('should inline raw snippet if bound to a trusted value', function() {
+	         expect(element(by.css('#bind-html-with-trust div')).getInnerHtml()).
+	           toBe("<p style=\"color:blue\">an html\n" +
+	                "<em onmouseover=\"this.textContent='PWN3D!'\">click here</em>\n" +
+	                "snippet</p>");
+	       });
+	  
+	       it('should escape snippet without any filter', function() {
+	         expect(element(by.css('#bind-default div')).getInnerHtml()).
+	           toBe("&lt;p style=\"color:blue\"&gt;an html\n" +
+	                "&lt;em onmouseover=\"this.textContent='PWN3D!'\"&gt;click here&lt;/em&gt;\n" +
+	                "snippet&lt;/p&gt;");
+	       });
+	  
+	       it('should update', function() {
+	         element(by.model('snippet')).clear();
+	         element(by.model('snippet')).sendKeys('new <b onclick="alert(1)">text</b>');
+	         expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).
+	           toBe('new <b>text</b>');
+	         expect(element(by.css('#bind-html-with-trust div')).getInnerHtml()).toBe(
+	           'new <b onclick="alert(1)">text</b>');
+	         expect(element(by.css('#bind-default div')).getInnerHtml()).toBe(
+	           "new &lt;b onclick=\"alert(1)\"&gt;text&lt;/b&gt;");
+	       });
+	     </file>
+	     </example>
+	   */
+	
+	  /**
+	   * @ngdoc provider
+	   * @name $sanitizeProvider
+	   *
+	   * @description
+	   * Creates and configures {@link $sanitize} instance.
+	   */
+	  function $SanitizeProvider() {
+	    var svgEnabled = false;
+	
+	    this.$get = ['$$sanitizeUri', function ($$sanitizeUri) {
+	      if (svgEnabled) {
+	        extend(validElements, svgElements);
+	      }
+	      return function (html) {
+	        var buf = [];
+	        htmlParser(html, htmlSanitizeWriter(buf, function (uri, isImage) {
+	          return !/^unsafe:/.test($$sanitizeUri(uri, isImage));
+	        }));
+	        return buf.join('');
+	      };
+	    }];
+	
+	    /**
+	     * @ngdoc method
+	     * @name $sanitizeProvider#enableSvg
+	     * @kind function
+	     *
+	     * @description
+	     * Enables a subset of svg to be supported by the sanitizer.
+	     *
+	     * <div class="alert alert-warning">
+	     *   <p>By enabling this setting without taking other precautions, you might expose your
+	     *   application to click-hijacking attacks. In these attacks, sanitized svg elements could be positioned
+	     *   outside of the containing element and be rendered over other elements on the page (e.g. a login
+	     *   link). Such behavior can then result in phishing incidents.</p>
+	     *
+	     *   <p>To protect against these, explicitly setup `overflow: hidden` css rule for all potential svg
+	     *   tags within the sanitized content:</p>
+	     *
+	     *   <br>
+	     *
+	     *   <pre><code>
+	     *   .rootOfTheIncludedContent svg {
+	     *     overflow: hidden !important;
+	     *   }
+	     *   </code></pre>
+	     * </div>
+	     *
+	     * @param {boolean=} flag Enable or disable SVG support in the sanitizer.
+	     * @returns {boolean|ng.$sanitizeProvider} Returns the currently configured value if called
+	     *    without an argument or self for chaining otherwise.
+	     */
+	    this.enableSvg = function (enableSvg) {
+	      if (isDefined(enableSvg)) {
+	        svgEnabled = enableSvg;
+	        return this;
+	      } else {
+	        return svgEnabled;
+	      }
+	    };
+	
+	    //////////////////////////////////////////////////////////////////////////////////////////////////
+	    // Private stuff
+	    //////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	    bind = angular.bind;
+	    extend = angular.extend;
+	    forEach = angular.forEach;
+	    isDefined = angular.isDefined;
+	    lowercase = angular.lowercase;
+	    noop = angular.noop;
+	
+	    htmlParser = htmlParserImpl;
+	    htmlSanitizeWriter = htmlSanitizeWriterImpl;
+	
+	    // Regular Expressions for parsing tags and attributes
+	    var SURROGATE_PAIR_REGEXP = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
+	
+	    // Match everything outside of normal chars and " (quote character)
+	    NON_ALPHANUMERIC_REGEXP = /([^\#-~ |!])/g;
+	
+	    // Good source of info about elements and attributes
+	    // http://dev.w3.org/html5/spec/Overview.html#semantics
+	    // http://simon.html5.org/html-elements
+	
+	    // Safe Void Elements - HTML5
+	    // http://dev.w3.org/html5/spec/Overview.html#void-elements
+	    var voidElements = toMap("area,br,col,hr,img,wbr");
+	
+	    // Elements that you can, intentionally, leave open (and which close themselves)
+	    // http://dev.w3.org/html5/spec/Overview.html#optional-tags
+	    var optionalEndTagBlockElements = toMap("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr"),
+	        optionalEndTagInlineElements = toMap("rp,rt"),
+	        optionalEndTagElements = extend({}, optionalEndTagInlineElements, optionalEndTagBlockElements);
+	
+	    // Safe Block Elements - HTML5
+	    var blockElements = extend({}, optionalEndTagBlockElements, toMap("address,article," + "aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5," + "h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,section,table,ul"));
+	
+	    // Inline Elements - HTML5
+	    var inlineElements = extend({}, optionalEndTagInlineElements, toMap("a,abbr,acronym,b," + "bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s," + "samp,small,span,strike,strong,sub,sup,time,tt,u,var"));
+	
+	    // SVG Elements
+	    // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Elements
+	    // Note: the elements animate,animateColor,animateMotion,animateTransform,set are intentionally omitted.
+	    // They can potentially allow for arbitrary javascript to be executed. See #11290
+	    var svgElements = toMap("circle,defs,desc,ellipse,font-face,font-face-name,font-face-src,g,glyph," + "hkern,image,linearGradient,line,marker,metadata,missing-glyph,mpath,path,polygon,polyline," + "radialGradient,rect,stop,svg,switch,text,title,tspan");
+	
+	    // Blocked Elements (will be stripped)
+	    var blockedElements = toMap("script,style");
+	
+	    var validElements = extend({}, voidElements, blockElements, inlineElements, optionalEndTagElements);
+	
+	    //Attributes that have href and hence need to be sanitized
+	    var uriAttrs = toMap("background,cite,href,longdesc,src,xlink:href");
+	
+	    var htmlAttrs = toMap('abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,' + 'color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,' + 'ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,' + 'scope,scrolling,shape,size,span,start,summary,tabindex,target,title,type,' + 'valign,value,vspace,width');
+	
+	    // SVG attributes (without "id" and "name" attributes)
+	    // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Attributes
+	    var svgAttrs = toMap('accent-height,accumulate,additive,alphabetic,arabic-form,ascent,' + 'baseProfile,bbox,begin,by,calcMode,cap-height,class,color,color-rendering,content,' + 'cx,cy,d,dx,dy,descent,display,dur,end,fill,fill-rule,font-family,font-size,font-stretch,' + 'font-style,font-variant,font-weight,from,fx,fy,g1,g2,glyph-name,gradientUnits,hanging,' + 'height,horiz-adv-x,horiz-origin-x,ideographic,k,keyPoints,keySplines,keyTimes,lang,' + 'marker-end,marker-mid,marker-start,markerHeight,markerUnits,markerWidth,mathematical,' + 'max,min,offset,opacity,orient,origin,overline-position,overline-thickness,panose-1,' + 'path,pathLength,points,preserveAspectRatio,r,refX,refY,repeatCount,repeatDur,' + 'requiredExtensions,requiredFeatures,restart,rotate,rx,ry,slope,stemh,stemv,stop-color,' + 'stop-opacity,strikethrough-position,strikethrough-thickness,stroke,stroke-dasharray,' + 'stroke-dashoffset,stroke-linecap,stroke-linejoin,stroke-miterlimit,stroke-opacity,' + 'stroke-width,systemLanguage,target,text-anchor,to,transform,type,u1,u2,underline-position,' + 'underline-thickness,unicode,unicode-range,units-per-em,values,version,viewBox,visibility,' + 'width,widths,x,x-height,x1,x2,xlink:actuate,xlink:arcrole,xlink:role,xlink:show,xlink:title,' + 'xlink:type,xml:base,xml:lang,xml:space,xmlns,xmlns:xlink,y,y1,y2,zoomAndPan', true);
+	
+	    var validAttrs = extend({}, uriAttrs, svgAttrs, htmlAttrs);
+	
+	    function toMap(str, lowercaseKeys) {
+	      var obj = {},
+	          items = str.split(','),
+	          i;
+	      for (i = 0; i < items.length; i++) {
+	        obj[lowercaseKeys ? lowercase(items[i]) : items[i]] = true;
+	      }
+	      return obj;
+	    }
+	
+	    var inertBodyElement;
+	    (function (window) {
+	      var doc;
+	      if (window.document && window.document.implementation) {
+	        doc = window.document.implementation.createHTMLDocument("inert");
+	      } else {
+	        throw $sanitizeMinErr('noinert', "Can't create an inert html document");
+	      }
+	      var docElement = doc.documentElement || doc.getDocumentElement();
+	      var bodyElements = docElement.getElementsByTagName('body');
+	
+	      // usually there should be only one body element in the document, but IE doesn't have any, so we need to create one
+	      if (bodyElements.length === 1) {
+	        inertBodyElement = bodyElements[0];
+	      } else {
+	        var html = doc.createElement('html');
+	        inertBodyElement = doc.createElement('body');
+	        html.appendChild(inertBodyElement);
+	        doc.appendChild(html);
+	      }
+	    })(window);
+	
+	    /**
+	     * @example
+	     * htmlParser(htmlString, {
+	     *     start: function(tag, attrs) {},
+	     *     end: function(tag) {},
+	     *     chars: function(text) {},
+	     *     comment: function(text) {}
+	     * });
+	     *
+	     * @param {string} html string
+	     * @param {object} handler
+	     */
+	    function htmlParserImpl(html, handler) {
+	      if (html === null || html === undefined) {
+	        html = '';
+	      } else if (typeof html !== 'string') {
+	        html = '' + html;
+	      }
+	      inertBodyElement.innerHTML = html;
+	
+	      //mXSS protection
+	      var mXSSAttempts = 5;
+	      do {
+	        if (mXSSAttempts === 0) {
+	          throw $sanitizeMinErr('uinput', "Failed to sanitize html because the input is unstable");
+	        }
+	        mXSSAttempts--;
+	
+	        // strip custom-namespaced attributes on IE<=11
+	        if (window.document.documentMode) {
+	          stripCustomNsAttrs(inertBodyElement);
+	        }
+	        html = inertBodyElement.innerHTML; //trigger mXSS
+	        inertBodyElement.innerHTML = html;
+	      } while (html !== inertBodyElement.innerHTML);
+	
+	      var node = inertBodyElement.firstChild;
+	      while (node) {
+	        switch (node.nodeType) {
+	          case 1:
+	            // ELEMENT_NODE
+	            handler.start(node.nodeName.toLowerCase(), attrToMap(node.attributes));
+	            break;
+	          case 3:
+	            // TEXT NODE
+	            handler.chars(node.textContent);
+	            break;
+	        }
+	
+	        var nextNode;
+	        if (!(nextNode = node.firstChild)) {
+	          if (node.nodeType == 1) {
+	            handler.end(node.nodeName.toLowerCase());
+	          }
+	          nextNode = node.nextSibling;
+	          if (!nextNode) {
+	            while (nextNode == null) {
+	              node = node.parentNode;
+	              if (node === inertBodyElement) break;
+	              nextNode = node.nextSibling;
+	              if (node.nodeType == 1) {
+	                handler.end(node.nodeName.toLowerCase());
+	              }
+	            }
+	          }
+	        }
+	        node = nextNode;
+	      }
+	
+	      while (node = inertBodyElement.firstChild) {
+	        inertBodyElement.removeChild(node);
+	      }
+	    }
+	
+	    function attrToMap(attrs) {
+	      var map = {};
+	      for (var i = 0, ii = attrs.length; i < ii; i++) {
+	        var attr = attrs[i];
+	        map[attr.name] = attr.value;
+	      }
+	      return map;
+	    }
+	
+	    /**
+	     * Escapes all potentially dangerous characters, so that the
+	     * resulting string can be safely inserted into attribute or
+	     * element text.
+	     * @param value
+	     * @returns {string} escaped text
+	     */
+	    function encodeEntities(value) {
+	      return value.replace(/&/g, '&amp;').replace(SURROGATE_PAIR_REGEXP, function (value) {
+	        var hi = value.charCodeAt(0);
+	        var low = value.charCodeAt(1);
+	        return '&#' + ((hi - 0xD800) * 0x400 + (low - 0xDC00) + 0x10000) + ';';
+	      }).replace(NON_ALPHANUMERIC_REGEXP, function (value) {
+	        return '&#' + value.charCodeAt(0) + ';';
+	      }).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	    }
+	
+	    /**
+	     * create an HTML/XML writer which writes to buffer
+	     * @param {Array} buf use buf.join('') to get out sanitized html string
+	     * @returns {object} in the form of {
+	     *     start: function(tag, attrs) {},
+	     *     end: function(tag) {},
+	     *     chars: function(text) {},
+	     *     comment: function(text) {}
+	     * }
+	     */
+	    function htmlSanitizeWriterImpl(buf, uriValidator) {
+	      var ignoreCurrentElement = false;
+	      var out = bind(buf, buf.push);
+	      return {
+	        start: function start(tag, attrs) {
+	          tag = lowercase(tag);
+	          if (!ignoreCurrentElement && blockedElements[tag]) {
+	            ignoreCurrentElement = tag;
+	          }
+	          if (!ignoreCurrentElement && validElements[tag] === true) {
+	            out('<');
+	            out(tag);
+	            forEach(attrs, function (value, key) {
+	              var lkey = lowercase(key);
+	              var isImage = tag === 'img' && lkey === 'src' || lkey === 'background';
+	              if (validAttrs[lkey] === true && (uriAttrs[lkey] !== true || uriValidator(value, isImage))) {
+	                out(' ');
+	                out(key);
+	                out('="');
+	                out(encodeEntities(value));
+	                out('"');
+	              }
+	            });
+	            out('>');
+	          }
+	        },
+	        end: function end(tag) {
+	          tag = lowercase(tag);
+	          if (!ignoreCurrentElement && validElements[tag] === true && voidElements[tag] !== true) {
+	            out('</');
+	            out(tag);
+	            out('>');
+	          }
+	          if (tag == ignoreCurrentElement) {
+	            ignoreCurrentElement = false;
+	          }
+	        },
+	        chars: function chars(_chars) {
+	          if (!ignoreCurrentElement) {
+	            out(encodeEntities(_chars));
+	          }
+	        }
+	      };
+	    }
+	
+	    /**
+	     * When IE9-11 comes across an unknown namespaced attribute e.g. 'xlink:foo' it adds 'xmlns:ns1' attribute to declare
+	     * ns1 namespace and prefixes the attribute with 'ns1' (e.g. 'ns1:xlink:foo'). This is undesirable since we don't want
+	     * to allow any of these custom attributes. This method strips them all.
+	     *
+	     * @param node Root element to process
+	     */
+	    function stripCustomNsAttrs(node) {
+	      if (node.nodeType === window.Node.ELEMENT_NODE) {
+	        var attrs = node.attributes;
+	        for (var i = 0, l = attrs.length; i < l; i++) {
+	          var attrNode = attrs[i];
+	          var attrName = attrNode.name.toLowerCase();
+	          if (attrName === 'xmlns:ns1' || attrName.lastIndexOf('ns1:', 0) === 0) {
+	            node.removeAttributeNode(attrNode);
+	            i--;
+	            l--;
+	          }
+	        }
+	      }
+	
+	      var nextNode = node.firstChild;
+	      if (nextNode) {
+	        stripCustomNsAttrs(nextNode);
+	      }
+	
+	      nextNode = node.nextSibling;
+	      if (nextNode) {
+	        stripCustomNsAttrs(nextNode);
+	      }
+	    }
+	  }
+	
+	  function sanitizeText(chars) {
+	    var buf = [];
+	    var writer = htmlSanitizeWriter(buf, noop);
+	    writer.chars(chars);
+	    return buf.join('');
+	  }
+	
+	  // define ngSanitize module and register $sanitize service
+	  angular.module('ngSanitize', []).provider('$sanitize', $SanitizeProvider);
+	
+	  /**
+	   * @ngdoc filter
+	   * @name linky
+	   * @kind function
+	   *
+	   * @description
+	   * Finds links in text input and turns them into html links. Supports `http/https/ftp/mailto` and
+	   * plain email address links.
+	   *
+	   * Requires the {@link ngSanitize `ngSanitize`} module to be installed.
+	   *
+	   * @param {string} text Input text.
+	   * @param {string} target Window (`_blank|_self|_parent|_top`) or named frame to open links in.
+	   * @param {object|function(url)} [attributes] Add custom attributes to the link element.
+	   *
+	   *    Can be one of:
+	   *
+	   *    - `object`: A map of attributes
+	   *    - `function`: Takes the url as a parameter and returns a map of attributes
+	   *
+	   *    If the map of attributes contains a value for `target`, it overrides the value of
+	   *    the target parameter.
+	   *
+	   *
+	   * @returns {string} Html-linkified and {@link $sanitize sanitized} text.
+	   *
+	   * @usage
+	     <span ng-bind-html="linky_expression | linky"></span>
+	   *
+	   * @example
+	     <example module="linkyExample" deps="angular-sanitize.js">
+	       <file name="index.html">
+	         <div ng-controller="ExampleController">
+	         Snippet: <textarea ng-model="snippet" cols="60" rows="3"></textarea>
+	         <table>
+	           <tr>
+	             <th>Filter</th>
+	             <th>Source</th>
+	             <th>Rendered</th>
+	           </tr>
+	           <tr id="linky-filter">
+	             <td>linky filter</td>
+	             <td>
+	               <pre>&lt;div ng-bind-html="snippet | linky"&gt;<br>&lt;/div&gt;</pre>
+	             </td>
+	             <td>
+	               <div ng-bind-html="snippet | linky"></div>
+	             </td>
+	           </tr>
+	           <tr id="linky-target">
+	            <td>linky target</td>
+	            <td>
+	              <pre>&lt;div ng-bind-html="snippetWithSingleURL | linky:'_blank'"&gt;<br>&lt;/div&gt;</pre>
+	            </td>
+	            <td>
+	              <div ng-bind-html="snippetWithSingleURL | linky:'_blank'"></div>
+	            </td>
+	           </tr>
+	           <tr id="linky-custom-attributes">
+	            <td>linky custom attributes</td>
+	            <td>
+	              <pre>&lt;div ng-bind-html="snippetWithSingleURL | linky:'_self':{rel: 'nofollow'}"&gt;<br>&lt;/div&gt;</pre>
+	            </td>
+	            <td>
+	              <div ng-bind-html="snippetWithSingleURL | linky:'_self':{rel: 'nofollow'}"></div>
+	            </td>
+	           </tr>
+	           <tr id="escaped-html">
+	             <td>no filter</td>
+	             <td><pre>&lt;div ng-bind="snippet"&gt;<br>&lt;/div&gt;</pre></td>
+	             <td><div ng-bind="snippet"></div></td>
+	           </tr>
+	         </table>
+	       </file>
+	       <file name="script.js">
+	         angular.module('linkyExample', ['ngSanitize'])
+	           .controller('ExampleController', ['$scope', function($scope) {
+	             $scope.snippet =
+	               'Pretty text with some links:\n'+
+	               'http://angularjs.org/,\n'+
+	               'mailto:us@somewhere.org,\n'+
+	               'another@somewhere.org,\n'+
+	               'and one more: ftp://127.0.0.1/.';
+	             $scope.snippetWithSingleURL = 'http://angularjs.org/';
+	           }]);
+	       </file>
+	       <file name="protractor.js" type="protractor">
+	         it('should linkify the snippet with urls', function() {
+	           expect(element(by.id('linky-filter')).element(by.binding('snippet | linky')).getText()).
+	               toBe('Pretty text with some links: http://angularjs.org/, us@somewhere.org, ' +
+	                    'another@somewhere.org, and one more: ftp://127.0.0.1/.');
+	           expect(element.all(by.css('#linky-filter a')).count()).toEqual(4);
+	         });
+	  
+	         it('should not linkify snippet without the linky filter', function() {
+	           expect(element(by.id('escaped-html')).element(by.binding('snippet')).getText()).
+	               toBe('Pretty text with some links: http://angularjs.org/, mailto:us@somewhere.org, ' +
+	                    'another@somewhere.org, and one more: ftp://127.0.0.1/.');
+	           expect(element.all(by.css('#escaped-html a')).count()).toEqual(0);
+	         });
+	  
+	         it('should update', function() {
+	           element(by.model('snippet')).clear();
+	           element(by.model('snippet')).sendKeys('new http://link.');
+	           expect(element(by.id('linky-filter')).element(by.binding('snippet | linky')).getText()).
+	               toBe('new http://link.');
+	           expect(element.all(by.css('#linky-filter a')).count()).toEqual(1);
+	           expect(element(by.id('escaped-html')).element(by.binding('snippet')).getText())
+	               .toBe('new http://link.');
+	         });
+	  
+	         it('should work with the target property', function() {
+	          expect(element(by.id('linky-target')).
+	              element(by.binding("snippetWithSingleURL | linky:'_blank'")).getText()).
+	              toBe('http://angularjs.org/');
+	          expect(element(by.css('#linky-target a')).getAttribute('target')).toEqual('_blank');
+	         });
+	  
+	         it('should optionally add custom attributes', function() {
+	          expect(element(by.id('linky-custom-attributes')).
+	              element(by.binding("snippetWithSingleURL | linky:'_self':{rel: 'nofollow'}")).getText()).
+	              toBe('http://angularjs.org/');
+	          expect(element(by.css('#linky-custom-attributes a')).getAttribute('rel')).toEqual('nofollow');
+	         });
+	       </file>
+	     </example>
+	   */
+	  angular.module('ngSanitize').filter('linky', ['$sanitize', function ($sanitize) {
+	    var LINKY_URL_REGEXP = /((ftp|https?):\/\/|(www\.)|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"\u201d\u2019]/i,
+	        MAILTO_REGEXP = /^mailto:/i;
+	
+	    var linkyMinErr = angular.$$minErr('linky');
+	    var isDefined = angular.isDefined;
+	    var isFunction = angular.isFunction;
+	    var isObject = angular.isObject;
+	    var isString = angular.isString;
+	
+	    return function (text, target, attributes) {
+	      if (text == null || text === '') return text;
+	      if (!isString(text)) throw linkyMinErr('notstring', 'Expected string but received: {0}', text);
+	
+	      var attributesFn = isFunction(attributes) ? attributes : isObject(attributes) ? function getAttributesObject() {
+	        return attributes;
+	      } : function getEmptyAttributesObject() {
+	        return {};
+	      };
+	
+	      var match;
+	      var raw = text;
+	      var html = [];
+	      var url;
+	      var i;
+	      while (match = raw.match(LINKY_URL_REGEXP)) {
+	        // We can not end in these as they are sometimes found at the end of the sentence
+	        url = match[0];
+	        // if we did not match ftp/http/www/mailto then assume mailto
+	        if (!match[2] && !match[4]) {
+	          url = (match[3] ? 'http://' : 'mailto:') + url;
+	        }
+	        i = match.index;
+	        addText(raw.substr(0, i));
+	        addLink(url, match[0].replace(MAILTO_REGEXP, ''));
+	        raw = raw.substring(i + match[0].length);
+	      }
+	      addText(raw);
+	      return $sanitize(html.join(''));
+	
+	      function addText(text) {
+	        if (!text) {
+	          return;
+	        }
+	        html.push(sanitizeText(text));
+	      }
+	
+	      function addLink(url, text) {
+	        var key,
+	            linkAttributes = attributesFn(url);
+	        html.push('<a ');
+	
+	        for (key in linkAttributes) {
+	          html.push(key + '="' + linkAttributes[key] + '" ');
+	        }
+	
+	        if (isDefined(target) && !('target' in linkAttributes)) {
+	          html.push('target="', target, '" ');
+	        }
+	        html.push('href="', url.replace(/"/g, '&quot;'), '">');
+	        addText(text);
+	        html.push('</a>');
+	      }
+	    };
+	  }]);
+	})(window, window.angular);
+
+/***/ },
+/* 21 */
 /*!*****************************!*\
   !*** ./src/views/home.html ***!
   \*****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"container-of-this-shit\">\n\n\n<div id=\"carousel-example-generic\" class=\"carousel slide\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"3\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"4\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <div class=\"item active item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/nw-crop.jpg */ 20) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Nick Wooster</h2>\n            <p>from <span>archinoid</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><a ui-sref=\"player\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></a></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/jk2.jpg */ 22) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Jester King</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\" ng-click=\"#\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/lm2.jpg */ 23) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>CHVRCHES</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/moto-crop-shade.jpg */ 24) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Hello Moto</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/mtn.jpg */ 25) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Life in Utah</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 21) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Controls -->\n  <a class=\"left carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n</div>\n\n<div class=\"staffpicks\">\n  <div class=\"header\">\n    <h3 class=\"headerlabel\">Watch human-curated Staff Picks</h3>\n    <p class=\"viewchannel\"><span>View channel ></span></p>\n  </div>\n</div>\n\n<div class=\"videorow\">\n  <div class=\"leftinfobar\"><img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n    <div class=\"leftinfotextcontainer\">\n      <h4>Vimeo Staff Picks</h4>\n      <p>We really love videos, and these are the videos we really, really love.</p>\n    </div>\n    <button class=\"follow\">+ Follow</button>\n  </div>\n    <div class=\"topvideocontainer\">\n      <div class=\"video\" id=\"embed\" ng-repeat=\"video in fiveVideos\">\n        <a href=\"{{video.link}}\">\n          <img ng-src=\"{{ video.pictures.sizes[1].link_with_play_button}}\" alt=\"\">\n        </a>\n        <a href=\"{{video.link}}\">\n          <strong class=\"videoname\">{{video.name}}</strong>\n        </a>\n          <br>\n          {{video.user.name}} | Plays: {{video.stats.plays}}\n          <br>\n          <a href=\"{{video.link}}\">Watch now</a>\n      </div>\n    </div>\n\n</div>\n";
+	module.exports = "<div class=\"container-of-this-shit\">\n\n\n<div id=\"carousel-example-generic\" class=\"carousel slide\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"3\"></li>\n    <li data-target=\"#carousel-example-generic\" data-slide-to=\"4\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <div class=\"item active item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/nw-crop.jpg */ 22) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Nick Wooster</h2>\n            <p>from <span>archinoid</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><a ui-sref=\"player\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 23) + "\" alt=\"\"> Watch Now</button></a></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/jk2.jpg */ 24) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Jester King</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\" ng-click=\"#\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 23) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/lm2.jpg */ 25) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>CHVRCHES</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 23) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/moto-crop-shade.jpg */ 26) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Hello Moto</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 23) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n    <div class=\"item item-1\">\n      <img src=\"" + __webpack_require__(/*! ../../public/images/mtn.jpg */ 27) + "\" alt=\"\">\n      <div class=\"carousel-caption\">\n        <div class=\"description\">\n            <h2>Life in Utah</h2>\n            <p>from <span>joematpal</span></p>\n            <p>biodiesel asymmetrical, coloring book activated charcoal hella post-ironic kogi gentrify literally authentic 3 wolf moon. Thundercats mumblecore mlkshk.\n            </p>\n            <div class=\"scrollingwatchnow\"><button class=\"watchnow\"><img class=\"play\" src=\"" + __webpack_require__(/*! ../../public/images/playicon.png */ 23) + "\" alt=\"\"> Watch Now</button></div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Controls -->\n  <a class=\"left carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n</div>\n\n<div class=\"staffpicks\">\n  <div class=\"header\">\n    <a ui-sref=\"trending\"><h3 class=\"headerlabel\">Watch human-curated Staff Picks</h3></a>\n    <p class=\"viewchannel\"><a ui-sref=\"trending\"><span>View channel ></span></a></p>\n  </div>\n</div>\n\n<div class=\"videorow\">\n  <div class=\"leftinfobar\"><img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 28) + "\" alt=\"Staff Picks\">\n    <div class=\"leftinfotextcontainer\">\n      <h4>Vimeo Staff Picks</h4>\n      <p>We really love videos, and these are the videos we really, really love.</p>\n    </div>\n    <button class=\"follow\">+ Follow</button>\n  </div>\n    <div class=\"topvideocontainer\">\n      <div class=\"video\" id=\"embed\" ng-repeat=\"video in fiveVideos\">\n          <img ng-click=\"goToVideo(video.uri)\" ng-src=\"{{ video.pictures.sizes[1].link_with_play_button}}\" alt=\"\">\n        </a>\n        <a href=\"{{video.link}}\">\n          <strong class=\"videoname\">{{video.name}}</strong>\n          <br>\n          {{video.user.name}} | Plays: {{video.stats.plays}}\n          <br>\n          <a href=\"{{video.link}}\">Watch now</a>\n      </div>\n    </div>\n\n</div>\n";
 
 /***/ },
-/* 20 */
+/* 22 */
 /*!***********************************!*\
   !*** ./public/images/nw-crop.jpg ***!
   \***********************************/
@@ -23482,7 +24232,7 @@
 	module.exports = __webpack_require__.p + "5ff3c07c6dac22c66e91418b2a4643a9.jpg";
 
 /***/ },
-/* 21 */
+/* 23 */
 /*!************************************!*\
   !*** ./public/images/playicon.png ***!
   \************************************/
@@ -23491,7 +24241,7 @@
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAJ3ElEQVR4nO3df6jV9R3H8ddXLhe5iBORCAlpIi5EWkSERISLiJARI0ZEtAiRLWJIiIkTF0g4aSHSltnKylZptdmq9fuX/bCy1qy55lppZbpmZiYWJXfX+9ofn+Tc6fV6zr3fc97fH88H+P/rHHw/PVeP50gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJRBFj2gU2z3SJr27a/vSfpG0l5JeyRtzLJsT+A8AO1ge5rt39n+xsf2X9tP2L7M9ujozQBGyPY42+ttHxri8Afzb9tzCQFQUran297e4uEf6T+25zn96ACgDGzPsP3lCI9/oE8JAVACtsfb3pHj8R8ZggW2x0Q/TgBHsC3bf27T8Q/0me2FhAAoENszO3D8R4Zgke2x0Y8dqD3b6zocgMM+t72YEKCMKvFGINsnSNopqTtwxn5JKyT9Jsuy/YE7gHqxPSvoT//BfGF7ie1x0c8LcDyjogfkZHL0gAHGSbpW0g7b19keHz0IOJaqBOC70QMGMVbSYkkf2l5KCFBEVQlAkY9rrKRFSq8IltmeED0IOKwqASiDMZIWKr0iuJ4QoAgIQOeNkbRA6RXBDU7/ggGEIABxeiTNV3pFsNz2idGDUD8EIF6PpHmSttteYXti9CDUBwEojh5JVyuF4EZCgE4gAMUzWtJcpRCstH1S9CBUFwEortGSrlIKwSrbk6IHoXoIQPF1S7pS0vtOn21ICJAbAlAe3ZJ+qhSC22yfHLwHFUAAyqdb0hylENxuu0j/DwIlQwDKq0vSbEn/sn2n7SnRg1A+BKD8uiRdIemftu+yPTV4D0qEAFRHl6TLJf3D9t2EAM0gANXTJekypVcE99o+JXoQiosAVNcoSZcqvSJYZ3ta9CAUDwGovlGSLpH0d9v3254ePQjFQQDqY5SkiyX9zek7E0+NHoR4BKB+Rkm6SNJbtv9k+7ToQYhDAOprlKQfKYXgYdunRw9C5xEASNKFkv7q9NVqZ0SPQecQAAz0Q0l/sf2Y7TOjx6D9CAAGM0vS67afsD0jegzahwBgKBdIes32U7bPih6D/BEANON8Sa/Yfsb22dFjkB8CgFacJ+ll28/ZPid6DEaOAGA4zpX0ou0NtmdGj8HwEQCMxExJG2y/aPvc6DFoHQFAHs6R9Jztl22fFz0GzSMAyNPZkp6x/Yrt86PH4PgIANrhLElP2X7N9gXRY3BsBADtNEPSE7Zftz3LdvQeHIEAoBPOlPSY0tuMLyQExUEA0ElnSHpY6T8eEYICIACIcLpSCN6yfREhiEMAEOk0SeuVPqXox7b5/dhhPOEoglMl/UEpBBcTgs7hiUaRTJd0v9IHmF5CCNqPJxhFNE3SOqWPNL+UELQPTyyK7BRJ9yp9ycllhCB/PKEog6mS7lb6ItTLbXdFD6oKAoAymSLpLqVXBFcQgpEjACijKZLuVHpFMJsQDB8BQJlNlnS7pPdtz7HdHT2obAgAquBkSbcpheBKQtA8AoAqmSRplVIIriIEx0cAUEWTJK2UtN32z22Pjh5UVAQAVXaSpN8qhWAuITgaAUAdTJR0o1IIrrbdEz2oKAgA6mSipBVKIZhHCAgA6ulEScslfWh7fp1DQABQZydIukHSDtsLbI+JHtRpBACQJki6XukVwcI6hYAAAA0TJC1TekWwqA4/GhAA4GjjJS1V+szCGdFj2okAAMc2VenbkJdV9bMIKvmggBx1SVqo9KNB5RAAoDkLbM+OHpE3AgA0b5Xt6dEj8kQAgOZ1S7omekSeCADQmktsT4wekRcCALSmW9Kc6BF5IQBA634QPSAvBABoXWX+IpAAAK0bX5U3BlXiQQAYHgIAtG5flmX90SPyQACA1m2JHpAXAgC0bkP0gLwQAKA1vZJWR4/ICwEAWrM2y7Ld0SPyQgCA5vUqfYZgZRAAoHk/y7Jsa/SIPBEAoDm/zrJsTfSIvBEAYGh9kn4l6RfRQ9qhK3oAUGDbJP0ky7JN0UPahVcAwNH2SfqlpO9X+fglXgEAA+1T+sqwm7IsOxA9phMIACDtVePwv4oe00kEAHW2V+nf9W+u2+EfRgBQR3vUOPyvo8dEIgCok91Kh39L3Q//MAKAOtit9O2/t3L4/48AoMo+UePwD0aPKSICgCrapXT4qzn8oREAVMkupS/xXJ1lWW/0mDIgAKiCj5UO/w4OvzUEAGX2kdLhr+Hwh4cAoIw+UOPw+6LHlBkBQJl8IOk6Sfdw+PkgACiDbUqHv5bDzxcBQJG9p3T493H47UEAUETvqnH4lfgGnqIiACiSrUqH/wCH3xkEAEXwjtLh/5HD7ywCgEjvSFoi6UEOPwYBQIQtSof/EIcfiwCgk95W4/Cjt0AEAJ2xWenwH+Hwi4UAoJ3eVDr8Rzn8YiIAaIc3lA7/cQ6/2AgA8rRJ0pIsy56MHoLmEADk4VWlw386eghaQwAwEhuVDv/Z6CEYHgKA4XhJ6fCfjx6CkSEAaMULSof/QvAO5IQAoBnPKx3+S9FDkC8CgKE8q3T4G6OHoD0IAAbztNLhvxo9BO1FADDQk0qHvyl6CDqDAECSHlc6/Deih6CzCEC9Pap0+G9GD0EMAlBPjygd/uboIYhFAOqjX43Dfzt6DIqBAFRfv6SHlA5/S/QYFAsBqK5+SQ8qHf470WNQTASgevolPSDpuizLtkaPQbERgOrol3Sf0uG/Gz0G5UAAyq9PjcN/L3oMyoUAlFefpLWSlnL4GC4CUD59ku5ROvxt0WNQbgSgPPok/V7p8D+IHoNqIADF16vG4X8UvAUVQwCKq1fSGknLOHy0CwEonl5Jdygd/sfRY1BtBKA4Dqpx+Luix6AeCEC8g5JWKx3+J9FjUC8EIM5BSbdKup7DRxQC0Hlfq3H4u6PHoN4IQOd8LekWpcPfEz0GkKoTgP3RA4bwldLh38Dho2iqEoDt0QMG8ZWkm5UOf2/0GGAwVQlAkd4ae0Dp8Jdz+Ci6LHpAHmyfIGmnpO7AGQck3aR0+PsCdwD1Y/t+x/jC9hLb46OfA6C2bM8MOPxrbY+LfuxA7dmW7cc6cPif215se2z0YwYwgO0Jtne28fAXcfhAgdmeYfvLHA//M9sLbY+JfmwAmmB7uu3tORz+Ag4fKCHb42yvt32oxcP/1PZ8Dh+oANtTba/00D8WHLK9wfZs2z3Rm4FOqcQbgZrx7Z/o0yRN/vbXd5TePPSxpM18CAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBR/Q+KahDKgd11mQAAAABJRU5ErkJggg=="
 
 /***/ },
-/* 22 */
+/* 24 */
 /*!*******************************!*\
   !*** ./public/images/jk2.jpg ***!
   \*******************************/
@@ -23500,7 +24250,7 @@
 	module.exports = __webpack_require__.p + "9132e9cd34af95e65e83081754f70984.jpg";
 
 /***/ },
-/* 23 */
+/* 25 */
 /*!*******************************!*\
   !*** ./public/images/lm2.jpg ***!
   \*******************************/
@@ -23509,7 +24259,7 @@
 	module.exports = __webpack_require__.p + "3296b3831b6d11e4d80798900bd67363.jpg";
 
 /***/ },
-/* 24 */
+/* 26 */
 /*!*******************************************!*\
   !*** ./public/images/moto-crop-shade.jpg ***!
   \*******************************************/
@@ -23518,7 +24268,7 @@
 	module.exports = __webpack_require__.p + "87f5afcc9ca014b720b55ed64b6a84a6.jpg";
 
 /***/ },
-/* 25 */
+/* 27 */
 /*!*******************************!*\
   !*** ./public/images/mtn.jpg ***!
   \*******************************/
@@ -23527,7 +24277,7 @@
 	module.exports = __webpack_require__.p + "22e88596a65daf1defe15b238b2a8c5b.jpg";
 
 /***/ },
-/* 26 */
+/* 28 */
 /*!*************************************!*\
   !*** ./public/images/staffpick.svg ***!
   \*************************************/
@@ -23536,43 +24286,34 @@
 	module.exports = __webpack_require__.p + "d4b904ef5c332e1ce73fc074c1d473cf.svg";
 
 /***/ },
-/* 27 */
+/* 29 */
 /*!********************************!*\
   !*** ./src/views/welcome.html ***!
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"welcomecontainer\">\n\n    <h1 class=\"welcometag\">Welcome home, {{user.username}}</h1>\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n            <div class=\"usermenu\">\n                <a ui-sref=\"welcome\">\n                    <div class=\"myfeed highlight\"><span>Feed</span></div>\n                </a>\n                <a ui-sref=\"favorites\">\n                    <div class=\"myfeed\">Favorites</div>\n                </a>\n                <a ui-sref=\"recentlyviewed\">\n                    <div class=\"myvideos\">Recently Viewed</div>\n                </a>\n                <a ui-sref=\"ondemand\">\n                    <div class=\"ondemand\">On Demand</div>\n                </a>\n            </div>\n\n            <div class=\"appearancelinks\">\n                Show:\n                <a href=\"#\">All</a>|\n                <a href=\"#\">Likes</a>|\n                <a href=\"#\">Uploads</a>|\n                <a href=\"#\">Appearances</a>|\n                <a href=\"#\">Channels</a>|\n                <a href=\"#\">Groups</a>|\n                <a href=\"#\">Tags</a>|\n                <a href=\"#\">Categories</a>\n            </div>\n\n            <div class=\"welcomefeed\" ng-repeat=\"video in welcomevideos\">\n                <div class=\"staffpickicon\">\n                    <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n                    <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n                </div>\n                <div class=\"welcomedesc\">\n                    <a href=\"{{video.link}}\">\n                        <img id=\"welcomeimg\" ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n                        <br>\n                    <div class=\"welcomedescription\">\n          <strong class=\"trendingvideoname\">{{video.name}}</strong>\n                    </a>\n                      <br>\n                        from {{video.user.name}}\n                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n                        <br> {{video.description}}\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n\n    <div class=\"feed-right-container\">\n        <div class=\"recentactivity\">\n\n            <div class=\"mypeoplebar\">\n                MY PEOPLE\n            </div>\n            <p>You do not currently have friends online.</p>\n\n            <div class=\"explore\">\n                EXPLORE VIDMEO\n            </div>\n            <ul>\n                <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n                <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n                <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n                <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n        </div>\n    </div>\n\n  </div>\n\n</div>\n";
-
-/***/ },
-/* 28 */
-/*!**********************************!*\
-  !*** ./src/views/favorites.html ***!
-  \**********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n    <div class=\"usermenu\">\n      <a ui-sref=\"welcome\"><div class=\"myfeed\">Feed</div></a>\n      <a ui-sref=\"favorites\"><div class=\"myfeed highlight\"><span>Favorites</span></div></a>\n      <a ui-sref=\"recentlyviewed\"><div class=\"myvideos\">Recently Viewed</div></a>\n      <div class=\"ondemand\">On Demand</div>\n    </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a href=\"#\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <h2 class=\"htwofavorites\">Favorites</h2>\n\n      <div class=\"welcomefeed\">\n        <div class=\"staffpickicon\">\n          <img src=\"" + __webpack_require__(/*! ../../public/images/heart.png */ 29) + "\" alt=\"Favorites\">\n        </div>\n        <div class=\"videocontent\">\n      </div>\n    </div>\n\n    <div class=\"welcomedescription\">\n      <div class=\"detailsbox\">\n        <div class=\"userinfo\">\n          {{user.photo}}\n          From: {{user.name}}\n          {{video.title}}\n          {{video.date}}\n        </div>\n    </div>\n      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n    </div>\n\n\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
-
-/***/ },
-/* 29 */
-/*!*********************************!*\
-  !*** ./public/images/heart.png ***!
-  \*********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "70960aaecaf5255e3bf141dc9af8b335.png";
+	module.exports = "<div class=\"welcomecontainer\">\n\n    <h1 class=\"welcometag\">Welcome home, {{user.displayName}}</h1>\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n            <div class=\"usermenu\">\n                <a ui-sref=\"welcome\">\n                    <div class=\"myfeed highlight\"><span>Feed</span></div>\n                </a>\n                <a ui-sref=\"favorites\">\n                    <div class=\"myfeed\">Favorites</div>\n                </a>\n                <a ui-sref=\"recentlyviewed\">\n                    <div class=\"myvideos\">Recently Viewed</div>\n                </a>\n                <a ui-sref=\"ondemand\">\n                    <div class=\"ondemand\">On Demand</div>\n                </a>\n            </div>\n\n            <div class=\"appearancelinks\">\n                Show:\n                <a href=\"#\">All</a>|\n                <a href=\"#\">Likes</a>|\n                <a href=\"#\">Uploads</a>|\n                <a href=\"#\">Appearances</a>|\n                <a href=\"#\">Channels</a>|\n                <a href=\"#\">Groups</a>|\n                <a href=\"#\">Tags</a>|\n                <a href=\"#\">Categories</a>\n            </div>\n\n            <div class=\"welcomefeed\" ng-repeat=\"video in welcomevideos\">\n                <div class=\"staffpickicon\">\n                    <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 28) + "\" alt=\"Staff Picks\">\n                    <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n                </div>\n                <div class=\"welcomedesc\">\n                        <img ng-click=\"goToVideo(video.uri)\" id=\"welcomeimg\" ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n                        <br>\n                    <div class=\"welcomedescription\">\n          <strong class=\"trendingvideoname\">{{video.name}}</strong>\n                      <br>\n                        from {{video.user.name}}\n                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n                        <br> {{video.description}}\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n\n    <div class=\"feed-right-container\">\n        <div class=\"recentactivity\">\n\n            <div class=\"mypeoplebar\">\n                MY PEOPLE\n            </div>\n            <p>You do not currently have friends online.</p>\n\n            <div class=\"explore\">\n                EXPLORE VIDMEO\n            </div>\n            <ul>\n                <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n                <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n                <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n                <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n        </div>\n    </div>\n\n  </div>\n\n</div>\n";
 
 /***/ },
 /* 30 */
+/*!**********************************!*\
+  !*** ./src/views/favorites.html ***!
+  \**********************************/
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"welcomecontainer\">\n\n  <h1 class=\"welcometag\">Welcome home, {{user.username[0]}}</h1>\n\n  <div class=\"feedcontainer\">\n\n  <div class=\"feed-left-container\">\n\n    <div class=\"usermenu\">\n      <a ui-sref=\"welcome\"><div class=\"myfeed\">Feed</div></a>\n      <a ui-sref=\"favorites\"><div class=\"myfeed highlight\"><span>Favorites</span></div></a>\n      <a ui-sref=\"recentlyviewed\"><div class=\"myvideos\">Recently Viewed</div></a>\n      <div class=\"ondemand\">On Demand</div>\n    </div>\n\n      <div class=\"appearancelinks\">\n        Show:\n        <a href=\"#\">All</a>|\n        <a href=\"#\">Likes</a>|\n        <a href=\"#\">Uploads</a>|\n        <a href=\"#\">Appearances</a>|\n        <a href=\"#\">Channels</a>|\n        <a href=\"#\">Groups</a>|\n        <a href=\"#\">Tags</a>|\n        <a href=\"#\">Categories</a>\n      </div>\n\n      <h2 class=\"htwofavorites\">Favorites</h2>\n\n      <div class=\"feed\">\n\n  <dog-breath></dog-breath>\n\n        <video-component\n          get-video=\"favorites\">\n        </video-component>\n\n        <!-- <div class=\"trendingvideos\" ng-repeat=\"video in favorites\">\n                <img ng-click=\"goToVideo(video.uri)\" ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n            <div class=\"detailsbox\">\n                <strong class=\"trendingvideoname\">{{video.name}}</strong>\n                <br>\n                from <strong>{{video.user.name}}</strong>\n                </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n                <br> {{video.description}}...\n            </div>\n        </div> -->\n      </div>\n\n\n  </div>\n\n    <div class=\"feed-right-container\">\n      <div class=\"recentactivity\">\n\n        <div class=\"mypeoplebar\">\n          MY PEOPLE\n        </div>\n          <p>You do not currently have friends online.</p>\n\n        <div class=\"explore\">\n          EXPLORE VIDMEO\n        </div>\n            <ul>\n              <li class=\"exploretitles\">Vidmeo On Demand</li>\n                <p>Purchase online films, series, and videos or sell your own.</p>\n              <li class=\"exploretitles\">Staff Picks</li>\n                <p>A fantastic array of videos hand-picked by us.</p>\n              <li class=\"exploretitles\">Channels</li>\n                <p>Showcase and watch videos in simple, beautiful ways.</p>\n              <li class=\"exploretitles\">Categories</li>\n                <p>Find the things on Vidmeo that interest you.</p>\n            </ul>\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n";
+
+/***/ },
+/* 31 */
 /*!***********************************!*\
   !*** ./src/views/loginerror.html ***!
   \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"errorcontainer\">\n\n    <img src=\"" + __webpack_require__(/*! ../../public/images/robot.jpg */ 31) + "\" alt=\"Robot\" class=\"robot\">\n\n    <h1>Technical Difficulties</h1>\n\n    <p>The login information you provided is invalid. Please verify you have the correct username and password.</p>\n\n    <input type=\"text\" class=\"searchinput\" placeholder=\"Search videos, people, and more\">\n\n    <button class=\"searchbutton\">Search</button>\n\n</div>\n";
+	module.exports = "<div class=\"errorcontainer\">\n\n    <img src=\"" + __webpack_require__(/*! ../../public/images/robot.jpg */ 32) + "\" alt=\"Robot\" class=\"robot\">\n\n    <h1>Technical Difficulties</h1>\n\n    <p>The login information you provided is invalid. Please verify you have the correct username and password.</p>\n\n    <input type=\"text\" class=\"searchinput\" placeholder=\"Search videos, people, and more\">\n\n    <button class=\"searchbutton\">Search</button>\n\n</div>\n";
 
 /***/ },
-/* 31 */
+/* 32 */
 /*!*********************************!*\
   !*** ./public/images/robot.jpg ***!
   \*********************************/
@@ -23581,43 +24322,43 @@
 	module.exports = __webpack_require__.p + "e490f637191b96aed11a2e59177ee3c5.jpg";
 
 /***/ },
-/* 32 */
+/* 33 */
 /*!***************************************!*\
   !*** ./src/views/recentlyviewed.html ***!
   \***************************************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = "<div class=\"welcomecontainer\">\n\n    <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n            <div class=\"usermenu\">\n                <a ui-sref=\"welcome\">\n                    <div class=\"myfeed\">Feed</div>\n                </a>\n                <a ui-sref=\"favorites\">\n                    <div class=\"myfeed\">Favorites</div>\n                </a>\n                <a ui-sref=\"recentlyviewed\">\n                    <div class=\"myvideos highlight\"><span>Recently Viewed</span></div>\n                </a>\n                <a ui-sref=\"ondemand\">\n                    <div class=\"ondemand\">On Demand</div>\n                </a>\n            </div>\n\n            <div class=\"appearancelinks\">\n                Show:\n                <a href=\"#\">All</a>|\n                <a ui-sref=\"favorites\">Likes</a>|\n                <a href=\"#\">Uploads</a>|\n                <a href=\"#\">Appearances</a>|\n                <a href=\"#\">Channels</a>|\n                <a href=\"#\">Groups</a>|\n                <a href=\"#\">Tags</a>|\n                <a href=\"#\">Categories</a>\n            </div>\n\n            <h2 class=\"htwofavorites\">Recently Viewed</h2>\n\n            <div class=\"welcomefeed\">\n                <div class=\"staffpickicon\">\n                    <img src=\"" + __webpack_require__(/*! ../../public/images/staffpick.svg */ 26) + "\" alt=\"Staff Picks\">\n                    <div class=\"feed-left-icon\"><span class=\"addedto\">Added to</span> Vidmeo Staff Picks</div>\n                </div>\n                <div class=\"videocontent\">\n                </div>\n            </div>\n\n            <div class=\"welcomedescription\">\n                <div class=\"detailsbox\">\n                    <div class=\"userinfo\">\n                        {{user.photo}} From: {{user.name}} {{video.title}} {{video.date}}\n                    </div>\n                </div>\n                Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.\n            </div>\n\n\n        </div>\n\n        <div class=\"feed-right-container\">\n            <div class=\"recentactivity\">\n\n                <div class=\"mypeoplebar\">\n                    MY PEOPLE\n                </div>\n                <p>You do not currently have friends online.</p>\n\n                <div class=\"explore\">\n                    EXPLORE VIDMEO\n                </div>\n                <ul>\n                    <li class=\"exploretitles\">Vidmeo On Demand</li>\n                    <p>Purchase online films, series, and videos or sell your own.</p>\n                    <li class=\"exploretitles\">Staff Picks</li>\n                    <p>A fantastic array of videos hand-picked by us.</p>\n                    <li class=\"exploretitles\">Channels</li>\n                    <p>Showcase and watch videos in simple, beautiful ways.</p>\n                    <li class=\"exploretitles\">Categories</li>\n                    <p>Find the things on Vidmeo that interest you.</p>\n                </ul>\n\n\n            </div>\n        </div>\n\n    </div>\n\n</div>\n";
+	module.exports = "<div class=\"welcomecontainer\">\n\n    <h1 class=\"welcometag\">Welcome home, {{user.name}}</h1>\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n            <div class=\"usermenu\">\n                <a ui-sref=\"welcome\">\n                    <div class=\"myfeed\">Feed</div>\n                </a>\n                <a ui-sref=\"favorites\">\n                    <div class=\"myfeed\">Favorites</div>\n                </a>\n                <a ui-sref=\"recentlyviewed\">\n                    <div class=\"myvideos highlight\"><span>Recently Viewed</span></div>\n                </a>\n                <a ui-sref=\"ondemand\">\n                    <div class=\"ondemand\">On Demand</div>\n                </a>\n            </div>\n\n            <div class=\"appearancelinks\">\n                Show:\n                <a href=\"#\">All</a>|\n                <a ui-sref=\"favorites\">Likes</a>|\n                <a href=\"#\">Uploads</a>|\n                <a href=\"#\">Appearances</a>|\n                <a href=\"#\">Channels</a>|\n                <a href=\"#\">Groups</a>|\n                <a href=\"#\">Tags</a>|\n                <a href=\"#\">Categories</a>\n            </div>\n\n            <h2 class=\"htwofavorites\">Recently Viewed</h2>\n\n            <div class=\"feed\">\n              <video-component\n                get-video=\"recents\">\n              </video-component>\n            </div>\n\n\n\n\n        </div>\n\n        <div class=\"feed-right-container\">\n            <div class=\"recentactivity\">\n\n                <div class=\"mypeoplebar\">\n                    MY PEOPLE\n                </div>\n                <p>You do not currently have friends online.</p>\n\n                <div class=\"explore\">\n                    EXPLORE VIDMEO\n                </div>\n                <ul>\n                    <li class=\"exploretitles\">Vidmeo On Demand</li>\n                    <p>Purchase online films, series, and videos or sell your own.</p>\n                    <li class=\"exploretitles\">Staff Picks</li>\n                    <p>A fantastic array of videos hand-picked by us.</p>\n                    <li class=\"exploretitles\">Channels</li>\n                    <p>Showcase and watch videos in simple, beautiful ways.</p>\n                    <li class=\"exploretitles\">Categories</li>\n                    <p>Find the things on Vidmeo that interest you.</p>\n                </ul>\n\n\n            </div>\n        </div>\n\n    </div>\n\n</div>\n";
 
 /***/ },
-/* 33 */
+/* 34 */
 /*!*******************************!*\
   !*** ./src/views/player.html ***!
   \*******************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"playercontainer\">\n    <iframe id=\"player\" src=\"https://player.vimeo.com/video/31163471\" width=\"640\" height=\"480\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n</div>\n\n<div class=\"commentscontainer\">\n    <div class=\"commentsleftmenu\">\n        <div class=\"videotitle\">\n            <h1><a href=\"https://vimeo.com/41048011\">Jake Davis Test Shots: Nick Wooster</a>.</h1>\n            from <strong><span>Matt Barnes</span></strong> | 5 years ago\n            <button class=\"followbutton\">+ Follow</button>\n        </div>\n        <div class=\"comments\">\n            <p>\n              Papi shot this nice lil BTS of our photoshoot in with Nick Wooster.\n              <br>\n              <br>\n              Location-The Palmer Trading Co. SoHo NY\n              <br>\n              <br>\n              Soundtrack-Shoppin' for Clothes by The Coasters\n            </p>\n        </div>\n        <div class=\"leaveacomment\">\n            <p class=\"commenttitle\">\n                Leave a comment:\n            </p>\n            <div class=\"commentinput\">\n                <textarea name=\"comment\" id=\"commenttext\" cols=\"85\" rows=\"3\" ng-model=\"comment\"></textarea>\n                <button class=\"commentbutton\" ng-click='postComment({comment})'>Submit</button>\n            </div>\n            <div class=\"scroll\" ng-repeat='review in reviews'>\n                <p><strong>Comment:</strong> {{comment.comment}}\n            </div>\n\n        </div>\n    </div>\n    <div class=\"commentsrightmenu\">\n        <div class=\"relatedvidstitle\">\n            Related Videos\n        </div>\n\n        <div class=\"vidrow\" ng-repeat=\"video in tenVideos\">\n            <a href=\"{{video.link}}\">\n              <img ng-src=\"{{video.pictures.sizes[1].link_with_play_button}}\" alt=\"\">\n            </a>\n              <br>\n                <strong>{{video.name}}</strong>\n                <br>\n                <a href=\"{{video.link}}\">Watch now</a>\n        </div>\n    </div>\n";
+	module.exports = "<div class=\"playercontainer\">\n    <iframe id=\"player\" ng-src=\"{{pc.video}}\"\n     width=\"640\" height=\"480\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n\n\n</div>\n\n<div class=\"commentscontainer\">\n    <div class=\"commentsleftmenu\">\n        <div class=\"videotitle\">\n            <h1><a href=\"https://vimeo.com/41048011\">Jake Davis Test Shots: Nick Wooster</a>.</h1>\n            from <strong><span>Matt Barnes</span></strong> | 5 years ago\n            <button class=\"followbutton\">+ Follow</button>\n        </div>\n        <div class=\"comments\">\n            <p>\n              Papi shot this nice lil BTS of our photoshoot in with Nick Wooster.\n              <br>\n              <br>\n              Location-The Palmer Trading Co. SoHo NY\n              <br>\n              <br>\n              Soundtrack-Shoppin' for Clothes by The Coasters\n            </p>\n        </div>\n        <div class=\"leaveacomment\">\n            <p class=\"commenttitle\">\n                Leave a comment:\n            </p>\n            <div class=\"commentinput\">\n                <textarea name=\"comment\" id=\"commenttext\" cols=\"85\" rows=\"3\" ng-model=\"comment\"></textarea>\n                <button class=\"commentbutton\" ng-click='postComment({comment})'>Add Comment</button>\n            </div>\n            <div class=\"scroll\" ng-repeat='review in reviews'>\n                <p><strong>Comment:</strong> {{comment.comment}}\n            </div>\n\n        </div>\n    </div>\n    <div class=\"commentsrightmenu\">\n        <div class=\"relatedvidstitle\">\n            Related Videos\n        </div>\n\n        <div class=\"vidrow\" ng-repeat=\"video in tenVideos\">\n            <a href=\"{{video.link}}\">\n              <img ng-src=\"{{video.pictures.sizes[1].link_with_play_button}}\" alt=\"\">\n            </a>\n              <br>\n                <strong>{{video.name}}</strong>\n                <br>\n                <a href=\"{{video.link}}\">Watch now</a>\n        </div>\n    </div>\n";
 
 /***/ },
-/* 34 */
+/* 35 */
 /*!*********************************!*\
   !*** ./src/views/ondemand.html ***!
   \*********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"trendingcontainer\">\n\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n\n            <div class=\"feed\">\n                <div class=\"trendingvideos\" ng-repeat=\"video in ondemand\">\n                    <a href=\"{{video.link}}\">\n                        <img ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n                    <div class=\"detailsbox\">\n                        <strong class=\"trendingvideoname\">{{video.name}}</strong>\n                    </a>\n                        <br>\n                        from <strong>{{video.user.name}}</strong>\n                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n                        <br> {{video.description}}...\n                    </div>\n                </div>\n            </div>\n        </div>\n\n\n\n        <div class=\"feed-right-container\">\n            <div class=\"recentactivity\">\n\n                <div class=\"explore\">\n                    EXPLORE VIDMEO\n                </div>\n                <ul>\n                    <li class=\"trendingexploretitles\">Vidmeo On Demand</li>\n                    <p>Purchase online films, series, and videos or sell your own.</p>\n                    <li class=\"trendingexploretitles\">Staff Picks</li>\n                    <p>A fantastic array of videos hand-picked by us.</p>\n                    <li class=\"trendingexploretitles\">Channels</li>\n                    <p>Showcase and watch videos in simple, beautiful ways.</p>\n                    <li class=\"trendingexploretitles\">Categories</li>\n                    <p>Find the things on Vidmeo that interest you.</p>\n                </ul>\n\n\n            </div>\n        </div>\n    </div>\n</div>\n";
+	module.exports = "<div class=\"trendingcontainer\">\n\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n          <h2 class=\"htwofavorites noauthtitle\">On Demand</h2>\n\n\n            <div class=\"feed\">\n              <video-component\n                get-video=\"ondemand\">\n              </video-component>\n                <!-- <div class=\"trendingvideos\" ng-repeat=\"video in ondemand\">\n                        <img ng-click=\"goToVideo(video.uri)\" ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n                    <div class=\"detailsbox\">\n                        <strong class=\"trendingvideoname\">{{video.name}}</strong>\n                        <br>\n                        from <strong>{{video.user.name}}</strong>\n                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n                        <br> {{video.description}}...\n                    </div>\n                </div> -->\n            </div>\n        </div>\n\n\n\n        <div class=\"feed-right-container\">\n            <div class=\"recentactivity\">\n\n                <div class=\"explore\">\n                    EXPLORE VIDMEO\n                </div>\n                <ul>\n                    <li class=\"trendingexploretitles\">Vidmeo On Demand</li>\n                    <p>Purchase online films, series, and videos or sell your own.</p>\n                    <li class=\"trendingexploretitles\">Staff Picks</li>\n                    <p>A fantastic array of videos hand-picked by us.</p>\n                    <li class=\"trendingexploretitles\">Channels</li>\n                    <p>Showcase and watch videos in simple, beautiful ways.</p>\n                    <li class=\"trendingexploretitles\">Categories</li>\n                    <p>Find the things on Vidmeo that interest you.</p>\n                </ul>\n\n\n            </div>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
-/* 35 */
+/* 36 */
 /*!*********************************!*\
   !*** ./src/views/trending.html ***!
   \*********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"trendingcontainer\">\n\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n\n            <div class=\"feed\">\n                <div class=\"trendingvideos\" ng-repeat=\"video in trending\">\n                    <a href=\"{{video.link}}\">\n                        <img ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n\n                    <div class=\"detailsbox\">\n          <strong class=\"trendingvideoname\">{{video.name}}</strong>\n                    </a>\n                      <br>\n                        from {{video.user.name}}\n                        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n                        <br> {{video.description}}...\n                    </div>\n                </div>\n            </div>\n        </div>\n\n\n\n        <div class=\"feed-right-container\">\n            <div class=\"recentactivity\">\n\n                <div class=\"explore\">\n                    EXPLORE VIDMEO\n                </div>\n                <ul>\n                    <li class=\"trendingexploretitles\">Vidmeo On Demand</li>\n                    <p>Purchase online films, series, and videos or sell your own.</p>\n                    <li class=\"trendingexploretitles\">Staff Picks</li>\n                    <p>A fantastic array of videos hand-picked by us.</p>\n                    <li class=\"trendingexploretitles\">Channels</li>\n                    <p>Showcase and watch videos in simple, beautiful ways.</p>\n                    <li class=\"trendingexploretitles\">Categories</li>\n                    <p>Find the things on Vidmeo that interest you.</p>\n                </ul>\n\n\n            </div>\n        </div>\n    </div>\n</div>\n";
+	module.exports = "<div class=\"trendingcontainer\">\n\n\n    <div class=\"feedcontainer\">\n\n        <div class=\"feed-left-container\">\n\n          <h2 class=\"htwofavorites noauthtitle\">Trending</h2>\n\n            <div class=\"feed\">\n                <video-component\n                  get-video=\"trending\">\n                </video-component>\n            </div>\n        </div>\n\n\n\n        <div class=\"feed-right-container\">\n            <div class=\"recentactivity\">\n\n                <div class=\"explore\">\n                    EXPLORE VIDMEO\n                </div>\n                <ul>\n                    <li class=\"trendingexploretitles\">Vidmeo On Demand</li>\n                    <p>Purchase online films, series, and videos or sell your own.</p>\n                    <li class=\"trendingexploretitles\">Staff Picks</li>\n                    <p>A fantastic array of videos hand-picked by us.</p>\n                    <li class=\"trendingexploretitles\">Channels</li>\n                    <p>Showcase and watch videos in simple, beautiful ways.</p>\n                    <li class=\"trendingexploretitles\">Categories</li>\n                    <p>Find the things on Vidmeo that interest you.</p>\n                </ul>\n\n\n            </div>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
-/* 36 */
+/* 37 */
 /*!**************************************!*\
   !*** ./src/components/vidmeoCtrl.js ***!
   \**************************************/
@@ -23629,60 +24370,220 @@
 	  value: true
 	});
 	
-	exports.default = function ($scope, $state, vidmeoService) {
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
+	  $scope.user = {
+	    displayName: "Sign In"
+	  };
+	  $scope.$on('gotUser', function () {
+	    $scope.user = vidmeoService.user;
+	  });
 	
 	  vidmeoService.getHomeVideos().then(function (fiveVideos) {
 	    $scope.fiveVideos = fiveVideos;
 	  });
 	
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	
+	  function replaceVideoWord(str) {
+	    return str.replace(/\/(.*?)\//g, "");
+	  }
+	};
+
+/***/ },
+/* 38 */
+/*!***************************************!*\
+  !*** ./src/components/welcomeCtrl.js ***!
+  \***************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
+	  // $scope.user = {
+	  //   username:["Sign In"]
+	  // }
+	
 	  vidmeoService.getWelcomeVideos().then(function (welcomevideos) {
 	    $scope.welcomevideos = welcomevideos;
 	  });
+	  vidmeoService.getUser().then(function (results) {
+	    console.log(results.data);
+	    vidmeoService.user = results.data;
+	    $rootScope.$broadcast('gotUser');
+	  });
+	
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	
+	  function replaceVideoWord(str) {
+	    return str.replace(/\/(.*?)\//g, "");
+	  }
+	};
+
+/***/ },
+/* 39 */
+/*!*****************************************!*\
+  !*** ./src/components/favoritesCtrl.js ***!
+  \*****************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
+	
+	  vidmeoService.getFavoriteVideos().then(function (favorites) {
+	    $scope.favorites = favorites;
+	    console.log($scope.favorites);
+	  });
+	
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	
+	  function replaceVideoWord(str) {
+	    return str.replace(/\/(.*?)\//g, "");
+	  }
+	};
+
+/***/ },
+/* 40 */
+/*!**********************************************!*\
+  !*** ./src/components/recentlyViewedCtrl.js ***!
+  \**********************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
+	
+	  vidmeoService.getRecentVideos().then(function (recents) {
+	    $scope.recents = recents;
+	  });
+	
+	  vidmeoService.addVideoToRecents().then(function (recents) {
+	    $scope.recents = recents;
+	  });
+	
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	
+	  function replaceVideoWord(str) {
+	    return str.replace(/\/(.*?)\//g, "");
+	  }
+	};
+
+/***/ },
+/* 41 */
+/*!**************************************!*\
+  !*** ./src/components/playerCtrl.js ***!
+  \**************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
+	  var pc = this;
+	
+	  pc.videoID = "https://player.vimeo.com/video/";
+	
+	  pc.video = $sce.trustAsResourceUrl(pc.videoID += $stateParams.id);
 	
 	  vidmeoService.getTenVideos().then(function (tenVideos) {
-	    $scope.tenVideos = tenVideos;
+	    pc.tenVideos = tenVideos;
+	    //if you want to access this object in the view => {{pc.tenVideos}}
 	  });
 	
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	};
+
+/***/ },
+/* 42 */
+/*!****************************************!*\
+  !*** ./src/components/ondemandCtrl.js ***!
+  \****************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
+	
 	  vidmeoService.getOnDemandVids().then(function (ondemand) {
+	    console.log(ondemand);
 	    $scope.ondemand = ondemand;
 	  });
+	
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	
+	  function replaceVideoWord(str) {
+	    return str.replace(/\/(.*?)\//g, "");
+	  }
+	};
+
+/***/ },
+/* 43 */
+/*!****************************************!*\
+  !*** ./src/components/trendingCtrl.js ***!
+  \****************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function ($scope, $sce, $state, $rootScope, $stateParams, vidmeoService) {
 	
 	  vidmeoService.getTrendingVids().then(function (trending) {
 	    $scope.trending = trending;
 	  });
 	
-	  // vidmeoService.addVideoToFavorites(id)
-	  //           .then(results => {
-	  //               return results;
-	  //           });
-	  //
-	  //
-	  // vidmeoService.addVideoToRecents(id)
-	  //           .then(results => {
-	  //               return results;
-	  //           });
-	  //
-	  //
-	  // vidmeoService.getRecentVids(id)
-	  //         .then(results => {
-	  //             return results;
-	  //           })
-	  //
-	  //
-	  //
-	  // vidmeoService.getFavorites(id)
-	  //           .then(results => {
-	  //               return results;
-	  //           })
-	  //
-	  //
-	  //   $scope.postComment = function(comment) {
-	  //       vidmeoService.postComment(comment)
-	  //       };
+	  $scope.goToVideo = function (videoID) {
+	    var video = replaceVideoWord(videoID);
+	    $state.go("player", { id: video });
+	  };
+	
+	  function replaceVideoWord(str) {
+	    return str.replace(/\/(.*?)\//g, "");
+	  }
 	};
 
 /***/ },
-/* 37 */
+/* 44 */
 /*!***************************************!*\
   !*** ./src/services/vidmeoService.js ***!
   \***************************************/
@@ -23748,16 +24649,38 @@
 	  };
 	
 	  this.addVideoToFavorites = function (id) {
-	    $http.post("http://localhost:4000/api/favorites" + id).then(function (response) {
-	      return response;
+	    return $http({
+	      method: 'PUT',
+	      url: '/api/videos/favorites'
+	    }).then(function (response) {
+	      return response.data.data;
 	    });
 	  };
 	
-	  //const recentlyviewedURL = https://api.vimeo.com/me/watched/videos;
+	  this.getFavoriteVideos = function (id) {
+	    return $http({
+	      method: 'GET',
+	      url: '/api/videos/favorites'
+	    }).then(function (response) {
+	      return response.data.data;
+	    });
+	  };
 	
 	  this.addVideoToRecents = function (id) {
-	    $http.post("http://localhost:4000/api/recentlyviewed" + id).then(function (response) {
-	      return response;
+	    return $http({
+	      method: 'PUT',
+	      url: '/api/videos/recents'
+	    }).then(function (response) {
+	      return response.data.data;
+	    });
+	  };
+	
+	  this.getRecentVideos = function (id) {
+	    return $http({
+	      method: 'GET',
+	      url: '/api/videos/recents'
+	    }).then(function (response) {
+	      return response.data.data;
 	    });
 	  };
 	
@@ -23765,6 +24688,51 @@
 	    comments.unshift(comment);
 	  };
 	};
+
+/***/ },
+/* 45 */
+/*!*************************************************!*\
+  !*** ./src/components/video-component/video.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _video = __webpack_require__(/*! ./video.html */ 46);
+	
+	var _video2 = _interopRequireDefault(_video);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  bindings: {
+	    videoList: "<getVideo"
+	  },
+	  template: _video2.default,
+	  controller: function controller($state) {
+	    console.log('videoComponentCtrl', this.videoList);
+	    this.goToVideo = function (videoID) {
+	      var video = replaceVideoWord(videoID);
+	      $state.go("player", { id: video });
+	    };
+	    function replaceVideoWord(str) {
+	      return str.replace(/\/(.*?)\//g, "");
+	    }
+	  }
+	};
+
+/***/ },
+/* 46 */
+/*!***************************************************!*\
+  !*** ./src/components/video-component/video.html ***!
+  \***************************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"trendingvideos\" ng-repeat=\"video in $ctrl.videoList\">\n\n    <img ng-click=\"$ctrl.goToVideo(video.uri)\" ng-src=\"{{video.pictures.sizes[3].link}}\" alt=\"\">\n    <div class=\"detailsbox\">\n        <strong class=\"trendingvideoname\">{{video.name}}</strong>\n        <br>\n        from <strong>{{video.user.name}}</strong>\n        </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}\n        <br> {{video.description}}...\n    </div>\n</div>\n";
 
 /***/ }
 /******/ ]);

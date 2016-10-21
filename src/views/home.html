@@ -90,8 +90,8 @@
 
 <div class="staffpicks">
   <div class="header">
-    <h3 class="headerlabel">Watch human-curated Staff Picks</h3>
-    <p class="viewchannel"><span>View channel ></span></p>
+    <a ui-sref="trending"><h3 class="headerlabel">Watch human-curated Staff Picks</h3></a>
+    <p class="viewchannel"><a ui-sref="trending"><span>View channel ></span></a></p>
   </div>
 </div>
 
@@ -105,12 +105,10 @@
   </div>
     <div class="topvideocontainer">
       <div class="video" id="embed" ng-repeat="video in fiveVideos">
-        <a href="{{video.link}}">
-          <img ng-src="{{ video.pictures.sizes[1].link_with_play_button}}" alt="">
+          <img ng-click="goToVideo(video.uri)" ng-src="{{ video.pictures.sizes[1].link_with_play_button}}" alt="">
         </a>
         <a href="{{video.link}}">
           <strong class="videoname">{{video.name}}</strong>
-        </a>
           <br>
           {{video.user.name}} | Plays: {{video.stats.plays}}
           <br>

@@ -1,7 +1,7 @@
 
 <div class="welcomecontainer">
 
-  <h1 class="welcometag">Welcome home, {{user.name}}</h1>
+  <h1 class="welcometag">Welcome home, {{user.username[0]}}</h1>
 
   <div class="feedcontainer">
 
@@ -28,25 +28,25 @@
 
       <h2 class="htwofavorites">Favorites</h2>
 
-      <div class="welcomefeed">
-        <div class="staffpickicon">
-          <img src="../../public/images/heart.png" alt="Favorites">
-        </div>
-        <div class="videocontent">
-      </div>
-    </div>
+      <div class="feed">
 
-    <div class="welcomedescription">
-      <div class="detailsbox">
-        <div class="userinfo">
-          {{user.photo}}
-          From: {{user.name}}
-          {{video.title}}
-          {{video.date}}
-        </div>
-    </div>
-      Offal poke pop-up farm-to-table synth. Ramps glossier hexagon hashtag tilde austin, retro ethical DIY. Hexagon you probably haven't heard of them literally schlitz street art af.
-    </div>
+  <dog-breath></dog-breath>
+
+        <video-component
+          get-video="favorites">
+        </video-component>
+
+        <!-- <div class="trendingvideos" ng-repeat="video in favorites">
+                <img ng-click="goToVideo(video.uri)" ng-src="{{video.pictures.sizes[3].link}}" alt="">
+            <div class="detailsbox">
+                <strong class="trendingvideoname">{{video.name}}</strong>
+                <br>
+                from <strong>{{video.user.name}}</strong>
+                </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}
+                <br> {{video.description}}...
+            </div>
+        </div> -->
+      </div>
 
 
   </div>

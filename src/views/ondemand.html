@@ -5,20 +5,23 @@
 
         <div class="feed-left-container">
 
+          <h2 class="htwofavorites noauthtitle">On Demand</h2>
+
 
             <div class="feed">
-                <div class="trendingvideos" ng-repeat="video in ondemand">
-                    <a href="{{video.link}}">
-                        <img ng-src="{{video.pictures.sizes[3].link}}" alt="">
+              <video-component
+                get-video="ondemand">
+              </video-component>
+                <!-- <div class="trendingvideos" ng-repeat="video in ondemand">
+                        <img ng-click="goToVideo(video.uri)" ng-src="{{video.pictures.sizes[3].link}}" alt="">
                     <div class="detailsbox">
                         <strong class="trendingvideoname">{{video.name}}</strong>
-                    </a>
                         <br>
                         from <strong>{{video.user.name}}</strong>
                         </a> | <strong><span>Plays:</span></strong> {{video.stats.plays}}
                         <br> {{video.description}}...
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
